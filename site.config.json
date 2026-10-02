@@ -1,0 +1,96 @@
+{
+  "schema": "nuxtjp://localized-site/site-config/v1",
+  "siteId": "zixcel-site",
+  "serviceId": "zixcel",
+  "origin": "https://zixcel.com",
+  "audienceScope": "global",
+  "defaultLocale": "en",
+  "fallbackLocale": "ja",
+  "prefixDefaultLocale": false,
+  "locales": ["ja", "en"],
+  "externalActions": false,
+  "content": {
+    "ja": {
+      "brand": "Zixcel",
+      "tagline": "外部サービスを秘密値と実行権限から分離するRust連携境界",
+      "summary": "ZixcelはMicrosoft、Google、Apple、IMAP、GitHub、LINE等のサービスやプロトコルを、版付き契約を介して扱う独立Rustパッケージ群です。このサイトは仕様と導入判断を案内するだけで、API接続、認証、データ取得を行いません。",
+      "features": [
+        {"id": "versioned-contracts", "title": "版付き契約", "summary": "要求、計画、結果のSchemaをProvider実装から分け、互換性と変更影響を確認可能にします。"},
+        {"id": "provider-connectors", "title": "独立Connector", "summary": "法人、プロトコル、用途ごとのConnectorを単独で検証・配布できる境界に保ちます。"},
+        {"id": "local-planning", "title": "ローカル計画", "summary": "資格情報を解決する前に、対象、権限、取得項目、外部操作をローカルで計画・審査します。"}
+      ],
+      "docs": {
+        "overview": {
+          "slug": "/docs",
+          "title": "Zixcelの概要",
+          "summary": "共通契約とProvider別実装の分離を説明します。",
+          "sections": [
+            {"id": "connector-model", "title": "Connectorモデル", "body": ["各Connectorは一つのProviderまたはProtocol境界を担当し、共通の要求・計画・結果契約を入出力に使います。他製品のソースを直接取り込まず、版付きInterfaceで連携します。"]},
+            {"id": "availability", "title": "利用可能性", "body": ["公開された契約、計画機能、実接続機能を区別します。Provider認証やAPI実行が未接続の機能は、利用可能であるかのように表示しません。"]}
+          ]
+        },
+        "gettingStarted": {
+          "slug": "/docs/getting-started",
+          "title": "Connectorを選ぶ",
+          "summary": "Providerへ接続する前に確認する最小手順です。",
+          "sections": [
+            {"id": "select-connector", "title": "目的に合うConnectorを選ぶ", "body": ["Provider、Protocol、取得または変更する情報、必要権限、読み取り専用で成立するかを確認します。文書出力等の補助機能は別パッケージとして選びます。"]},
+            {"id": "review-plan", "title": "計画をレビューする", "body": ["ローカルで生成した計画から対象件数、外部操作、秘密参照、出力先を確認します。認証と実行は、明示的に許可された環境でのみ開始します。"]}
+          ]
+        },
+        "security": {
+          "slug": "/docs/security",
+          "title": "Connectorの安全境界",
+          "summary": "秘密値、顧客情報、外部操作を隔離する原則です。",
+          "sections": [
+            {"id": "secret-references", "title": "秘密値は参照だけ", "body": ["公開設定や契約にaccess token、password、private keyを含めません。必要な場合は専用保管先への不透明な参照を使い、実行時に最小権限で解決します。"]},
+            {"id": "external-actions", "title": "外部操作は別段階", "body": ["このサイトはProviderへ接続しません。Connectorも既定では計画と検証に留め、書き込み、送信、削除等は対象と承認を確認した実行境界へ分離します。"]}
+          ]
+        }
+      },
+      "privacy": {"label": "プライバシー", "summary": "この公開サイトはProviderアカウント、メール、文書、予定、顧客データ、資格情報を取得しません。接続製品は対象データと保持方針をConnectorごとに開示する必要があります。"},
+      "contact": {"label": "Connectorに関する連絡", "summary": "仕様や脆弱性の報告は、zixcel.comで確認済みとして案内される窓口へConnector名、版、公開可能な再現手順だけを送ってください。資格情報を送らないでください。"}
+    },
+    "en": {
+      "brand": "Zixcel",
+      "tagline": "Rust integration boundaries that separate external services from secrets and execution authority",
+      "summary": "Zixcel is a family of independent Rust packages for services and protocols such as Microsoft, Google, Apple, IMAP, GitHub, and LINE through versioned contracts. This site documents specifications and adoption decisions; it does not connect APIs, authenticate, or retrieve data.",
+      "features": [
+        {"id": "versioned-contracts", "title": "Versioned contracts", "summary": "Separates request, plan, and result schemas from provider implementations so compatibility and change impact can be reviewed."},
+        {"id": "provider-connectors", "title": "Independent connectors", "summary": "Keeps each organization, protocol, or purpose connector independently testable and distributable."},
+        {"id": "local-planning", "title": "Local planning", "summary": "Plans and reviews targets, permissions, selected fields, and external actions before resolving credentials."}
+      ],
+      "docs": {
+        "overview": {
+          "slug": "/docs",
+          "title": "Zixcel overview",
+          "summary": "Explains the separation between shared contracts and provider-specific implementations.",
+          "sections": [
+            {"id": "connector-model", "title": "Connector model", "body": ["Each connector owns one provider or protocol boundary and uses common request, plan, and result contracts. Products integrate through versioned interfaces rather than importing each other's source."]},
+            {"id": "availability", "title": "Capability availability", "body": ["Published contracts, planning features, and live connection features are distinguished. A provider-authentication or API function is not presented as available while it remains unconnected."]}
+          ]
+        },
+        "gettingStarted": {
+          "slug": "/docs/getting-started",
+          "title": "Choose a connector",
+          "summary": "The minimum checks before connecting a provider.",
+          "sections": [
+            {"id": "select-connector", "title": "Select the connector for the purpose", "body": ["Identify the provider, protocol, data to read or change, required permissions, and whether read-only access is sufficient. Choose helper functions such as document output as separate packages."]},
+            {"id": "review-plan", "title": "Review the plan", "body": ["Inspect target counts, external actions, secret references, and destinations in a locally generated plan. Start authentication and execution only in an explicitly authorized environment."]}
+          ]
+        },
+        "security": {
+          "slug": "/docs/security",
+          "title": "Connector security boundary",
+          "summary": "Principles for isolating secrets, customer information, and external actions.",
+          "sections": [
+            {"id": "secret-references", "title": "Reference secrets; never embed them", "body": ["Public configuration and contracts must not contain access tokens, passwords, or private keys. Where required, use an opaque reference to a dedicated store and resolve it at runtime with least privilege."]},
+            {"id": "external-actions", "title": "Separate external execution", "body": ["This site never connects to a provider. Connectors default to planning and validation; writes, sends, and deletes belong to an execution boundary that verifies the target and approval."]}
+          ]
+        }
+      },
+      "privacy": {"label": "Privacy", "summary": "This public site retrieves no provider accounts, email, documents, calendars, customer data, or credentials. A connected product must disclose selected data and retention separately for each connector."},
+      "contact": {"label": "Connector contact", "summary": "Report specification issues or vulnerabilities through a verified channel identified on zixcel.com, sending only the connector name, version, and public reproduction steps. Never send credentials."}
+    }
+  }
+}
