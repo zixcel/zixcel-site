@@ -1,29 +1,32 @@
-# Zixcel site content
+# @zixcel/zixcel-site
 
-## Regional scope
+Explain integration contracts, package responsibilities and adoption choices.
 
-- Global service: English at `/`, Japanese at `/ja/`.
-- The public surface describes contracts, connectors and adoption decisions only. It performs no provider authentication, API connections, credential acquisition or external operations.
+## What you can do
 
-## English
+- Maintain reviewed overview and getting-started content.
+- Validate Japanese/English content and preview the configured site.
 
-- Audience: global. English is served at `/`; Japanese is served at `/ja/`.
-- Publication boundary: contracts, connectors, and adoption guidance only; no provider authentication, API connection, credential collection, or external action.
+## Current scope
 
-## Local verification
+Package-specific implementation and distribution status belong to the corresponding package repository. The required localized-site package is referenced as an excluded local archive; a fresh clone cannot install it until an approved distribution path is available. No deployment is performed by these instructions.
 
-```bash
-pnpm install --offline --frozen-lockfile
+## Getting started
+
+The manifest currently requires locally supplied package archives: `@nuxtjp/localized-site`. These archives are excluded from Git. Obtain the exact approved dependency artifacts before installing; a fresh clone alone is not sufficient. Registry distribution remains pending.
+
+Use `pnpm@10.29.3` and the Node.js version declared in `engines` in `package.json`. Run from this repository:
+
+```sh
+pnpm install --frozen-lockfile
 pnpm validate:content
 pnpm typecheck
 pnpm test
 pnpm build
 ```
 
-Run `pnpm dev` only as a foreground loopback preview and stop it with Ctrl+C.
+## Documentation and source
 
-## Package integration
+[Usage guide](docs/getting-started.md)
 
-The package is an independently consumable unit. Callers reference its documented
-interface through a versioned dependency and own application-specific composition
-and integration.
+[Verification cases](test) · [Contributing](CONTRIBUTING.md) · [Security reporting](SECURITY.md) · [License](LICENSE) · [Attribution notices](NOTICE)
