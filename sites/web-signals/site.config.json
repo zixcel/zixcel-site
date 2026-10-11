@@ -1,0 +1,253 @@
+{
+  "schema": "nuxtjp://localized-site/site-config/v1",
+  "siteId": "web-signals-space",
+  "serviceId": "web-signals",
+  "origin": "https://pigeon.today",
+  "audienceScope": "global",
+  "defaultLocale": "en",
+  "fallbackLocale": "ja",
+  "prefixDefaultLocale": false,
+  "locales": [
+    "ja",
+    "en"
+  ],
+  "externalActions": false,
+  "content": {
+    "ja": {
+      "brand": "Web Signals",
+      "tagline": "Webの変化を、出典と計算方法から読む。",
+      "summary": "公開Web情報から得たシグナルを、出典、期間、集計方法、欠損、解釈上の制約とともに共有する分析スペースです。",
+      "features": [
+        {
+          "id": "provenance",
+          "title": "出典",
+          "summary": "各シグナルの取得元と確認時点を示します。"
+        },
+        {
+          "id": "methods",
+          "title": "集計方法",
+          "summary": "期間、単位、再計算方法を公開します。"
+        },
+        {
+          "id": "interpretation",
+          "title": "解釈の境界",
+          "summary": "観測値と推論を区別し、不確実性を表示します。"
+        }
+      ],
+      "docs": {
+        "overview": {
+          "slug": "/docs",
+          "title": "概要",
+          "summary": "公開Web情報から得たシグナルを、出典、期間、集計方法、欠損、解釈上の制約とともに共有する分析スペースです。",
+          "sections": [
+            {
+              "id": "purpose",
+              "title": "目的",
+              "body": [
+                "公開Web情報から得たシグナルを、出典、期間、集計方法、欠損、解釈上の制約とともに共有する分析スペースです。"
+              ]
+            },
+            {
+              "id": "offering",
+              "title": "提供するもの",
+              "body": [
+                "各シグナルの取得元と確認時点を示します。",
+                "期間、単位、再計算方法を公開します。",
+                "観測値と推論を区別し、不確実性を表示します。"
+              ]
+            },
+            {
+              "id": "boundary",
+              "title": "責任境界",
+              "body": [
+                "将来の結果、人気、需要を保証しません。収集は公開元の規約、権利、削除条件に従い、個人追跡を目的としません。"
+              ]
+            }
+          ]
+        },
+        "gettingStarted": {
+          "slug": "/docs/getting-started",
+          "title": "はじめに",
+          "summary": "シグナルの期間、出典、欠損、計算方法を確認し、意思決定では元データと別の根拠を併用してください。",
+          "sections": [
+            {
+              "id": "start",
+              "title": "利用の流れ",
+              "body": [
+                "シグナルの期間、出典、欠損、計算方法を確認し、意思決定では元データと別の根拠を併用してください。"
+              ]
+            },
+            {
+              "id": "language",
+              "title": "言語とURL",
+              "body": [
+                "日本語と英語は同じ情報構造を持ち、言語切替後も同じページを表示します。"
+              ]
+            },
+            {
+              "id": "availability",
+              "title": "現在の提供状態",
+              "body": [
+                "このリポジトリはローカル検証用です。公開、認証、課金、外部サービス変更は行いません。"
+              ]
+            }
+          ]
+        },
+        "security": {
+          "slug": "/docs/security",
+          "title": "安全性と公開境界",
+          "summary": "将来の結果、人気、需要を保証しません。収集は公開元の規約、権利、削除条件に従い、個人追跡を目的としません。",
+          "sections": [
+            {
+              "id": "public-data",
+              "title": "公開する情報",
+              "body": [
+                "Web Signalsの公開面には、公開承認された説明と文書だけを含めます。"
+              ]
+            },
+            {
+              "id": "private-data",
+              "title": "保持しない情報",
+              "body": [
+                "資格情報、顧客情報、個人の機微情報、非公開ソース、解析識別子は設定に含めません。"
+              ]
+            },
+            {
+              "id": "limits",
+              "title": "制約",
+              "body": [
+                "将来の結果、人気、需要を保証しません。収集は公開元の規約、権利、削除条件に従い、個人追跡を目的としません。"
+              ]
+            }
+          ]
+        }
+      },
+      "privacy": {
+        "label": "プライバシー",
+        "summary": "このローカル公開面はCookie、解析識別子、問い合わせ内容を収集しません。収集機能は別途の審査と同意設計後にのみ追加します。"
+      },
+      "contact": {
+        "label": "お問い合わせ",
+        "summary": "問い合わせ送信機能は未接続です。責任部門と保管条件を承認した公開窓口だけを将来表示します。"
+      }
+    },
+    "en": {
+      "brand": "Web Signals",
+      "tagline": "Read change on the web through sources and methods.",
+      "summary": "An analysis space sharing signals from public web information with sources, periods, aggregation methods, missing data, and interpretation limits.",
+      "features": [
+        {
+          "id": "provenance",
+          "title": "Provenance",
+          "summary": "Shows where and when every signal was observed."
+        },
+        {
+          "id": "methods",
+          "title": "Methods",
+          "summary": "Publishes periods, units, and recomputation methods."
+        },
+        {
+          "id": "interpretation",
+          "title": "Interpretation limits",
+          "summary": "Separates observations from inference and displays uncertainty."
+        }
+      ],
+      "docs": {
+        "overview": {
+          "slug": "/docs",
+          "title": "Overview",
+          "summary": "An analysis space sharing signals from public web information with sources, periods, aggregation methods, missing data, and interpretation limits.",
+          "sections": [
+            {
+              "id": "purpose",
+              "title": "Purpose",
+              "body": [
+                "An analysis space sharing signals from public web information with sources, periods, aggregation methods, missing data, and interpretation limits."
+              ]
+            },
+            {
+              "id": "offering",
+              "title": "What we provide",
+              "body": [
+                "Shows where and when every signal was observed.",
+                "Publishes periods, units, and recomputation methods.",
+                "Separates observations from inference and displays uncertainty."
+              ]
+            },
+            {
+              "id": "boundary",
+              "title": "Responsibility boundary",
+              "body": [
+                "Signals do not guarantee future outcomes, popularity, or demand. Collection follows source terms, rights, and deletion rules and is not intended for personal tracking."
+              ]
+            }
+          ]
+        },
+        "gettingStarted": {
+          "slug": "/docs/getting-started",
+          "title": "Getting started",
+          "summary": "Review the signal period, provenance, missing data, and method, and combine it with primary data and other evidence for decisions.",
+          "sections": [
+            {
+              "id": "start",
+              "title": "How to begin",
+              "body": [
+                "Review the signal period, provenance, missing data, and method, and combine it with primary data and other evidence for decisions."
+              ]
+            },
+            {
+              "id": "language",
+              "title": "Languages and URLs",
+              "body": [
+                "Japanese and English use the same information structure and preserve the current page when switching language."
+              ]
+            },
+            {
+              "id": "availability",
+              "title": "Current availability",
+              "body": [
+                "This repository is for local verification. It does not publish, authenticate, bill, or mutate external services."
+              ]
+            }
+          ]
+        },
+        "security": {
+          "slug": "/docs/security",
+          "title": "Safety and publication boundary",
+          "summary": "Signals do not guarantee future outcomes, popularity, or demand. Collection follows source terms, rights, and deletion rules and is not intended for personal tracking.",
+          "sections": [
+            {
+              "id": "public-data",
+              "title": "Public information",
+              "body": [
+                "The Web Signals public surface contains only approved public descriptions and documentation."
+              ]
+            },
+            {
+              "id": "private-data",
+              "title": "Information not held here",
+              "body": [
+                "Configuration excludes credentials, customer records, sensitive personal data, private source, and analytics identifiers."
+              ]
+            },
+            {
+              "id": "limits",
+              "title": "Limitations",
+              "body": [
+                "Signals do not guarantee future outcomes, popularity, or demand. Collection follows source terms, rights, and deletion rules and is not intended for personal tracking."
+              ]
+            }
+          ]
+        }
+      },
+      "privacy": {
+        "label": "Privacy",
+        "summary": "This local public surface collects no cookies, analytics identifiers, or inquiry content. Collection may be added only after separate review and consent design."
+      },
+      "contact": {
+        "label": "Contact",
+        "summary": "Inquiry submission is not connected. A public channel will be shown only after its responsible team and retention terms are approved."
+      }
+    }
+  }
+}

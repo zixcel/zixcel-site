@@ -10,21 +10,33 @@
     "pnpm": "10.29.3"
   },
   "scripts": {
-    "dev": "nuxt dev --host 127.0.0.1",
-    "build": "nuxt build",
-    "preview": "nuxt preview --host 127.0.0.1",
-    "typecheck": "nuxt typecheck",
-    "test": "node --test",
-    "validate:content": "nuxtjp-localized-site validate --content-root ."
+    "site": "nuxtjp-localized-site site",
+    "validate:content": "nuxtjp-localized-site site check",
+    "test": "nuxtjp-localized-site site check && pnpm run test:dependency-security",
+    "typecheck": "nuxtjp-localized-site site typecheck",
+    "build": "nuxtjp-localized-site site build",
+    "dev": "nuxtjp-localized-site site dev",
+    "preview": "nuxtjp-localized-site site preview",
+    "test:dependency-security": "node --test scripts/dependency-security.check.cjs"
   },
   "dependencies": {
-    "@nuxtjp/localized-site": "0.1.0",
-    "nuxt": "4.5.1",
-    "vue": "3.5.40"
+    "@nuxtjp/localized-site": "0.1.4",
+    "nuxt": "4.6.0",
+    "vue": "3.5.43"
   },
   "devDependencies": {
     "@types/node": "24.12.0",
     "typescript": "5.9.3",
-    "vue-tsc": "3.2.8"
+    "vue-tsc": "3.2.8",
+    "wrangler": "4.149.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "@nuxt/devtools>simple-git": "4.0.2"
+    },
+    "patchedDependencies": {
+      "braces@3.0.3": "patches/braces@3.0.3.patch",
+      "node-forge@1.4.0": "patches/node-forge@1.4.0.patch"
+    }
   }
 }

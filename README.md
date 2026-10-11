@@ -1,32 +1,18 @@
-# @zixcel/zixcel-site
+# zixcel-site
 
-Explain integration contracts, package responsibilities and adoption choices.
-
-## What you can do
-
-- Maintain reviewed overview and getting-started content.
-- Validate Japanese/English content and preview the configured site.
-
-## Current scope
-
-Package-specific implementation and distribution status belong to the corresponding package repository. The required localized-site package is referenced as an excluded local archive; a fresh clone cannot install it until an approved distribution path is available. No deployment is performed by these instructions.
-
-## Getting started
-
-The manifest currently requires locally supplied package archives: `@nuxtjp/localized-site`. These archives are excluded from Git. Obtain the exact approved dependency artifacts before installing; a fresh clone alone is not sufficient. Registry distribution remains pending.
-
-Use `pnpm@10.29.3` and the Node.js version declared in `engines` in `package.json`. Run from this repository:
+Organization-managed public sites built with Nuxt. All application/layout/page/CSS/SEO implementation is supplied by `@nuxtjp/localized-site`; `sites/` contains site content, static assets, legal notices and Cloudflare configuration. Site-specific Nuxt applications or layouts are rejected.
 
 ```sh
 pnpm install --frozen-lockfile
+pnpm site list
 pnpm validate:content
-pnpm typecheck
 pnpm test
-pnpm build
+pnpm site typecheck SITE_ID
+pnpm site build SITE_ID
 ```
 
-## Documentation and source
+Build output is isolated at `.output/SITE_ID/public`; generated Nuxt types are at `.nuxt/SITE_ID`. Cloudflare Workers builds each site separately from this repository root using the explicit site key and its Wrangler configuration. Shared package/lock changes require all sites to be checked. Site-only content changes require that site to be checked.
 
-[Usage guide](docs/getting-started.md)
+The organization runner uses `@nuxtjp/localized-site@0.1.4` from the official npm registry. A frozen install uses the committed lockfile and needs no neighboring repositories or local archives. Cloudflare connections, domains and deployment settings are managed separately. Existing domains and service IDs are retained.
 
-[Verification cases](test) · [Contributing](CONTRIBUTING.md) · [Security reporting](SECURITY.md) · [License](LICENSE) · [Attribution notices](NOTICE)
+Software LICENSE and each site's LICENSE-ASSETS/NOTICE remain applicable; repository consolidation does not relicense content.
