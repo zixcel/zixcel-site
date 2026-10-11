@@ -79,3 +79,6 @@ __pycache__/
 /*.profraw
 /*.profdata
 /*.egg-info/
+
+# The shared site runner may create a generated output symlink.
+/dist
