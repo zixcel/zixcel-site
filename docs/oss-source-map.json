@@ -1,0 +1,131 @@
+{
+  "repository": "zixcel/zixcel-site",
+  "purpose": "Explain integration contracts, package responsibilities and adoption choices.",
+  "responsibility_boundary": "Site content describes verified availability and links owner sources. It does not itself grant credentials, implement the product, or establish production deployment acceptance.",
+  "packages": [
+    {
+      "manifest": "package.json",
+      "package": "@zixcel/zixcel-site",
+      "ecosystem": "npm",
+      "description": null,
+      "interfaces": {
+        "exports": {},
+        "bin": {},
+        "main": null,
+        "types": null
+      },
+      "declared_commands": {
+        "site": "nuxtjp-localized-site site",
+        "validate:content": "nuxtjp-localized-site site check",
+        "test": "nuxtjp-localized-site site check && pnpm run test:dependency-security",
+        "typecheck": "nuxtjp-localized-site site typecheck",
+        "build": "nuxtjp-localized-site site build",
+        "dev": "nuxtjp-localized-site site dev",
+        "preview": "nuxtjp-localized-site site preview",
+        "test:dependency-security": "node --test scripts/dependency-security.check.cjs"
+      }
+    }
+  ],
+  "schema_definitions": [],
+  "test_sources": [],
+  "example_sources": [],
+  "workflow_definitions": [
+    {
+      "path": ".github/workflows/oss-policy.yml",
+      "jobs": [
+        {
+          "job": "repository-policy",
+          "condition": null,
+          "runs_on": "ubuntu-latest",
+          "steps": [
+            {
+              "name": null,
+              "run": null,
+              "uses": "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "condition": null
+            },
+            {
+              "name": "Verify repository policy",
+              "run": "python3 .github/oss-policy-check.py",
+              "uses": null,
+              "condition": null
+            },
+            {
+              "name": "Verify policy regression tests",
+              "run": "cd .github && python3 -m unittest discover -s policy-tests",
+              "uses": null,
+              "condition": null
+            },
+            {
+              "name": "Check policy types",
+              "run": "python3 -m venv \"$RUNNER_TEMP/policy-types\"\n\"$RUNNER_TEMP/policy-types/bin/pip\" install -r .github/policy/requirements.txt\n\"$RUNNER_TEMP/policy-types/bin/mypy\" --strict .github/policy .github/oss-policy-check.py .github/policy-tests\n",
+              "uses": null,
+              "condition": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": ".github/workflows/site.yml",
+      "jobs": [
+        {
+          "job": "site",
+          "condition": null,
+          "runs_on": "ubuntu-24.04",
+          "steps": [
+            {
+              "name": null,
+              "run": null,
+              "uses": "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "condition": null
+            },
+            {
+              "name": null,
+              "run": null,
+              "uses": "actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+              "condition": null
+            },
+            {
+              "name": "Install pinned package manager",
+              "run": "npm install --global --ignore-scripts --no-audit --no-fund pnpm@10.29.3",
+              "uses": null,
+              "condition": null
+            },
+            {
+              "name": "Install the official registry dependency tree",
+              "run": "pnpm install --frozen-lockfile --store-dir \"$RUNNER_TEMP/site-store\" --registry=https://registry.npmjs.org",
+              "uses": null,
+              "condition": null
+            },
+            {
+              "name": null,
+              "run": "pnpm validate:content",
+              "uses": null,
+              "condition": null
+            },
+            {
+              "name": null,
+              "run": "pnpm test",
+              "uses": null,
+              "condition": null
+            },
+            {
+              "name": null,
+              "run": "pnpm site typecheck '${{ matrix.site }}'",
+              "uses": null,
+              "condition": null
+            },
+            {
+              "name": null,
+              "run": "pnpm site build '${{ matrix.site }}'",
+              "uses": null,
+              "condition": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "evidence_policy": "Declarations and source paths are not proof of an executed acceptance. Exact CI head and result are recorded separately. No live accounts or production acceptance is inferred."
+}
