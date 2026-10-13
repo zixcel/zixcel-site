@@ -62,6 +62,13 @@
               "body": [
                 "将来の結果、人気、需要を保証しません。収集は公開元の規約、権利、削除条件に従い、個人追跡を目的としません。"
               ]
+            },
+            {
+              "id": "page-feedback",
+              "title": "ページから改善へ",
+              "body": [
+                "対象ページ、目的、期待する挙動、package版と公開できる再現手順をownerへ共有してください。配置の調整は実際の利用とフィードバックから行います。秘密鍵、token、実顧客データは送らないでください。"
+              ]
             }
           ]
         },
@@ -179,6 +186,13 @@
               "title": "Responsibility boundary",
               "body": [
                 "Signals do not guarantee future outcomes, popularity, or demand. Collection follows source terms, rights, and deletion rules and is not intended for personal tracking."
+              ]
+            },
+            {
+              "id": "page-feedback",
+              "title": "From page to feedback",
+              "body": [
+                "Share the page, purpose, expected behavior, package version and public reproduction steps with the owner. Refine placement using actual usage and feedback. Do not share tokens, keys or customer data."
               ]
             }
           ]

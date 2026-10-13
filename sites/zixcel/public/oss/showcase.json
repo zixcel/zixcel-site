@@ -1,0 +1,949 @@
+{
+  "schema": "nuxtjp://showcase/v1",
+  "owner": "zixcel",
+  "observedAt": "2026-10-13T04:06:00Z",
+  "entries": [
+    {
+      "id": "zixcel-zixcel-imap",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-imap",
+        "en": "zixcel-imap"
+      },
+      "summary": {
+        "ja": "zixcel/zixcel-imap の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Check a IMAP mail integration configuration and produce a plan before implementing or enabling the connection."
+      },
+      "repository": "https://github.com/zixcel/zixcel-imap",
+      "homepage": "https://github.com/zixcel/zixcel-imap",
+      "license": "Apache-2.0",
+      "metrics": []
+    },
+    {
+      "id": "zixcel-data-presentation",
+      "kind": "oss",
+      "name": {
+        "ja": "data-presentation",
+        "en": "data-presentation"
+      },
+      "summary": {
+        "ja": "表示データの構築・更新・配信を機能単位で利用する基盤。",
+        "en": "Build, update and deliver presentation data through feature-scoped packages."
+      },
+      "repository": "https://github.com/zixcel/data-presentation",
+      "homepage": "https://github.com/zixcel/data-presentation",
+      "license": "Apache-2.0",
+      "metrics": [
+        {
+          "registry": "npm",
+          "package": "@zixcel/projection-runtime",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "available",
+          "downloads": 162,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fprojection-runtime"
+        },
+        {
+          "registry": "npm",
+          "package": "@zixcel/dom-renderer",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "available",
+          "downloads": 253,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fdom-renderer"
+        },
+        {
+          "registry": "npm",
+          "package": "@zixcel/projection-client",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "available",
+          "downloads": 194,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fprojection-client"
+        },
+        {
+          "registry": "npm",
+          "package": "@zixcel/projection-contracts",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "available",
+          "downloads": 305,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fprojection-contracts"
+        },
+        {
+          "registry": "npm",
+          "package": "@zixcel/view-delivery-contracts",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "available",
+          "downloads": 139,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fview-delivery-contracts"
+        },
+        {
+          "registry": "npm",
+          "package": "@zixcel/view-delivery",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "available",
+          "downloads": 128,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fview-delivery"
+        }
+      ]
+    },
+    {
+      "id": "zixcel-document-processing",
+      "kind": "oss",
+      "name": {
+        "ja": "document-processing",
+        "en": "document-processing"
+      },
+      "summary": {
+        "ja": "文書の解析・構造化・変換を扱う汎用モノレポ。",
+        "en": "A generic workspace for document parsing, structure and output."
+      },
+      "repository": "https://github.com/zixcel/document-processing",
+      "homepage": "https://github.com/zixcel/document-processing",
+      "license": "Apache-2.0",
+      "metrics": [
+        {
+          "registry": "npm",
+          "package": "@zixcel/document-structure",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "available",
+          "downloads": 104,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fdocument-structure"
+        },
+        {
+          "registry": "npm",
+          "package": "@zixcel/document-html",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "available",
+          "downloads": 128,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fdocument-html"
+        },
+        {
+          "registry": "npm",
+          "package": "@zixcel/document-markdown",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "available",
+          "downloads": 120,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fdocument-markdown"
+        }
+      ]
+    },
+    {
+      "id": "zixcel-zixcel-apple",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-apple",
+        "en": "zixcel-apple"
+      },
+      "summary": {
+        "ja": "apple の対象と要求内容をprepare/approve/executeで束縛し、読み書きを扱うSDK。現在の受入はfake HTTPで、実accountの検証は後続です。",
+        "en": "Prepare, approve and execute account-bound apple reads and writes. Current acceptance uses fake HTTP; live account acceptance is separate."
+      },
+      "repository": "https://github.com/zixcel/zixcel-apple",
+      "homepage": "https://github.com/zixcel/zixcel-apple",
+      "license": "Apache-2.0",
+      "metrics": [
+        {
+          "registry": "npm",
+          "package": "@zixcel/provider-apple",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "unavailable",
+          "downloads": null,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fprovider-apple"
+        }
+      ]
+    },
+    {
+      "id": "zixcel-zixcel-microsoft",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-microsoft",
+        "en": "zixcel-microsoft"
+      },
+      "summary": {
+        "ja": "microsoft の対象と要求内容をprepare/approve/executeで束縛し、読み書きを扱うSDK。現在の受入はfake HTTPで、実accountの検証は後続です。",
+        "en": "Prepare, approve and execute account-bound microsoft reads and writes. Current acceptance uses fake HTTP; live account acceptance is separate."
+      },
+      "repository": "https://github.com/zixcel/zixcel-microsoft",
+      "homepage": "https://github.com/zixcel/zixcel-microsoft",
+      "license": "Apache-2.0",
+      "metrics": [
+        {
+          "registry": "npm",
+          "package": "@zixcel/microsoft-mail-presentation",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "available",
+          "downloads": 268,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fmicrosoft-mail-presentation"
+        },
+        {
+          "registry": "npm",
+          "package": "@zixcel/provider-microsoft",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "unavailable",
+          "downloads": null,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fprovider-microsoft"
+        },
+        {
+          "registry": "npm",
+          "package": "@zixcel/microsoft-mail-web",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "available",
+          "downloads": 276,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fmicrosoft-mail-web"
+        }
+      ]
+    },
+    {
+      "id": "zixcel-zixcel-google",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-google",
+        "en": "zixcel-google"
+      },
+      "summary": {
+        "ja": "google の対象と要求内容をprepare/approve/executeで束縛し、読み書きを扱うSDK。現在の受入はfake HTTPで、実accountの検証は後続です。",
+        "en": "Prepare, approve and execute account-bound google reads and writes. Current acceptance uses fake HTTP; live account acceptance is separate."
+      },
+      "repository": "https://github.com/zixcel/zixcel-google",
+      "homepage": "https://github.com/zixcel/zixcel-google",
+      "license": "Apache-2.0",
+      "metrics": [
+        {
+          "registry": "npm",
+          "package": "@zixcel/provider-google",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "unavailable",
+          "downloads": null,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fprovider-google"
+        }
+      ]
+    },
+    {
+      "id": "zixcel-zixcel-cloudflare",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-cloudflare",
+        "en": "zixcel-cloudflare"
+      },
+      "summary": {
+        "ja": "cloudflare の対象と要求内容をprepare/approve/executeで束縛し、読み書きを扱うSDK。現在の受入はfake HTTPで、実accountの検証は後続です。",
+        "en": "Prepare, approve and execute account-bound cloudflare reads and writes. Current acceptance uses fake HTTP; live account acceptance is separate."
+      },
+      "repository": "https://github.com/zixcel/zixcel-cloudflare",
+      "homepage": "https://github.com/zixcel/zixcel-cloudflare",
+      "license": "Apache-2.0",
+      "metrics": [
+        {
+          "registry": "npm",
+          "package": "@zixcel/provider-cloudflare",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "unavailable",
+          "downloads": null,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fprovider-cloudflare"
+        }
+      ]
+    },
+    {
+      "id": "zixcel-zixcel-azure",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-azure",
+        "en": "zixcel-azure"
+      },
+      "summary": {
+        "ja": "azure の対象と要求内容をprepare/approve/executeで束縛し、読み書きを扱うSDK。現在の受入はfake HTTPで、実accountの検証は後続です。",
+        "en": "Prepare, approve and execute account-bound azure reads and writes. Current acceptance uses fake HTTP; live account acceptance is separate."
+      },
+      "repository": "https://github.com/zixcel/zixcel-azure",
+      "homepage": "https://github.com/zixcel/zixcel-azure",
+      "license": "Apache-2.0",
+      "metrics": [
+        {
+          "registry": "npm",
+          "package": "@zixcel/provider-azure",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "unavailable",
+          "downloads": null,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fprovider-azure"
+        }
+      ]
+    },
+    {
+      "id": "zixcel-zixcel-contracts",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-contracts",
+        "en": "zixcel-contracts"
+      },
+      "summary": {
+        "ja": "zixcel/zixcel-contracts の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Give integrations a shared vocabulary for requests and results so callers can validate service boundaries."
+      },
+      "repository": "https://github.com/zixcel/zixcel-contracts",
+      "homepage": "https://github.com/zixcel/zixcel-contracts",
+      "license": "Apache-2.0",
+      "metrics": [
+        {
+          "registry": "crates.io",
+          "package": "zixcel-contracts",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "unavailable",
+          "downloads": null,
+          "source": "https://crates.io/api/v1/crates/zixcel-contracts/downloads"
+        },
+        {
+          "registry": "npm",
+          "package": "@zixcel/management-contracts",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "available",
+          "downloads": 122,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fmanagement-contracts"
+        }
+      ]
+    },
+    {
+      "id": "zixcel-japan-administrative-areas",
+      "kind": "oss",
+      "name": {
+        "ja": "japan-administrative-areas",
+        "en": "japan-administrative-areas"
+      },
+      "summary": {
+        "ja": "zixcel/japan-administrative-areas の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Exact Japanese subdivision codes and names without product role policy"
+      },
+      "repository": "https://github.com/zixcel/japan-administrative-areas",
+      "homepage": "https://github.com/zixcel/japan-administrative-areas",
+      "license": "Apache-2.0",
+      "metrics": [
+        {
+          "registry": "crates.io",
+          "package": "zixcel-japan-administrative-areas",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "unavailable",
+          "downloads": null,
+          "source": "https://crates.io/api/v1/crates/zixcel-japan-administrative-areas/downloads"
+        }
+      ]
+    },
+    {
+      "id": "zixcel-zixcel-source-evidence",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-source-evidence",
+        "en": "zixcel-source-evidence"
+      },
+      "summary": {
+        "ja": "zixcel/zixcel-source-evidence の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Index source observations and query evidence tied to a specific source revision."
+      },
+      "repository": "https://github.com/zixcel/zixcel-source-evidence",
+      "homepage": "https://github.com/zixcel/zixcel-source-evidence",
+      "license": "Apache-2.0",
+      "metrics": []
+    },
+    {
+      "id": "zixcel-devino",
+      "kind": "oss",
+      "name": {
+        "ja": "devino",
+        "en": "devino"
+      },
+      "summary": {
+        "ja": "zixcel/devino の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Experiment with model conversion and local inference setup before adopting a verified feature in another tool."
+      },
+      "repository": "https://github.com/zixcel/devino",
+      "homepage": "https://github.com/zixcel/devino",
+      "license": "Apache-2.0",
+      "metrics": []
+    },
+    {
+      "id": "zixcel-zixcel-revision",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-revision",
+        "en": "zixcel-revision"
+      },
+      "summary": {
+        "ja": "zixcel/zixcel-revision の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Retain immutable revisions and detect conflicting updates when an operation is retried."
+      },
+      "repository": "https://github.com/zixcel/zixcel-revision",
+      "homepage": "https://github.com/zixcel/zixcel-revision",
+      "license": "Apache-2.0",
+      "metrics": [
+        {
+          "registry": "crates.io",
+          "package": "zixcel-revision",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "unavailable",
+          "downloads": null,
+          "source": "https://crates.io/api/v1/crates/zixcel-revision/downloads"
+        }
+      ]
+    },
+    {
+      "id": "zixcel-zixcel-graph",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-graph",
+        "en": "zixcel-graph"
+      },
+      "summary": {
+        "ja": "zixcel/zixcel-graph の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Store a reviewed set of relationships as an exact snapshot and update it with revision checks."
+      },
+      "repository": "https://github.com/zixcel/zixcel-graph",
+      "homepage": "https://github.com/zixcel/zixcel-graph",
+      "license": "Apache-2.0",
+      "metrics": [
+        {
+          "registry": "crates.io",
+          "package": "zixcel-graph",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "unavailable",
+          "downloads": null,
+          "source": "https://crates.io/api/v1/crates/zixcel-graph/downloads"
+        }
+      ]
+    },
+    {
+      "id": "zixcel-zixcel-github",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-github",
+        "en": "zixcel-github"
+      },
+      "summary": {
+        "ja": "zixcel/zixcel-github の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Build and validate typed GitHub requests for repository observation and explicitly enabled operations."
+      },
+      "repository": "https://github.com/zixcel/zixcel-github",
+      "homepage": "https://github.com/zixcel/zixcel-github",
+      "license": "Apache-2.0",
+      "metrics": [
+        {
+          "registry": "crates.io",
+          "package": "zixcel-github",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "unavailable",
+          "downloads": null,
+          "source": "https://crates.io/api/v1/crates/zixcel-github/downloads"
+        },
+        {
+          "registry": "crates.io",
+          "package": "zixcel-github-egress-contracts",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "unavailable",
+          "downloads": null,
+          "source": "https://crates.io/api/v1/crates/zixcel-github-egress-contracts/downloads"
+        }
+      ]
+    },
+    {
+      "id": "zixcel-zixcel-site",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-site",
+        "en": "zixcel-site"
+      },
+      "summary": {
+        "ja": "zixcel/zixcel-site の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Explain integration contracts, package responsibilities and adoption choices."
+      },
+      "repository": "https://github.com/zixcel/zixcel-site",
+      "homepage": "https://github.com/zixcel/zixcel-site",
+      "license": "Apache-2.0",
+      "metrics": []
+    },
+    {
+      "id": "zixcel-zixcel-topology-api",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-topology-api",
+        "en": "zixcel-topology-api"
+      },
+      "summary": {
+        "ja": "zixcel/zixcel-topology-api の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Serve a bounded metadata view of registered service, organization and deployment relationships."
+      },
+      "repository": "https://github.com/zixcel/zixcel-topology-api",
+      "homepage": "https://github.com/zixcel/zixcel-topology-api",
+      "license": "Apache-2.0",
+      "metrics": []
+    },
+    {
+      "id": "zixcel-zixcel-local-inference",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-local-inference",
+        "en": "zixcel-local-inference"
+      },
+      "summary": {
+        "ja": "zixcel/zixcel-local-inference の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Prepare and verify local model artifacts before a caller starts a managed inference runtime."
+      },
+      "repository": "https://github.com/zixcel/zixcel-local-inference",
+      "homepage": "https://github.com/zixcel/zixcel-local-inference",
+      "license": "Apache-2.0",
+      "metrics": [
+        {
+          "registry": "crates.io",
+          "package": "zixcel-local-inference",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "unavailable",
+          "downloads": null,
+          "source": "https://crates.io/api/v1/crates/zixcel-local-inference/downloads"
+        }
+      ]
+    },
+    {
+      "id": "zixcel-zixcel-owner-recovery",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-owner-recovery",
+        "en": "zixcel-owner-recovery"
+      },
+      "summary": {
+        "ja": "zixcel/zixcel-owner-recovery の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Coordinate explicit owner-recovery and device-transfer steps without taking ownership of account records."
+      },
+      "repository": "https://github.com/zixcel/zixcel-owner-recovery",
+      "homepage": "https://github.com/zixcel/zixcel-owner-recovery",
+      "license": "Apache-2.0",
+      "metrics": [
+        {
+          "registry": "crates.io",
+          "package": "zixcel-owner-recovery",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "unavailable",
+          "downloads": null,
+          "source": "https://crates.io/api/v1/crates/zixcel-owner-recovery/downloads"
+        }
+      ]
+    },
+    {
+      "id": "zixcel-zixcel-version-control",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-version-control",
+        "en": "zixcel-version-control"
+      },
+      "summary": {
+        "ja": "zixcel/zixcel-version-control の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Read the state of a local version-control workspace for a caller that needs change evidence."
+      },
+      "repository": "https://github.com/zixcel/zixcel-version-control",
+      "homepage": "https://github.com/zixcel/zixcel-version-control",
+      "license": "Apache-2.0",
+      "metrics": [
+        {
+          "registry": "crates.io",
+          "package": "zixcel-version-control",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "unavailable",
+          "downloads": null,
+          "source": "https://crates.io/api/v1/crates/zixcel-version-control/downloads"
+        }
+      ]
+    },
+    {
+      "id": "zixcel-zixcel-webauthn",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-webauthn",
+        "en": "zixcel-webauthn"
+      },
+      "summary": {
+        "ja": "zixcel/zixcel-webauthn の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Build WebAuthn ceremony options and interpret browser evidence for a caller-owned identity flow."
+      },
+      "repository": "https://github.com/zixcel/zixcel-webauthn",
+      "homepage": "https://github.com/zixcel/zixcel-webauthn",
+      "license": "Apache-2.0",
+      "metrics": [
+        {
+          "registry": "npm",
+          "package": "@zixcel/webauthn",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "available",
+          "downloads": 268,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fwebauthn"
+        }
+      ]
+    },
+    {
+      "id": "zixcel-zixcel-github-auth",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-github-auth",
+        "en": "zixcel-github-auth"
+      },
+      "summary": {
+        "ja": "zixcel/zixcel-github-auth の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Add GitHub Device Flow to an application using an explicit public client registration."
+      },
+      "repository": "https://github.com/zixcel/zixcel-github-auth",
+      "homepage": "https://github.com/zixcel/zixcel-github-auth",
+      "license": "Apache-2.0",
+      "metrics": [
+        {
+          "registry": "npm",
+          "package": "@zixcel/github-auth",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "available",
+          "downloads": 275,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fgithub-auth"
+        }
+      ]
+    },
+    {
+      "id": "zixcel-zixcel-domain-structure",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-domain-structure",
+        "en": "zixcel-domain-structure"
+      },
+      "summary": {
+        "ja": "zixcel/zixcel-domain-structure の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Split a DNS name into a useful hierarchy while respecting public and private suffix rules."
+      },
+      "repository": "https://github.com/zixcel/zixcel-domain-structure",
+      "homepage": "https://github.com/zixcel/zixcel-domain-structure",
+      "license": "Apache-2.0",
+      "metrics": [
+        {
+          "registry": "npm",
+          "package": "@zixcel/domain-structure",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "available",
+          "downloads": 285,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fdomain-structure"
+        }
+      ]
+    },
+    {
+      "id": "zixcel-zixcel-interaction",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-interaction",
+        "en": "zixcel-interaction"
+      },
+      "summary": {
+        "ja": "zixcel/zixcel-interaction の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Describe resource reads, actions and state changes with typed requests and explicit results."
+      },
+      "repository": "https://github.com/zixcel/zixcel-interaction",
+      "homepage": "https://github.com/zixcel/zixcel-interaction",
+      "license": "Apache-2.0",
+      "metrics": [
+        {
+          "registry": "crates.io",
+          "package": "zixcel-interaction",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "unavailable",
+          "downloads": null,
+          "source": "https://crates.io/api/v1/crates/zixcel-interaction/downloads"
+        },
+        {
+          "registry": "npm",
+          "package": "@zixcel/interaction",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "available",
+          "downloads": 568,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Finteraction"
+        }
+      ]
+    },
+    {
+      "id": "zixcel-zixcel-aws",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-aws",
+        "en": "zixcel-aws"
+      },
+      "summary": {
+        "ja": "zixcel/zixcel-aws の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Prepare bounded AWS operations and signing requests without making secrets part of the public contract."
+      },
+      "repository": "https://github.com/zixcel/zixcel-aws",
+      "homepage": "https://github.com/zixcel/zixcel-aws",
+      "license": "Apache-2.0",
+      "metrics": []
+    },
+    {
+      "id": "zixcel-zixcel-openai-auth",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-openai-auth",
+        "en": "zixcel-openai-auth"
+      },
+      "summary": {
+        "ja": "zixcel/zixcel-openai-auth の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Compose OpenAI account authorization through an injected transport and explicit validation boundaries."
+      },
+      "repository": "https://github.com/zixcel/zixcel-openai-auth",
+      "homepage": "https://github.com/zixcel/zixcel-openai-auth",
+      "license": "Apache-2.0",
+      "metrics": [
+        {
+          "registry": "crates.io",
+          "package": "zixcel-openai-auth",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "unavailable",
+          "downloads": null,
+          "source": "https://crates.io/api/v1/crates/zixcel-openai-auth/downloads"
+        }
+      ]
+    },
+    {
+      "id": "zixcel-zixcel-mcp-gateway",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-mcp-gateway",
+        "en": "zixcel-mcp-gateway"
+      },
+      "summary": {
+        "ja": "zixcel/zixcel-mcp-gateway の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Expose reviewed metadata through a validated, bounded MCP interface."
+      },
+      "repository": "https://github.com/zixcel/zixcel-mcp-gateway",
+      "homepage": "https://github.com/zixcel/zixcel-mcp-gateway",
+      "license": "Apache-2.0",
+      "metrics": [
+        {
+          "registry": "crates.io",
+          "package": "zixcel-mcp-gateway",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "unavailable",
+          "downloads": null,
+          "source": "https://crates.io/api/v1/crates/zixcel-mcp-gateway/downloads"
+        }
+      ]
+    },
+    {
+      "id": "zixcel-zixcel-local-registry",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-local-registry",
+        "en": "zixcel-local-registry"
+      },
+      "summary": {
+        "ja": "zixcel/zixcel-local-registry の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Validate imported artifacts and record where they may be distributed and what publication evidence exists."
+      },
+      "repository": "https://github.com/zixcel/zixcel-local-registry",
+      "homepage": "https://github.com/zixcel/zixcel-local-registry",
+      "license": "Apache-2.0",
+      "metrics": []
+    },
+    {
+      "id": "zixcel-zixcel-line",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-line",
+        "en": "zixcel-line"
+      },
+      "summary": {
+        "ja": "zixcel/zixcel-line の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Check a LINE metadata integration configuration and produce a plan before implementing or enabling the connection."
+      },
+      "repository": "https://github.com/zixcel/zixcel-line",
+      "homepage": "https://github.com/zixcel/zixcel-line",
+      "license": "Apache-2.0",
+      "metrics": []
+    },
+    {
+      "id": "zixcel-zixcel-cost",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-cost",
+        "en": "zixcel-cost"
+      },
+      "summary": {
+        "ja": "zixcel/zixcel-cost の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Calculate an inference-cost estimate from explicit usage and price inputs."
+      },
+      "repository": "https://github.com/zixcel/zixcel-cost",
+      "homepage": "https://github.com/zixcel/zixcel-cost",
+      "license": "Apache-2.0",
+      "metrics": [
+        {
+          "registry": "crates.io",
+          "package": "zixcel-cost",
+          "period": {
+            "start": "2026-09-13",
+            "end": "2026-10-12"
+          },
+          "observedAt": "2026-10-13T04:06:00Z",
+          "status": "unavailable",
+          "downloads": null,
+          "source": "https://crates.io/api/v1/crates/zixcel-cost/downloads"
+        }
+      ]
+    },
+    {
+      "id": "zixcel-intel-gpu-wsl-advisor",
+      "kind": "oss",
+      "name": {
+        "ja": "intel-gpu-wsl-advisor",
+        "en": "intel-gpu-wsl-advisor"
+      },
+      "summary": {
+        "ja": "zixcel/intel-gpu-wsl-advisor の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Check an Intel GPU and WSL environment and see which setup requirements need attention."
+      },
+      "repository": "https://github.com/zixcel/intel-gpu-wsl-advisor",
+      "homepage": "https://github.com/zixcel/intel-gpu-wsl-advisor",
+      "license": "Apache-2.0",
+      "metrics": []
+    },
+    {
+      "id": "zixcel-zixcel-repository-security",
+      "kind": "oss",
+      "name": {
+        "ja": "zixcel-repository-security",
+        "en": "zixcel-repository-security"
+      },
+      "summary": {
+        "ja": "zixcel/zixcel-repository-security の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
+        "en": "Check a source tree for secrets and information that should not be published before sharing it."
+      },
+      "repository": "https://github.com/zixcel/zixcel-repository-security",
+      "homepage": "https://github.com/zixcel/zixcel-repository-security",
+      "license": "Apache-2.0",
+      "metrics": []
+    }
+  ]
+}
