@@ -1,7 +1,7 @@
 {
   "schema": "nuxtjp://showcase/v1",
   "owner": "zixcel",
-  "observedAt": "2026-10-13T04:06:00Z",
+  "observedAt": "2026-10-14T15:09:41Z",
   "entries": [
     {
       "id": "zixcel-zixcel-imap",
@@ -38,73 +38,73 @@
           "registry": "npm",
           "package": "@zixcel/projection-runtime",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "available",
-          "downloads": 162,
-          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fprojection-runtime"
+          "downloads": 697,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-14:2026-10-13/%40zixcel%2Fprojection-runtime"
         },
         {
           "registry": "npm",
           "package": "@zixcel/dom-renderer",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "available",
-          "downloads": 253,
-          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fdom-renderer"
+          "downloads": 778,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-14:2026-10-13/%40zixcel%2Fdom-renderer"
         },
         {
           "registry": "npm",
           "package": "@zixcel/projection-client",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "available",
-          "downloads": 194,
-          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fprojection-client"
+          "downloads": 735,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-14:2026-10-13/%40zixcel%2Fprojection-client"
         },
         {
           "registry": "npm",
           "package": "@zixcel/projection-contracts",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "available",
-          "downloads": 305,
-          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fprojection-contracts"
+          "downloads": 952,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-14:2026-10-13/%40zixcel%2Fprojection-contracts"
         },
         {
           "registry": "npm",
           "package": "@zixcel/view-delivery-contracts",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "available",
-          "downloads": 139,
-          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fview-delivery-contracts"
+          "downloads": 540,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-14:2026-10-13/%40zixcel%2Fview-delivery-contracts"
         },
         {
           "registry": "npm",
           "package": "@zixcel/view-delivery",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "available",
-          "downloads": 128,
-          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fview-delivery"
+          "downloads": 511,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-14:2026-10-13/%40zixcel%2Fview-delivery"
         }
       ]
     },
@@ -127,37 +127,37 @@
           "registry": "npm",
           "package": "@zixcel/document-structure",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "available",
-          "downloads": 104,
-          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fdocument-structure"
+          "downloads": 671,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-14:2026-10-13/%40zixcel%2Fdocument-structure"
         },
         {
           "registry": "npm",
           "package": "@zixcel/document-html",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "available",
-          "downloads": 128,
-          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fdocument-html"
+          "downloads": 664,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-14:2026-10-13/%40zixcel%2Fdocument-html"
         },
         {
           "registry": "npm",
           "package": "@zixcel/document-markdown",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "available",
-          "downloads": 120,
-          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fdocument-markdown"
+          "downloads": 641,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-14:2026-10-13/%40zixcel%2Fdocument-markdown"
         }
       ]
     },
@@ -180,13 +180,13 @@
           "registry": "npm",
           "package": "@zixcel/provider-apple",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
-          "status": "unavailable",
-          "downloads": null,
-          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fprovider-apple"
+          "observedAt": "2026-10-14T15:09:41Z",
+          "status": "available",
+          "downloads": 391,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-14:2026-10-13/%40zixcel%2Fprovider-apple"
         }
       ]
     },
@@ -209,37 +209,37 @@
           "registry": "npm",
           "package": "@zixcel/microsoft-mail-presentation",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "available",
-          "downloads": 268,
-          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fmicrosoft-mail-presentation"
+          "downloads": 290,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-14:2026-10-13/%40zixcel%2Fmicrosoft-mail-presentation"
         },
         {
           "registry": "npm",
           "package": "@zixcel/provider-microsoft",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
-          "status": "unavailable",
-          "downloads": null,
-          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fprovider-microsoft"
+          "observedAt": "2026-10-14T15:09:41Z",
+          "status": "available",
+          "downloads": 686,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-14:2026-10-13/%40zixcel%2Fprovider-microsoft"
         },
         {
           "registry": "npm",
           "package": "@zixcel/microsoft-mail-web",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "available",
-          "downloads": 276,
-          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fmicrosoft-mail-web"
+          "downloads": 295,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-14:2026-10-13/%40zixcel%2Fmicrosoft-mail-web"
         }
       ]
     },
@@ -262,13 +262,13 @@
           "registry": "npm",
           "package": "@zixcel/provider-google",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
-          "status": "unavailable",
-          "downloads": null,
-          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fprovider-google"
+          "observedAt": "2026-10-14T15:09:41Z",
+          "status": "available",
+          "downloads": 335,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-14:2026-10-13/%40zixcel%2Fprovider-google"
         }
       ]
     },
@@ -291,13 +291,13 @@
           "registry": "npm",
           "package": "@zixcel/provider-cloudflare",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
-          "status": "unavailable",
-          "downloads": null,
-          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fprovider-cloudflare"
+          "observedAt": "2026-10-14T15:09:41Z",
+          "status": "available",
+          "downloads": 387,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-14:2026-10-13/%40zixcel%2Fprovider-cloudflare"
         }
       ]
     },
@@ -320,13 +320,13 @@
           "registry": "npm",
           "package": "@zixcel/provider-azure",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
-          "status": "unavailable",
-          "downloads": null,
-          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fprovider-azure"
+          "observedAt": "2026-10-14T15:09:41Z",
+          "status": "available",
+          "downloads": 528,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-14:2026-10-13/%40zixcel%2Fprovider-azure"
         }
       ]
     },
@@ -349,10 +349,10 @@
           "registry": "crates.io",
           "package": "zixcel-contracts",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "unavailable",
           "downloads": null,
           "source": "https://crates.io/api/v1/crates/zixcel-contracts/downloads"
@@ -361,13 +361,13 @@
           "registry": "npm",
           "package": "@zixcel/management-contracts",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "available",
-          "downloads": 122,
-          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fmanagement-contracts"
+          "downloads": 349,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-14:2026-10-13/%40zixcel%2Fmanagement-contracts"
         }
       ]
     },
@@ -390,10 +390,10 @@
           "registry": "crates.io",
           "package": "zixcel-japan-administrative-areas",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "unavailable",
           "downloads": null,
           "source": "https://crates.io/api/v1/crates/zixcel-japan-administrative-areas/downloads"
@@ -451,10 +451,10 @@
           "registry": "crates.io",
           "package": "zixcel-revision",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "unavailable",
           "downloads": null,
           "source": "https://crates.io/api/v1/crates/zixcel-revision/downloads"
@@ -480,10 +480,10 @@
           "registry": "crates.io",
           "package": "zixcel-graph",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "unavailable",
           "downloads": null,
           "source": "https://crates.io/api/v1/crates/zixcel-graph/downloads"
@@ -509,10 +509,10 @@
           "registry": "crates.io",
           "package": "zixcel-github",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "unavailable",
           "downloads": null,
           "source": "https://crates.io/api/v1/crates/zixcel-github/downloads"
@@ -521,10 +521,10 @@
           "registry": "crates.io",
           "package": "zixcel-github-egress-contracts",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "unavailable",
           "downloads": null,
           "source": "https://crates.io/api/v1/crates/zixcel-github-egress-contracts/downloads"
@@ -582,10 +582,10 @@
           "registry": "crates.io",
           "package": "zixcel-local-inference",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "unavailable",
           "downloads": null,
           "source": "https://crates.io/api/v1/crates/zixcel-local-inference/downloads"
@@ -611,10 +611,10 @@
           "registry": "crates.io",
           "package": "zixcel-owner-recovery",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "unavailable",
           "downloads": null,
           "source": "https://crates.io/api/v1/crates/zixcel-owner-recovery/downloads"
@@ -640,10 +640,10 @@
           "registry": "crates.io",
           "package": "zixcel-version-control",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "unavailable",
           "downloads": null,
           "source": "https://crates.io/api/v1/crates/zixcel-version-control/downloads"
@@ -669,13 +669,13 @@
           "registry": "npm",
           "package": "@zixcel/webauthn",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "available",
-          "downloads": 268,
-          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fwebauthn"
+          "downloads": 283,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-14:2026-10-13/%40zixcel%2Fwebauthn"
         }
       ]
     },
@@ -698,13 +698,13 @@
           "registry": "npm",
           "package": "@zixcel/github-auth",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "available",
-          "downloads": 275,
-          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fgithub-auth"
+          "downloads": 290,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-14:2026-10-13/%40zixcel%2Fgithub-auth"
         }
       ]
     },
@@ -727,13 +727,13 @@
           "registry": "npm",
           "package": "@zixcel/domain-structure",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "available",
-          "downloads": 285,
-          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Fdomain-structure"
+          "downloads": 301,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-14:2026-10-13/%40zixcel%2Fdomain-structure"
         }
       ]
     },
@@ -756,10 +756,10 @@
           "registry": "crates.io",
           "package": "zixcel-interaction",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "unavailable",
           "downloads": null,
           "source": "https://crates.io/api/v1/crates/zixcel-interaction/downloads"
@@ -768,13 +768,13 @@
           "registry": "npm",
           "package": "@zixcel/interaction",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "available",
-          "downloads": 568,
-          "source": "https://api.npmjs.org/downloads/point/2026-09-13:2026-10-12/%40zixcel%2Finteraction"
+          "downloads": 842,
+          "source": "https://api.npmjs.org/downloads/point/2026-09-14:2026-10-13/%40zixcel%2Finteraction"
         }
       ]
     },
@@ -813,10 +813,10 @@
           "registry": "crates.io",
           "package": "zixcel-openai-auth",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "unavailable",
           "downloads": null,
           "source": "https://crates.io/api/v1/crates/zixcel-openai-auth/downloads"
@@ -842,10 +842,10 @@
           "registry": "crates.io",
           "package": "zixcel-mcp-gateway",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "unavailable",
           "downloads": null,
           "source": "https://crates.io/api/v1/crates/zixcel-mcp-gateway/downloads"
@@ -903,10 +903,10 @@
           "registry": "crates.io",
           "package": "zixcel-cost",
           "period": {
-            "start": "2026-09-13",
-            "end": "2026-10-12"
+            "start": "2026-09-14",
+            "end": "2026-10-13"
           },
-          "observedAt": "2026-10-13T04:06:00Z",
+          "observedAt": "2026-10-14T15:09:41Z",
           "status": "unavailable",
           "downloads": null,
           "source": "https://crates.io/api/v1/crates/zixcel-cost/downloads"

@@ -1,3 +1,3 @@
 import { organizationSite } from '@nuxtjp/localized-site/organization'
 
-export default defineNuxtConfig(organizationSite(import.meta.url))
+export default defineNuxtConfig(organizationSite(import.meta.url, process.env.SITE_ID, { theme: 'zixcel', scope: 'organization' }))
