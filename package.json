@@ -20,7 +20,7 @@
     "test:dependency-security": "node --test scripts/dependency-security.check.cjs"
   },
   "dependencies": {
-    "@nuxtjp/localized-site": "0.2.2",
+    "@nuxtjp/localized-site": "0.2.3",
     "nuxt": "4.6.0",
     "vue": "3.5.43"
   },

@@ -15,23 +15,23 @@
   "content": {
     "ja": {
       "brand": "Zixcel",
-      "tagline": "データ・文書・外部サービスを、独立した部品から。",
-      "summary": "Zixcelは表示データ、文書処理、状態管理、各ベンダー連携の共通部品を提供します。公開済みのNode SDKは承認された読み書きを扱い、Rustの計画APIとは範囲を分けます。実アカウントの受入は別環境で行います。",
+      "tagline": "データに、使えるかたちを。",
+      "summary": "表示データ、文書処理、状態管理、クラウドや外部APIとの連携。Zixcelは、製品を越えて利用できる汎用的な部品を提供します。",
       "features": [
         {
-          "id": "versioned-contracts",
-          "title": "版付き契約",
-          "summary": "要求、計画、結果のSchemaをProvider実装から分け、互換性と変更影響を確認可能にします。"
+          "id": "focus-1",
+          "title": "データと文書",
+          "summary": "表示データの構成、文書の解析・構造化・変換を扱います。"
         },
         {
-          "id": "provider-connectors",
-          "title": "独立Connector",
-          "summary": "法人、プロトコル、用途ごとのConnectorを単独で検証・配布できる境界に保ちます。"
+          "id": "focus-2",
+          "title": "状態の基盤",
+          "summary": "graph、revision、domain構造を共通の部品として扱います。"
         },
         {
-          "id": "local-planning",
-          "title": "ローカル計画",
-          "summary": "資格情報を解決する前に、対象、権限、取得項目、外部操作をローカルで計画・審査します。"
+          "id": "focus-3",
+          "title": "外部サービス",
+          "summary": "クラウドやベンダーAPIとの認証・権限・操作の連携を支えます。"
         }
       ],
       "docs": {
@@ -117,23 +117,23 @@
     },
     "en": {
       "brand": "Zixcel",
-      "tagline": "Independent building blocks for data, documents and external services.",
-      "summary": "Zixcel provides reusable data presentation, document processing, state and provider integration components. Published Node SDKs support approved reads and writes; Rust planning APIs retain their own scope. Actual-account acceptance is separate.",
+      "tagline": "Give data a useful shape.",
+      "summary": "Zixcel provides reusable building blocks for view data, documents, state and cloud or external API integration across products.",
       "features": [
         {
-          "id": "versioned-contracts",
-          "title": "Versioned contracts",
-          "summary": "Separates request, plan, and result schemas from provider implementations so compatibility and change impact can be reviewed."
+          "id": "focus-1",
+          "title": "Data and documents",
+          "summary": "Compose view data and parse, structure and transform documents."
         },
         {
-          "id": "provider-connectors",
-          "title": "Independent connectors",
-          "summary": "Keeps each organization, protocol, or purpose connector independently testable and distributable."
+          "id": "focus-2",
+          "title": "State foundations",
+          "summary": "Use graph, revision and domain structures as shared building blocks."
         },
         {
-          "id": "local-planning",
-          "title": "Local planning",
-          "summary": "Plans and reviews targets, permissions, selected fields, and external actions before resolving credentials."
+          "id": "focus-3",
+          "title": "External services",
+          "summary": "Support authentication, permission and operation integration for clouds and vendor APIs."
         }
       ],
       "docs": {
