@@ -13,8 +13,10 @@ pnpm site build SITE_ID
 
 Build output is isolated at `.output/SITE_ID/public`; generated Nuxt types are at `.nuxt/SITE_ID`. Cloudflare Workers builds each site separately from this repository root using the explicit site key and its Wrangler configuration. Shared package/lock changes require all sites to be checked. Site-only content changes require that site to be checked.
 
-The organization runner uses `@nuxtjp/localized-site@0.2.2` from the official npm registry. A frozen install uses the committed lockfile and needs no neighboring repositories or local archives. Cloudflare connections, domains and deployment settings are managed separately. Existing domains and service IDs are retained.
+The organization runner uses `@nuxtjp/localized-site` from the official npm registry. A frozen install uses the committed lockfile and needs no neighboring repositories or local archives. Cloudflare connections, domains and deployment settings are managed separately. Existing domains and service IDs are retained.
 
 Software LICENSE and each site's LICENSE-ASSETS/NOTICE remain applicable; repository consolidation does not relicense content.
 
 [OSS responsibility and source completion](docs/oss-source-contract.md) defines the supported package boundary and required acceptance. It does not declare unexecuted source, distribution or production checks complete.
+
+Dependency updates: [repository policy](docs/dependency-updates.md).
