@@ -18,3 +18,9 @@
   :is(.editorial-brand, .nls-header > a, .wordmark)::before { flex-basis: 32px; width: 32px; height: 32px; }
   :is(.editorial-shell, .nls-shell) .nls-features article { padding: 22px; border-radius: 16px; }
 }
+
+@media (max-width: 640px) {
+  .editorial-header { flex-wrap: wrap; }
+  .editorial-header > nav { width: 100%; justify-content: space-between; gap: 12px; }
+}
+.editorial-header nav a { white-space: nowrap; }
