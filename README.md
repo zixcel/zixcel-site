@@ -20,3 +20,6 @@ Software LICENSE and each site's LICENSE-ASSETS/NOTICE remain applicable; reposi
 [OSS responsibility and source completion](docs/oss-source-contract.md) defines the supported package boundary and required acceptance. It does not declare unexecuted source, distribution or production checks complete.
 
 Dependency updates: [repository policy](docs/dependency-updates.md).
+
+
+サイトの独立したタグ公開・承認・有効化条件: [公開手順](docs/site-release.ja.md)。
