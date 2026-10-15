@@ -2,6 +2,7 @@ import { fileURLToPath } from 'node:url'
 import type { NuxtModule } from 'nuxt/schema'
 
 const siteBranding: NuxtModule = (_options, nuxt) => {
+  if (process.env.SITE_ID !== 'zixcel') return
   nuxt.options.css.push(fileURLToPath(new URL('./theme.css', import.meta.url)))
   nuxt.options.app.head.link ??= []
   nuxt.options.app.head.link.push(
