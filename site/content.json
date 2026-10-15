@@ -1,0 +1,1283 @@
+{
+  "siteId": "zixcel",
+  "origin": "https://zixcel.com",
+  "defaultLocale": "en",
+  "locales": {
+    "ja": {
+      "brand": "Zixcel",
+      "caption": "",
+      "origin": "https://zixcel.com",
+      "locale": "ja",
+      "accent": "#0866cd",
+      "navigation": [
+        {
+          "title": "機能から探す",
+          "href": "/capabilities"
+        },
+        {
+          "title": "活用シーン",
+          "href": "/use-cases"
+        },
+        {
+          "title": "ライブラリ",
+          "href": "/oss"
+        },
+        {
+          "title": "ドキュメント",
+          "href": "/docs"
+        },
+        {
+          "title": "読みもの",
+          "href": "/journal"
+        }
+      ],
+      "pages": [
+        {
+          "path": "/",
+          "title": "データから、\n使える道具へ。",
+          "summary": "文書、情報構造、外部サービス。アプリケーションに必要な基盤を、目的に合った部品から組み立てる。",
+          "sections": [
+            {
+              "title": "目的から、次の一歩へ。",
+              "text": "関心のあるテーマから、機能と使い方をご覧ください。",
+              "links": [
+                {
+                  "title": "データと文書",
+                  "href": "/capabilities/data-documents",
+                  "summary": "表示のためのデータ構成から文書の解析・変換まで。情報のかたちに合わせて道具を選びます。",
+                  "icon": "/brand/icons/layers.svg"
+                },
+                {
+                  "title": "状態と履歴",
+                  "href": "/capabilities/state-history",
+                  "summary": "グラフ構造と変更履歴を扱う基盤。データの関係と更新をアプリケーションの設計につなぎます。",
+                  "icon": "/brand/icons/flow.svg"
+                },
+                {
+                  "title": "外部サービスとの接点",
+                  "href": "/capabilities/integrations",
+                  "summary": "クラウド、メール、ドメインなどの連携部品。必要な権限と操作の範囲を明確にします。",
+                  "icon": "/brand/icons/cloud.svg"
+                }
+              ]
+            },
+            {
+              "title": "使い方をイメージする",
+              "text": "用途ごとに、取り組み方と選ぶ道具を整理しています。",
+              "links": [
+                {
+                  "title": "活用シーンを見る",
+                  "href": "/use-cases"
+                },
+                {
+                  "title": "ガイドを読む",
+                  "href": "/docs"
+                }
+              ]
+            }
+          ],
+          "kind": "home",
+          "label": "Zixcel",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/capabilities",
+          "title": "機能から探す",
+          "summary": "文書、情報構造、外部サービス。アプリケーションに必要な基盤を、目的に合った部品から組み立てる。",
+          "sections": [
+            {
+              "title": "データと文書",
+              "text": "表示のためのデータ構成から文書の解析・変換まで。情報のかたちに合わせて道具を選びます。",
+              "links": [
+                {
+                  "title": "詳しく読む",
+                  "href": "/capabilities/data-documents",
+                  "icon": "/brand/icons/layers.svg"
+                }
+              ]
+            },
+            {
+              "title": "状態と履歴",
+              "text": "グラフ構造と変更履歴を扱う基盤。データの関係と更新をアプリケーションの設計につなぎます。",
+              "links": [
+                {
+                  "title": "詳しく読む",
+                  "href": "/capabilities/state-history",
+                  "icon": "/brand/icons/flow.svg"
+                }
+              ]
+            },
+            {
+              "title": "外部サービスとの接点",
+              "text": "クラウド、メール、ドメインなどの連携部品。必要な権限と操作の範囲を明確にします。",
+              "links": [
+                {
+                  "title": "詳しく読む",
+                  "href": "/capabilities/integrations",
+                  "icon": "/brand/icons/cloud.svg"
+                }
+              ]
+            }
+          ],
+          "kind": "page",
+          "label": "機能から探す",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/capabilities/data-documents",
+          "title": "データと文書",
+          "summary": "表示のためのデータ構成から文書の解析・変換まで。情報のかたちに合わせて道具を選びます。",
+          "sections": [
+            {
+              "title": "こんなときに",
+              "text": "目的と扱う情報を整理し、必要な機能から小さく組み合わせます。",
+              "links": [
+                {
+                  "title": "使い方を確認する",
+                  "href": "/docs/getting-started"
+                }
+              ]
+            },
+            {
+              "title": "次に進む",
+              "text": "使い方や関連するテーマを、ガイドで確認できます。",
+              "links": [
+                {
+                  "title": "活用シーン",
+                  "href": "/use-cases"
+                },
+                {
+                  "title": "機能から探す",
+                  "href": "/capabilities"
+                }
+              ]
+            }
+          ],
+          "kind": "page",
+          "label": "データと文書",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/capabilities/state-history",
+          "title": "状態と履歴",
+          "summary": "グラフ構造と変更履歴を扱う基盤。データの関係と更新をアプリケーションの設計につなぎます。",
+          "sections": [
+            {
+              "title": "こんなときに",
+              "text": "目的と扱う情報を整理し、必要な機能から小さく組み合わせます。",
+              "links": [
+                {
+                  "title": "使い方を確認する",
+                  "href": "/docs/getting-started"
+                }
+              ]
+            },
+            {
+              "title": "次に進む",
+              "text": "使い方や関連するテーマを、ガイドで確認できます。",
+              "links": [
+                {
+                  "title": "活用シーン",
+                  "href": "/use-cases"
+                },
+                {
+                  "title": "機能から探す",
+                  "href": "/capabilities"
+                }
+              ]
+            }
+          ],
+          "kind": "page",
+          "label": "状態と履歴",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/capabilities/integrations",
+          "title": "外部サービスとの接点",
+          "summary": "クラウド、メール、ドメインなどの連携部品。必要な権限と操作の範囲を明確にします。",
+          "sections": [
+            {
+              "title": "こんなときに",
+              "text": "目的と扱う情報を整理し、必要な機能から小さく組み合わせます。",
+              "links": [
+                {
+                  "title": "使い方を確認する",
+                  "href": "/docs/getting-started"
+                }
+              ]
+            },
+            {
+              "title": "次に進む",
+              "text": "使い方や関連するテーマを、ガイドで確認できます。",
+              "links": [
+                {
+                  "title": "活用シーン",
+                  "href": "/use-cases"
+                },
+                {
+                  "title": "機能から探す",
+                  "href": "/capabilities"
+                }
+              ]
+            }
+          ],
+          "kind": "page",
+          "label": "外部サービスとの接点",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/use-cases",
+          "title": "使う場面から、考える。",
+          "summary": "目的に合わせて、情報の扱いと道具の選び方を整理します。",
+          "sections": [
+            {
+              "title": "データと文書",
+              "text": "表示のためのデータ構成から文書の解析・変換まで。情報のかたちに合わせて道具を選びます。",
+              "links": [
+                {
+                  "title": "機能を見る",
+                  "href": "/capabilities/data-documents",
+                  "icon": "/brand/icons/layers.svg"
+                }
+              ]
+            },
+            {
+              "title": "状態と履歴",
+              "text": "グラフ構造と変更履歴を扱う基盤。データの関係と更新をアプリケーションの設計につなぎます。",
+              "links": [
+                {
+                  "title": "機能を見る",
+                  "href": "/capabilities/state-history",
+                  "icon": "/brand/icons/flow.svg"
+                }
+              ]
+            },
+            {
+              "title": "外部サービスとの接点",
+              "text": "クラウド、メール、ドメインなどの連携部品。必要な権限と操作の範囲を明確にします。",
+              "links": [
+                {
+                  "title": "機能を見る",
+                  "href": "/capabilities/integrations",
+                  "icon": "/brand/icons/cloud.svg"
+                }
+              ]
+            }
+          ],
+          "kind": "page",
+          "label": "使う場面から、考える。",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/oss",
+          "title": "目的に合った部品を探す",
+          "summary": "カテゴリとキーワードから、公開ライブラリとソースを探せます。",
+          "sections": [],
+          "kind": "catalog",
+          "label": "目的に合った部品を探す",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/docs",
+          "title": "ガイドとドキュメント",
+          "summary": "目的に合わせて、使い方と設計の考え方を確認できます。",
+          "sections": [
+            {
+              "title": "はじめの一歩",
+              "text": "目的を確認し、必要な機能から始めましょう。",
+              "links": [
+                {
+                  "title": "導入ガイド",
+                  "href": "/docs/getting-started"
+                },
+                {
+                  "title": "安全に使うために",
+                  "href": "/security"
+                }
+              ]
+            }
+          ],
+          "kind": "page",
+          "label": "ガイドとドキュメント",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/docs/getting-started",
+          "title": "はじめる前に、道筋をつかむ。",
+          "summary": "機能、使う場面、データの扱いを確認するためのガイドです。",
+          "sections": [
+            {
+              "title": "目的を選ぶ",
+              "text": "取り組む内容を機能や用途のページで確認します。",
+              "links": [
+                {
+                  "title": "機能から探す",
+                  "href": "/capabilities"
+                }
+              ]
+            },
+            {
+              "title": "利用条件を確認する",
+              "text": "導入するソフトウェアの対応環境、ライセンス、提供版を確認してください。",
+              "links": []
+            }
+          ],
+          "kind": "page",
+          "label": "はじめる前に、道筋をつかむ。",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/journal",
+          "title": "考え方と、実践の記録。",
+          "summary": "設計、開発、AI活用のテーマから、読みものをお届けします。",
+          "sections": [
+            {
+              "title": "テーマから読む",
+              "text": "記事と合わせて、関連するガイドもご覧いただけます。",
+              "links": [
+                {
+                  "title": "設計と使い方",
+                  "href": "/docs"
+                },
+                {
+                  "title": "情報の扱い",
+                  "href": "/security"
+                }
+              ]
+            }
+          ],
+          "kind": "journal",
+          "label": "考え方と、実践の記録。",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/privacy",
+          "title": "プライバシー",
+          "summary": "このサイトで扱う情報について。",
+          "sections": [
+            {
+              "title": "閲覧時の情報",
+              "text": "このサイトは静的なページを配信します。配信とセキュリティのため、配信事業者がIPアドレスなどの通信情報を処理します。独自のアクセス解析やログイン機能は設置していません。",
+              "links": []
+            },
+            {
+              "title": "外部サイト",
+              "text": "外部リンク先では、それぞれのプライバシー方針をご確認ください。",
+              "links": []
+            }
+          ],
+          "kind": "page",
+          "label": "プライバシー",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/security",
+          "title": "安心して使うために。",
+          "summary": "情報と操作の範囲を確かめるための基本的な考え方。",
+          "sections": [
+            {
+              "title": "秘密情報を共有しない",
+              "text": "公開のIssueや問い合わせに、パスワード、トークン、個人情報を記載しないでください。",
+              "links": []
+            },
+            {
+              "title": "操作の前に確認する",
+              "text": "対象と権限を確かめ、必要な範囲だけを許可してください。製品ごとの利用ガイドとセキュリティ方針も確認してください。",
+              "links": []
+            }
+          ],
+          "kind": "page",
+          "label": "安心して使うために。",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/sitemap",
+          "title": "サイトマップ",
+          "summary": "ページを一覧から探す。",
+          "sections": [],
+          "kind": "page",
+          "label": "サイトマップ",
+          "category": "",
+          "status": "published"
+        }
+      ],
+      "resources": [
+        {
+          "title": "zixcel-imap",
+          "summary": "Check a IMAP mail integration configuration and produce a plan before implementing or enabling the connection.",
+          "href": "https://github.com/zixcel/zixcel-imap",
+          "category": "データと文書",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "data-presentation",
+          "summary": "表示データの構築・更新・配信を機能単位で利用する基盤。",
+          "href": "https://github.com/zixcel/data-presentation",
+          "category": "データと文書",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "document-processing",
+          "summary": "文書の解析・構造化・変換を扱う汎用モノレポ。",
+          "href": "https://github.com/zixcel/document-processing",
+          "category": "データと文書",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-apple",
+          "summary": "apple の対象と要求内容をprepare/approve/executeで束縛し、読み書きを扱うSDK。現在の受入はfake HTTPで、実accountの検証は後続です。",
+          "href": "https://github.com/zixcel/zixcel-apple",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-microsoft",
+          "summary": "microsoft の対象と要求内容をprepare/approve/executeで束縛し、読み書きを扱うSDK。現在の受入はfake HTTPで、実accountの検証は後続です。",
+          "href": "https://github.com/zixcel/zixcel-microsoft",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-google",
+          "summary": "google の対象と要求内容をprepare/approve/executeで束縛し、読み書きを扱うSDK。現在の受入はfake HTTPで、実accountの検証は後続です。",
+          "href": "https://github.com/zixcel/zixcel-google",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-cloudflare",
+          "summary": "cloudflare の対象と要求内容をprepare/approve/executeで束縛し、読み書きを扱うSDK。現在の受入はfake HTTPで、実accountの検証は後続です。",
+          "href": "https://github.com/zixcel/zixcel-cloudflare",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-azure",
+          "summary": "azure の対象と要求内容をprepare/approve/executeで束縛し、読み書きを扱うSDK。現在の受入はfake HTTPで、実accountの検証は後続です。",
+          "href": "https://github.com/zixcel/zixcel-azure",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-contracts",
+          "summary": "Give integrations a shared vocabulary for requests and results so callers can validate service boundaries.",
+          "href": "https://github.com/zixcel/zixcel-contracts",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "japan-administrative-areas",
+          "summary": "Exact Japanese subdivision codes and names without product role policy",
+          "href": "https://github.com/zixcel/japan-administrative-areas",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-source-evidence",
+          "summary": "Index source observations and query evidence tied to a specific source revision.",
+          "href": "https://github.com/zixcel/zixcel-source-evidence",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "devino",
+          "summary": "Experiment with model conversion and local inference setup before adopting a verified feature in another tool.",
+          "href": "https://github.com/zixcel/devino",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-revision",
+          "summary": "Retain immutable revisions and detect conflicting updates when an operation is retried.",
+          "href": "https://github.com/zixcel/zixcel-revision",
+          "category": "状態と情報構造",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-graph",
+          "summary": "Store a reviewed set of relationships as an exact snapshot and update it with revision checks.",
+          "href": "https://github.com/zixcel/zixcel-graph",
+          "category": "状態と情報構造",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-github",
+          "summary": "Build and validate typed GitHub requests for repository observation and explicitly enabled operations.",
+          "href": "https://github.com/zixcel/zixcel-github",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-site",
+          "summary": "Explain integration contracts, package responsibilities and adoption choices.",
+          "href": "https://github.com/zixcel/zixcel-site",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-topology-api",
+          "summary": "Serve a bounded metadata view of registered service, organization and deployment relationships.",
+          "href": "https://github.com/zixcel/zixcel-topology-api",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-local-inference",
+          "summary": "Prepare and verify local model artifacts before a caller starts a managed inference runtime.",
+          "href": "https://github.com/zixcel/zixcel-local-inference",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-owner-recovery",
+          "summary": "Coordinate explicit owner-recovery and device-transfer steps without taking ownership of account records.",
+          "href": "https://github.com/zixcel/zixcel-owner-recovery",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-version-control",
+          "summary": "Read the state of a local version-control workspace for a caller that needs change evidence.",
+          "href": "https://github.com/zixcel/zixcel-version-control",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-webauthn",
+          "summary": "Build WebAuthn ceremony options and interpret browser evidence for a caller-owned identity flow.",
+          "href": "https://github.com/zixcel/zixcel-webauthn",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-github-auth",
+          "summary": "Add GitHub Device Flow to an application using an explicit public client registration.",
+          "href": "https://github.com/zixcel/zixcel-github-auth",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-domain-structure",
+          "summary": "Split a DNS name into a useful hierarchy while respecting public and private suffix rules.",
+          "href": "https://github.com/zixcel/zixcel-domain-structure",
+          "category": "状態と情報構造",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-interaction",
+          "summary": "Describe resource reads, actions and state changes with typed requests and explicit results.",
+          "href": "https://github.com/zixcel/zixcel-interaction",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-aws",
+          "summary": "Prepare bounded AWS operations and signing requests without making secrets part of the public contract.",
+          "href": "https://github.com/zixcel/zixcel-aws",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-openai-auth",
+          "summary": "Compose OpenAI account authorization through an injected transport and explicit validation boundaries.",
+          "href": "https://github.com/zixcel/zixcel-openai-auth",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-mcp-gateway",
+          "summary": "Expose reviewed metadata through a validated, bounded MCP interface.",
+          "href": "https://github.com/zixcel/zixcel-mcp-gateway",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-local-registry",
+          "summary": "Validate imported artifacts and record where they may be distributed and what publication evidence exists.",
+          "href": "https://github.com/zixcel/zixcel-local-registry",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-line",
+          "summary": "Check a LINE metadata integration configuration and produce a plan before implementing or enabling the connection.",
+          "href": "https://github.com/zixcel/zixcel-line",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-cost",
+          "summary": "Calculate an inference-cost estimate from explicit usage and price inputs.",
+          "href": "https://github.com/zixcel/zixcel-cost",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "intel-gpu-wsl-advisor",
+          "summary": "Check an Intel GPU and WSL environment and see which setup requirements need attention.",
+          "href": "https://github.com/zixcel/intel-gpu-wsl-advisor",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-repository-security",
+          "summary": "Check a source tree for secrets and information that should not be published before sharing it.",
+          "href": "https://github.com/zixcel/zixcel-repository-security",
+          "category": "外部連携",
+          "license": "Apache-2.0"
+        }
+      ],
+      "icon": "/brand/icon.png"
+    },
+    "en": {
+      "brand": "Zixcel",
+      "caption": "",
+      "origin": "https://zixcel.com",
+      "locale": "en",
+      "accent": "#0866cd",
+      "navigation": [
+        {
+          "title": "Explore capabilities",
+          "href": "/capabilities"
+        },
+        {
+          "title": "Use cases",
+          "href": "/use-cases"
+        },
+        {
+          "title": "Libraries",
+          "href": "/oss"
+        },
+        {
+          "title": "Docs",
+          "href": "/docs"
+        },
+        {
+          "title": "Journal",
+          "href": "/journal"
+        }
+      ],
+      "pages": [
+        {
+          "path": "/",
+          "title": "Turn data into\nuseful tools.",
+          "summary": "Build with focused foundations for documents, information structures and external services.",
+          "sections": [
+            {
+              "title": "Find your next step.",
+              "text": "Explore capabilities and guides by the work you want to do.",
+              "links": [
+                {
+                  "title": "Data and documents",
+                  "href": "/capabilities/data-documents",
+                  "summary": "Choose tools for presentation data, document parsing and transformation.",
+                  "icon": "/brand/icons/layers.svg"
+                },
+                {
+                  "title": "State and history",
+                  "href": "/capabilities/state-history",
+                  "summary": "Use graph structures and revision history as foundations for application data.",
+                  "icon": "/brand/icons/flow.svg"
+                },
+                {
+                  "title": "External services",
+                  "href": "/capabilities/integrations",
+                  "summary": "Connect cloud, mail and domain workflows with explicit permissions and operation boundaries.",
+                  "icon": "/brand/icons/cloud.svg"
+                }
+              ]
+            },
+            {
+              "title": "Explore the possibilities",
+              "text": "Find a workflow and the tools that fit your use case.",
+              "links": [
+                {
+                  "title": "Explore use cases",
+                  "href": "/use-cases"
+                },
+                {
+                  "title": "Read the guides",
+                  "href": "/docs"
+                }
+              ]
+            }
+          ],
+          "kind": "home",
+          "label": "Zixcel",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/capabilities",
+          "title": "Explore capabilities",
+          "summary": "Build with focused foundations for documents, information structures and external services.",
+          "sections": [
+            {
+              "title": "Data and documents",
+              "text": "Choose tools for presentation data, document parsing and transformation.",
+              "links": [
+                {
+                  "title": "Explore the capability",
+                  "href": "/capabilities/data-documents",
+                  "icon": "/brand/icons/layers.svg"
+                }
+              ]
+            },
+            {
+              "title": "State and history",
+              "text": "Use graph structures and revision history as foundations for application data.",
+              "links": [
+                {
+                  "title": "Explore the capability",
+                  "href": "/capabilities/state-history",
+                  "icon": "/brand/icons/flow.svg"
+                }
+              ]
+            },
+            {
+              "title": "External services",
+              "text": "Connect cloud, mail and domain workflows with explicit permissions and operation boundaries.",
+              "links": [
+                {
+                  "title": "Explore the capability",
+                  "href": "/capabilities/integrations",
+                  "icon": "/brand/icons/cloud.svg"
+                }
+              ]
+            }
+          ],
+          "kind": "page",
+          "label": "Explore capabilities",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/capabilities/data-documents",
+          "title": "Data and documents",
+          "summary": "Choose tools for presentation data, document parsing and transformation.",
+          "sections": [
+            {
+              "title": "When to use it",
+              "text": "Start with the information and outcome you need, then combine focused capabilities.",
+              "links": [
+                {
+                  "title": "Read the guide",
+                  "href": "/docs/getting-started"
+                }
+              ]
+            },
+            {
+              "title": "Next steps",
+              "text": "Explore the guides and related topics.",
+              "links": [
+                {
+                  "title": "Use cases",
+                  "href": "/use-cases"
+                },
+                {
+                  "title": "Explore capabilities",
+                  "href": "/capabilities"
+                }
+              ]
+            }
+          ],
+          "kind": "page",
+          "label": "Data and documents",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/capabilities/state-history",
+          "title": "State and history",
+          "summary": "Use graph structures and revision history as foundations for application data.",
+          "sections": [
+            {
+              "title": "When to use it",
+              "text": "Start with the information and outcome you need, then combine focused capabilities.",
+              "links": [
+                {
+                  "title": "Read the guide",
+                  "href": "/docs/getting-started"
+                }
+              ]
+            },
+            {
+              "title": "Next steps",
+              "text": "Explore the guides and related topics.",
+              "links": [
+                {
+                  "title": "Use cases",
+                  "href": "/use-cases"
+                },
+                {
+                  "title": "Explore capabilities",
+                  "href": "/capabilities"
+                }
+              ]
+            }
+          ],
+          "kind": "page",
+          "label": "State and history",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/capabilities/integrations",
+          "title": "External services",
+          "summary": "Connect cloud, mail and domain workflows with explicit permissions and operation boundaries.",
+          "sections": [
+            {
+              "title": "When to use it",
+              "text": "Start with the information and outcome you need, then combine focused capabilities.",
+              "links": [
+                {
+                  "title": "Read the guide",
+                  "href": "/docs/getting-started"
+                }
+              ]
+            },
+            {
+              "title": "Next steps",
+              "text": "Explore the guides and related topics.",
+              "links": [
+                {
+                  "title": "Use cases",
+                  "href": "/use-cases"
+                },
+                {
+                  "title": "Explore capabilities",
+                  "href": "/capabilities"
+                }
+              ]
+            }
+          ],
+          "kind": "page",
+          "label": "External services",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/use-cases",
+          "title": "Start with the work.",
+          "summary": "Explore approaches to organizing information and selecting tools.",
+          "sections": [
+            {
+              "title": "Data and documents",
+              "text": "Choose tools for presentation data, document parsing and transformation.",
+              "links": [
+                {
+                  "title": "Explore the capability",
+                  "href": "/capabilities/data-documents",
+                  "icon": "/brand/icons/layers.svg"
+                }
+              ]
+            },
+            {
+              "title": "State and history",
+              "text": "Use graph structures and revision history as foundations for application data.",
+              "links": [
+                {
+                  "title": "Explore the capability",
+                  "href": "/capabilities/state-history",
+                  "icon": "/brand/icons/flow.svg"
+                }
+              ]
+            },
+            {
+              "title": "External services",
+              "text": "Connect cloud, mail and domain workflows with explicit permissions and operation boundaries.",
+              "links": [
+                {
+                  "title": "Explore the capability",
+                  "href": "/capabilities/integrations",
+                  "icon": "/brand/icons/cloud.svg"
+                }
+              ]
+            }
+          ],
+          "kind": "page",
+          "label": "Start with the work.",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/oss",
+          "title": "Find the right building blocks",
+          "summary": "Browse public libraries and source by category and keyword.",
+          "sections": [],
+          "kind": "catalog",
+          "label": "Find the right building blocks",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/docs",
+          "title": "Guides and documentation",
+          "summary": "Explore usage guides and design principles.",
+          "sections": [
+            {
+              "title": "Getting started",
+              "text": "Start with your goal and the capabilities you need.",
+              "links": [
+                {
+                  "title": "Getting started",
+                  "href": "/docs/getting-started"
+                },
+                {
+                  "title": "Security guide",
+                  "href": "/security"
+                }
+              ]
+            }
+          ],
+          "kind": "page",
+          "label": "Guides and documentation",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/docs/getting-started",
+          "title": "Find a path before getting started.",
+          "summary": "A guide to capabilities, use cases and data boundaries.",
+          "sections": [
+            {
+              "title": "Choose a goal",
+              "text": "Explore the capability or use-case pages for the work you have in mind.",
+              "links": [
+                {
+                  "title": "Explore capabilities",
+                  "href": "/capabilities"
+                }
+              ]
+            },
+            {
+              "title": "Review usage conditions",
+              "text": "Check the supported environment, license and available release of the software you select.",
+              "links": []
+            }
+          ],
+          "kind": "page",
+          "label": "Find a path before getting started.",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/journal",
+          "title": "Ideas and practice.",
+          "summary": "Writing about design, development and the thoughtful use of AI.",
+          "sections": [
+            {
+              "title": "Explore by topic",
+              "text": "Explore the related guides while new stories are being prepared.",
+              "links": [
+                {
+                  "title": "Design and usage",
+                  "href": "/docs"
+                },
+                {
+                  "title": "Information boundaries",
+                  "href": "/security"
+                }
+              ]
+            }
+          ],
+          "kind": "journal",
+          "label": "Ideas and practice.",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/privacy",
+          "title": "Privacy",
+          "summary": "How information is handled on this site.",
+          "sections": [
+            {
+              "title": "Browsing information",
+              "text": "This site serves static pages. The hosting provider processes connection information, including IP addresses, for delivery and security. No site-operated analytics or login is installed.",
+              "links": []
+            },
+            {
+              "title": "External sites",
+              "text": "External sites have their own privacy policies.",
+              "links": []
+            }
+          ],
+          "kind": "page",
+          "label": "Privacy",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/security",
+          "title": "Use tools with confidence.",
+          "summary": "Principles for understanding information and operation boundaries.",
+          "sections": [
+            {
+              "title": "Protect credentials",
+              "text": "Do not include passwords, tokens or personal data in public issues or inquiries.",
+              "links": []
+            },
+            {
+              "title": "Review before operating",
+              "text": "Check targets and permissions and authorize only what is needed. Review the guide and security policy for each product.",
+              "links": []
+            }
+          ],
+          "kind": "page",
+          "label": "Use tools with confidence.",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/sitemap",
+          "title": "Sitemap",
+          "summary": "Find a page by name.",
+          "sections": [],
+          "kind": "page",
+          "label": "Sitemap",
+          "category": "",
+          "status": "published"
+        }
+      ],
+      "resources": [
+        {
+          "title": "zixcel-imap",
+          "summary": "Check a IMAP mail integration configuration and produce a plan before implementing or enabling the connection.",
+          "href": "https://github.com/zixcel/zixcel-imap",
+          "category": "Data and documents",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "data-presentation",
+          "summary": "Build, update and deliver presentation data through feature-scoped packages.",
+          "href": "https://github.com/zixcel/data-presentation",
+          "category": "Data and documents",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "document-processing",
+          "summary": "A generic workspace for document parsing, structure and output.",
+          "href": "https://github.com/zixcel/document-processing",
+          "category": "Data and documents",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-apple",
+          "summary": "Prepare, approve and execute account-bound apple reads and writes. Current acceptance uses fake HTTP; live account acceptance is separate.",
+          "href": "https://github.com/zixcel/zixcel-apple",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-microsoft",
+          "summary": "Prepare, approve and execute account-bound microsoft reads and writes. Current acceptance uses fake HTTP; live account acceptance is separate.",
+          "href": "https://github.com/zixcel/zixcel-microsoft",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-google",
+          "summary": "Prepare, approve and execute account-bound google reads and writes. Current acceptance uses fake HTTP; live account acceptance is separate.",
+          "href": "https://github.com/zixcel/zixcel-google",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-cloudflare",
+          "summary": "Prepare, approve and execute account-bound cloudflare reads and writes. Current acceptance uses fake HTTP; live account acceptance is separate.",
+          "href": "https://github.com/zixcel/zixcel-cloudflare",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-azure",
+          "summary": "Prepare, approve and execute account-bound azure reads and writes. Current acceptance uses fake HTTP; live account acceptance is separate.",
+          "href": "https://github.com/zixcel/zixcel-azure",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-contracts",
+          "summary": "Give integrations a shared vocabulary for requests and results so callers can validate service boundaries.",
+          "href": "https://github.com/zixcel/zixcel-contracts",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "japan-administrative-areas",
+          "summary": "Exact Japanese subdivision codes and names without product role policy",
+          "href": "https://github.com/zixcel/japan-administrative-areas",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-source-evidence",
+          "summary": "Index source observations and query evidence tied to a specific source revision.",
+          "href": "https://github.com/zixcel/zixcel-source-evidence",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "devino",
+          "summary": "Experiment with model conversion and local inference setup before adopting a verified feature in another tool.",
+          "href": "https://github.com/zixcel/devino",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-revision",
+          "summary": "Retain immutable revisions and detect conflicting updates when an operation is retried.",
+          "href": "https://github.com/zixcel/zixcel-revision",
+          "category": "State and structures",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-graph",
+          "summary": "Store a reviewed set of relationships as an exact snapshot and update it with revision checks.",
+          "href": "https://github.com/zixcel/zixcel-graph",
+          "category": "State and structures",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-github",
+          "summary": "Build and validate typed GitHub requests for repository observation and explicitly enabled operations.",
+          "href": "https://github.com/zixcel/zixcel-github",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-site",
+          "summary": "Explain integration contracts, package responsibilities and adoption choices.",
+          "href": "https://github.com/zixcel/zixcel-site",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-topology-api",
+          "summary": "Serve a bounded metadata view of registered service, organization and deployment relationships.",
+          "href": "https://github.com/zixcel/zixcel-topology-api",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-local-inference",
+          "summary": "Prepare and verify local model artifacts before a caller starts a managed inference runtime.",
+          "href": "https://github.com/zixcel/zixcel-local-inference",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-owner-recovery",
+          "summary": "Coordinate explicit owner-recovery and device-transfer steps without taking ownership of account records.",
+          "href": "https://github.com/zixcel/zixcel-owner-recovery",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-version-control",
+          "summary": "Read the state of a local version-control workspace for a caller that needs change evidence.",
+          "href": "https://github.com/zixcel/zixcel-version-control",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-webauthn",
+          "summary": "Build WebAuthn ceremony options and interpret browser evidence for a caller-owned identity flow.",
+          "href": "https://github.com/zixcel/zixcel-webauthn",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-github-auth",
+          "summary": "Add GitHub Device Flow to an application using an explicit public client registration.",
+          "href": "https://github.com/zixcel/zixcel-github-auth",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-domain-structure",
+          "summary": "Split a DNS name into a useful hierarchy while respecting public and private suffix rules.",
+          "href": "https://github.com/zixcel/zixcel-domain-structure",
+          "category": "State and structures",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-interaction",
+          "summary": "Describe resource reads, actions and state changes with typed requests and explicit results.",
+          "href": "https://github.com/zixcel/zixcel-interaction",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-aws",
+          "summary": "Prepare bounded AWS operations and signing requests without making secrets part of the public contract.",
+          "href": "https://github.com/zixcel/zixcel-aws",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-openai-auth",
+          "summary": "Compose OpenAI account authorization through an injected transport and explicit validation boundaries.",
+          "href": "https://github.com/zixcel/zixcel-openai-auth",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-mcp-gateway",
+          "summary": "Expose reviewed metadata through a validated, bounded MCP interface.",
+          "href": "https://github.com/zixcel/zixcel-mcp-gateway",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-local-registry",
+          "summary": "Validate imported artifacts and record where they may be distributed and what publication evidence exists.",
+          "href": "https://github.com/zixcel/zixcel-local-registry",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-line",
+          "summary": "Check a LINE metadata integration configuration and produce a plan before implementing or enabling the connection.",
+          "href": "https://github.com/zixcel/zixcel-line",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-cost",
+          "summary": "Calculate an inference-cost estimate from explicit usage and price inputs.",
+          "href": "https://github.com/zixcel/zixcel-cost",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "intel-gpu-wsl-advisor",
+          "summary": "Check an Intel GPU and WSL environment and see which setup requirements need attention.",
+          "href": "https://github.com/zixcel/intel-gpu-wsl-advisor",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        },
+        {
+          "title": "zixcel-repository-security",
+          "summary": "Check a source tree for secrets and information that should not be published before sharing it.",
+          "href": "https://github.com/zixcel/zixcel-repository-security",
+          "category": "Integrations",
+          "license": "Apache-2.0"
+        }
+      ],
+      "icon": "/brand/icon.png"
+    }
+  }
+}
