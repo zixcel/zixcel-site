@@ -17,7 +17,8 @@
       "siteConfig": "sites/zixcel/site.config.json",
       "appDirectory": ".",
       "assetDirectory": ".output/zixcel/public",
-      "buildKind": "organization"
+      "buildKind": "organization",
+      "zone": "c621fc85a4c1c9684ed3edc5e0efe211"
     }
   ]
 }
