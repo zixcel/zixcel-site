@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "site": "zixcel",
+  "source_file": "exec-831a0f3d-e992-4075-a2fe-ee5e754d2516.png",
+  "sha256": "65251db42e63423603290b3edd2d41a9599b0016a04b33e774913b31acc4cc9b",
+  "artwork": "User-provided generated artwork, copied without alteration",
+  "theme": {
+    "accent": "#0866cd",
+    "paper": "#f4f8ff",
+    "ink": "#102d46"
+  }
+}
