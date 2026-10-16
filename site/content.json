@@ -84,38 +84,145 @@
         {
           "path": "/capabilities",
           "title": "機能から探す",
-          "summary": "文書、情報構造、外部サービス。アプリケーションに必要な基盤を、目的に合った部品から組み立てる。",
+          "summary": "目的から機能を選び、対応するリポジトリと導入手順へ進めます。",
           "sections": [
             {
               "title": "データと文書",
-              "text": "表示のためのデータ構成から文書の解析・変換まで。情報のかたちに合わせて道具を選びます。",
+              "text": "表示データの構築と、文書の解析・構造化・変換。",
               "links": [
                 {
-                  "title": "詳しく読む",
-                  "href": "/capabilities/data-documents",
-                  "icon": "/brand/icons/layers.svg"
+                  "title": "対応ライブラリと使い方",
+                  "href": "/capabilities/data-documents"
+                },
+                {
+                  "title": "data-presentation",
+                  "href": "https://github.com/zixcel/data-presentation",
+                  "summary": "表示データの構築・更新・配信を機能単位で利用する基盤。"
+                },
+                {
+                  "title": "document-processing",
+                  "href": "https://github.com/zixcel/document-processing",
+                  "summary": "文書の解析・構造化・変換を扱う汎用モノレポ。"
                 }
               ]
             },
             {
-              "title": "状態と履歴",
-              "text": "グラフ構造と変更履歴を扱う基盤。データの関係と更新をアプリケーションの設計につなぎます。",
+              "title": "状態と情報構造",
+              "text": "グラフ、変更履歴、ドメイン名の階層を扱う基盤。",
               "links": [
                 {
-                  "title": "詳しく読む",
-                  "href": "/capabilities/state-history",
-                  "icon": "/brand/icons/flow.svg"
+                  "title": "対応ライブラリと使い方",
+                  "href": "/capabilities/state-history"
+                },
+                {
+                  "title": "zixcel-graph",
+                  "href": "https://github.com/zixcel/zixcel-graph",
+                  "summary": "データ間の関係をスナップショットで保存し、変更の競合を検出する。"
+                },
+                {
+                  "title": "zixcel-revision",
+                  "href": "https://github.com/zixcel/zixcel-revision",
+                  "summary": "不変の変更履歴を保持し、更新や再試行の整合性を確認する。"
                 }
               ]
             },
             {
-              "title": "外部サービスとの接点",
-              "text": "クラウド、メール、ドメインなどの連携部品。必要な権限と操作の範囲を明確にします。",
+              "title": "外部サービス連携",
+              "text": "クラウド、GitHub、ドメイン、メールの操作要求と接続設定を扱う。",
               "links": [
                 {
-                  "title": "詳しく読む",
-                  "href": "/capabilities/integrations",
-                  "icon": "/brand/icons/cloud.svg"
+                  "title": "対応ライブラリと使い方",
+                  "href": "/capabilities/integrations"
+                },
+                {
+                  "title": "zixcel-domain",
+                  "href": "https://github.com/zixcel/zixcel-domain",
+                  "summary": "ValueDomainのドメイン一覧、DNSの確認とCloudflareへの変更計画を扱うライブラリ・CLI。"
+                },
+                {
+                  "title": "zixcel-cloudflare",
+                  "href": "https://github.com/zixcel/zixcel-cloudflare",
+                  "summary": "Cloudflare向けの操作要求を、対象・権限・入力を明示して組み立てる。"
+                }
+              ]
+            },
+            {
+              "title": "認証とアカウント",
+              "text": "認証フロー、WebAuthn、アカウント復旧を利用アプリに組み込む。",
+              "links": [
+                {
+                  "title": "対応ライブラリと使い方",
+                  "href": "/capabilities/identity"
+                },
+                {
+                  "title": "zixcel-github-auth",
+                  "href": "https://github.com/zixcel/zixcel-github-auth",
+                  "summary": "GitHub Device Flowを、明示したクライアント登録に沿って組み込む。"
+                },
+                {
+                  "title": "zixcel-openai-auth",
+                  "href": "https://github.com/zixcel/zixcel-openai-auth",
+                  "summary": "外部から渡した通信手段で、OpenAIの認証フローを組み立てる。"
+                }
+              ]
+            },
+            {
+              "title": "ローカルAI",
+              "text": "推論環境の確認、モデルの準備、変換の実験と費用見積もり。",
+              "links": [
+                {
+                  "title": "対応ライブラリと使い方",
+                  "href": "/capabilities/local-ai"
+                },
+                {
+                  "title": "zixcel-local-inference",
+                  "href": "https://github.com/zixcel/zixcel-local-inference",
+                  "summary": "利用側が推論を開始する前に、ローカルモデルの配布物を準備・検査する。"
+                },
+                {
+                  "title": "devino",
+                  "href": "https://github.com/zixcel/devino",
+                  "summary": "モデル変換やローカル推論の構成を試すための実験用ツール。"
+                }
+              ]
+            },
+            {
+              "title": "アプリ連携の基盤",
+              "text": "操作やサービスの関係、公開メタデータを構造化してアプリへ渡す。",
+              "links": [
+                {
+                  "title": "対応ライブラリと使い方",
+                  "href": "/capabilities/interaction"
+                },
+                {
+                  "title": "zixcel-contracts",
+                  "href": "https://github.com/zixcel/zixcel-contracts",
+                  "summary": "要求・結果・サービス境界を検査するための共通の型を提供する。"
+                },
+                {
+                  "title": "zixcel-interaction",
+                  "href": "https://github.com/zixcel/zixcel-interaction",
+                  "summary": "リソースの読取・操作・状態変更を、型付きの要求と結果で表す。"
+                }
+              ]
+            },
+            {
+              "title": "開発と配布の道具",
+              "text": "ソースの証跡、変更確認、公開前検査と配布物の管理。",
+              "links": [
+                {
+                  "title": "対応ライブラリと使い方",
+                  "href": "/capabilities/developer-tools"
+                },
+                {
+                  "title": "zixcel-source-evidence",
+                  "href": "https://github.com/zixcel/zixcel-source-evidence",
+                  "summary": "ソースの観測情報をリビジョンと結び付け、根拠を検索する。"
+                },
+                {
+                  "title": "zixcel-version-control",
+                  "href": "https://github.com/zixcel/zixcel-version-control",
+                  "summary": "ローカルのバージョン管理状態を読み取り、変更の根拠を得る。"
                 }
               ]
             }
@@ -128,29 +235,49 @@
         {
           "path": "/capabilities/data-documents",
           "title": "データと文書",
-          "summary": "表示のためのデータ構成から文書の解析・変換まで。情報のかたちに合わせて道具を選びます。",
+          "summary": "表示データの構築と、文書の解析・構造化・変換。",
           "sections": [
             {
-              "title": "こんなときに",
-              "text": "目的と扱う情報を整理し、必要な機能から小さく組み合わせます。",
+              "title": "対応するリポジトリ",
+              "text": "用途に合う実装を選び、ソースとREADMEの導入手順を確認できます。",
               "links": [
                 {
-                  "title": "使い方を確認する",
-                  "href": "/docs/getting-started"
+                  "title": "data-presentation",
+                  "href": "https://github.com/zixcel/data-presentation",
+                  "summary": "表示データの構築・更新・配信を機能単位で利用する基盤。"
+                },
+                {
+                  "title": "document-processing",
+                  "href": "https://github.com/zixcel/document-processing",
+                  "summary": "文書の解析・構造化・変換を扱う汎用モノレポ。"
                 }
               ]
             },
             {
-              "title": "次に進む",
-              "text": "使い方や関連するテーマを、ガイドで確認できます。",
+              "title": "導入手順を読む",
+              "text": "必要な環境・API・利用例は、各リポジトリのREADMEで確認できます。",
               "links": [
                 {
-                  "title": "活用シーン",
-                  "href": "/use-cases"
+                  "title": "data-presentation — README",
+                  "href": "https://github.com/zixcel/data-presentation/blob/main/README.md"
                 },
+                {
+                  "title": "document-processing — README",
+                  "href": "https://github.com/zixcel/document-processing/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "ほかの機能を探す",
+              "text": "関連する機能とライブラリもご覧ください。",
+              "links": [
                 {
                   "title": "機能から探す",
                   "href": "/capabilities"
+                },
+                {
+                  "title": "ライブラリ一覧",
+                  "href": "/oss"
                 }
               ]
             }
@@ -162,71 +289,164 @@
         },
         {
           "path": "/capabilities/state-history",
-          "title": "状態と履歴",
-          "summary": "グラフ構造と変更履歴を扱う基盤。データの関係と更新をアプリケーションの設計につなぎます。",
+          "title": "状態と情報構造",
+          "summary": "グラフ、変更履歴、ドメイン名の階層を扱う基盤。",
           "sections": [
             {
-              "title": "こんなときに",
-              "text": "目的と扱う情報を整理し、必要な機能から小さく組み合わせます。",
+              "title": "対応するリポジトリ",
+              "text": "用途に合う実装を選び、ソースとREADMEの導入手順を確認できます。",
               "links": [
                 {
-                  "title": "使い方を確認する",
-                  "href": "/docs/getting-started"
+                  "title": "zixcel-graph",
+                  "href": "https://github.com/zixcel/zixcel-graph",
+                  "summary": "データ間の関係をスナップショットで保存し、変更の競合を検出する。"
+                },
+                {
+                  "title": "zixcel-revision",
+                  "href": "https://github.com/zixcel/zixcel-revision",
+                  "summary": "不変の変更履歴を保持し、更新や再試行の整合性を確認する。"
+                },
+                {
+                  "title": "zixcel-domain-structure",
+                  "href": "https://github.com/zixcel/zixcel-domain-structure",
+                  "summary": "公開・非公開サフィックスの規則に沿ってドメイン名の階層を扱う。"
                 }
               ]
             },
             {
-              "title": "次に進む",
-              "text": "使い方や関連するテーマを、ガイドで確認できます。",
+              "title": "導入手順を読む",
+              "text": "必要な環境・API・利用例は、各リポジトリのREADMEで確認できます。",
               "links": [
                 {
-                  "title": "活用シーン",
-                  "href": "/use-cases"
+                  "title": "zixcel-graph — README",
+                  "href": "https://github.com/zixcel/zixcel-graph/blob/main/README.md"
                 },
+                {
+                  "title": "zixcel-revision — README",
+                  "href": "https://github.com/zixcel/zixcel-revision/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-domain-structure — README",
+                  "href": "https://github.com/zixcel/zixcel-domain-structure/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "ほかの機能を探す",
+              "text": "関連する機能とライブラリもご覧ください。",
+              "links": [
                 {
                   "title": "機能から探す",
                   "href": "/capabilities"
+                },
+                {
+                  "title": "ライブラリ一覧",
+                  "href": "/oss"
                 }
               ]
             }
           ],
           "kind": "page",
-          "label": "状態と履歴",
+          "label": "状態と情報構造",
           "category": "",
           "status": "published"
         },
         {
           "path": "/capabilities/integrations",
-          "title": "外部サービスとの接点",
-          "summary": "クラウド、メール、ドメインなどの連携部品。必要な権限と操作の範囲を明確にします。",
+          "title": "外部サービス連携",
+          "summary": "クラウド、GitHub、ドメイン、メールの操作要求と接続設定を扱う。",
           "sections": [
             {
-              "title": "こんなときに",
-              "text": "目的と扱う情報を整理し、必要な機能から小さく組み合わせます。",
+              "title": "対応するリポジトリ",
+              "text": "用途に合う実装を選び、ソースとREADMEの導入手順を確認できます。",
               "links": [
                 {
-                  "title": "使い方を確認する",
-                  "href": "/docs/getting-started"
+                  "title": "zixcel-domain",
+                  "href": "https://github.com/zixcel/zixcel-domain",
+                  "summary": "ValueDomainのドメイン一覧、DNSの確認とCloudflareへの変更計画を扱うライブラリ・CLI。"
+                },
+                {
+                  "title": "zixcel-cloudflare",
+                  "href": "https://github.com/zixcel/zixcel-cloudflare",
+                  "summary": "Cloudflare向けの操作要求を、対象・権限・入力を明示して組み立てる。"
+                },
+                {
+                  "title": "zixcel-azure",
+                  "href": "https://github.com/zixcel/zixcel-azure",
+                  "summary": "Azure向けの操作要求を、対象・権限・入力を明示して組み立てる。"
+                },
+                {
+                  "title": "zixcel-google",
+                  "href": "https://github.com/zixcel/zixcel-google",
+                  "summary": "Google向けの操作要求を、対象・権限・入力を明示して組み立てる。"
+                },
+                {
+                  "title": "zixcel-microsoft",
+                  "href": "https://github.com/zixcel/zixcel-microsoft",
+                  "summary": "Microsoft向けの操作要求を、対象・権限・入力を明示して組み立てる。"
+                },
+                {
+                  "title": "zixcel-apple",
+                  "href": "https://github.com/zixcel/zixcel-apple",
+                  "summary": "Apple向けの操作要求を、対象・権限・入力を明示して組み立てる。"
+                },
+                {
+                  "title": "zixcel-aws",
+                  "href": "https://github.com/zixcel/zixcel-aws",
+                  "summary": "操作の対象と入力を限定し、AWS API要求や署名を組み立てる。"
+                },
+                {
+                  "title": "zixcel-github",
+                  "href": "https://github.com/zixcel/zixcel-github",
+                  "summary": "対象と権限を明示したGitHub API要求を組み立て、検査する。"
+                },
+                {
+                  "title": "zixcel-line",
+                  "href": "https://github.com/zixcel/zixcel-line",
+                  "summary": "LINE連携の設定を検査し、有効にする前の接続案を作る。"
+                },
+                {
+                  "title": "zixcel-imap",
+                  "href": "https://github.com/zixcel/zixcel-imap",
+                  "summary": "IMAP接続の設定を検査し、接続を有効にする前の変更案を作る。"
                 }
               ]
             },
             {
-              "title": "次に進む",
-              "text": "使い方や関連するテーマを、ガイドで確認できます。",
+              "title": "導入手順を読む",
+              "text": "必要な環境・API・利用例は、各リポジトリのREADMEで確認できます。",
               "links": [
                 {
-                  "title": "活用シーン",
-                  "href": "/use-cases"
+                  "title": "zixcel-domain — README",
+                  "href": "https://github.com/zixcel/zixcel-domain/blob/main/README.md"
                 },
+                {
+                  "title": "zixcel-cloudflare — README",
+                  "href": "https://github.com/zixcel/zixcel-cloudflare/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-azure — README",
+                  "href": "https://github.com/zixcel/zixcel-azure/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "ほかの機能を探す",
+              "text": "関連する機能とライブラリもご覧ください。",
+              "links": [
                 {
                   "title": "機能から探す",
                   "href": "/capabilities"
+                },
+                {
+                  "title": "ライブラリ一覧",
+                  "href": "/oss"
                 }
               ]
             }
           ],
           "kind": "page",
-          "label": "外部サービスとの接点",
+          "label": "外部サービス連携",
           "category": "",
           "status": "published"
         },
@@ -240,9 +460,8 @@
               "text": "表示のためのデータ構成から文書の解析・変換まで。情報のかたちに合わせて道具を選びます。",
               "links": [
                 {
-                  "title": "機能を見る",
-                  "href": "/capabilities/data-documents",
-                  "icon": "/brand/icons/layers.svg"
+                  "title": "実装を選ぶ：data-presentation, document-processing",
+                  "href": "/capabilities/data-documents"
                 }
               ]
             },
@@ -251,9 +470,8 @@
               "text": "グラフ構造と変更履歴を扱う基盤。データの関係と更新をアプリケーションの設計につなぎます。",
               "links": [
                 {
-                  "title": "機能を見る",
-                  "href": "/capabilities/state-history",
-                  "icon": "/brand/icons/flow.svg"
+                  "title": "実装を選ぶ：zixcel-graph, zixcel-revision",
+                  "href": "/capabilities/state-history"
                 }
               ]
             },
@@ -262,9 +480,8 @@
               "text": "クラウド、メール、ドメインなどの連携部品。必要な権限と操作の範囲を明確にします。",
               "links": [
                 {
-                  "title": "機能を見る",
-                  "href": "/capabilities/integrations",
-                  "icon": "/brand/icons/cloud.svg"
+                  "title": "実装を選ぶ：zixcel-domain, zixcel-cloudflare",
+                  "href": "/capabilities/integrations"
                 }
               ]
             }
@@ -287,19 +504,127 @@
         {
           "path": "/docs",
           "title": "ガイドとドキュメント",
-          "summary": "目的に合わせて、使い方と設計の考え方を確認できます。",
+          "summary": "機能別に、実装のREADMEと使い方を確認できます。",
           "sections": [
             {
-              "title": "はじめの一歩",
-              "text": "目的を確認し、必要な機能から始めましょう。",
+              "title": "データと文書",
+              "text": "表示データの構築と、文書の解析・構造化・変換。",
               "links": [
                 {
-                  "title": "導入ガイド",
-                  "href": "/docs/getting-started"
+                  "title": "data-presentation — README",
+                  "href": "https://github.com/zixcel/data-presentation/blob/main/README.md"
                 },
                 {
-                  "title": "安全に使うために",
-                  "href": "/security"
+                  "title": "document-processing — README",
+                  "href": "https://github.com/zixcel/document-processing/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "状態と情報構造",
+              "text": "グラフ、変更履歴、ドメイン名の階層を扱う基盤。",
+              "links": [
+                {
+                  "title": "zixcel-graph — README",
+                  "href": "https://github.com/zixcel/zixcel-graph/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-revision — README",
+                  "href": "https://github.com/zixcel/zixcel-revision/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-domain-structure — README",
+                  "href": "https://github.com/zixcel/zixcel-domain-structure/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "外部サービス連携",
+              "text": "クラウド、GitHub、ドメイン、メールの操作要求と接続設定を扱う。",
+              "links": [
+                {
+                  "title": "zixcel-domain — README",
+                  "href": "https://github.com/zixcel/zixcel-domain/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-cloudflare — README",
+                  "href": "https://github.com/zixcel/zixcel-cloudflare/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-azure — README",
+                  "href": "https://github.com/zixcel/zixcel-azure/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "認証とアカウント",
+              "text": "認証フロー、WebAuthn、アカウント復旧を利用アプリに組み込む。",
+              "links": [
+                {
+                  "title": "zixcel-github-auth — README",
+                  "href": "https://github.com/zixcel/zixcel-github-auth/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-openai-auth — README",
+                  "href": "https://github.com/zixcel/zixcel-openai-auth/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-webauthn — README",
+                  "href": "https://github.com/zixcel/zixcel-webauthn/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "ローカルAI",
+              "text": "推論環境の確認、モデルの準備、変換の実験と費用見積もり。",
+              "links": [
+                {
+                  "title": "zixcel-local-inference — README",
+                  "href": "https://github.com/zixcel/zixcel-local-inference/blob/main/README.md"
+                },
+                {
+                  "title": "devino — README",
+                  "href": "https://github.com/zixcel/devino/blob/main/README.md"
+                },
+                {
+                  "title": "intel-gpu-wsl-advisor — README",
+                  "href": "https://github.com/zixcel/intel-gpu-wsl-advisor/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "アプリ連携の基盤",
+              "text": "操作やサービスの関係、公開メタデータを構造化してアプリへ渡す。",
+              "links": [
+                {
+                  "title": "zixcel-contracts — README",
+                  "href": "https://github.com/zixcel/zixcel-contracts/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-interaction — README",
+                  "href": "https://github.com/zixcel/zixcel-interaction/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-topology-api — README",
+                  "href": "https://github.com/zixcel/zixcel-topology-api/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "開発と配布の道具",
+              "text": "ソースの証跡、変更確認、公開前検査と配布物の管理。",
+              "links": [
+                {
+                  "title": "zixcel-source-evidence — README",
+                  "href": "https://github.com/zixcel/zixcel-source-evidence/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-version-control — README",
+                  "href": "https://github.com/zixcel/zixcel-version-control/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-repository-security — README",
+                  "href": "https://github.com/zixcel/zixcel-repository-security/blob/main/README.md"
                 }
               ]
             }
@@ -315,19 +640,72 @@
           "summary": "機能、使う場面、データの扱いを確認するためのガイドです。",
           "sections": [
             {
-              "title": "目的を選ぶ",
-              "text": "取り組む内容を機能や用途のページで確認します。",
+              "title": "目的に合う実装を選ぶ",
+              "text": "機能ごとにリポジトリと使い方を確認します。",
               "links": [
                 {
-                  "title": "機能から探す",
-                  "href": "/capabilities"
+                  "title": "データと文書",
+                  "href": "/capabilities/data-documents"
+                },
+                {
+                  "title": "状態と情報構造",
+                  "href": "/capabilities/state-history"
+                },
+                {
+                  "title": "外部サービス連携",
+                  "href": "/capabilities/integrations"
+                },
+                {
+                  "title": "認証とアカウント",
+                  "href": "/capabilities/identity"
+                },
+                {
+                  "title": "ローカルAI",
+                  "href": "/capabilities/local-ai"
+                },
+                {
+                  "title": "アプリ連携の基盤",
+                  "href": "/capabilities/interaction"
+                },
+                {
+                  "title": "開発と配布の道具",
+                  "href": "/capabilities/developer-tools"
                 }
               ]
             },
             {
-              "title": "利用条件を確認する",
-              "text": "導入するソフトウェアの対応環境、ライセンス、提供版を確認してください。",
-              "links": []
+              "title": "READMEから始める",
+              "text": "環境の準備・利用例・検証コマンドを確認してから導入してください。",
+              "links": [
+                {
+                  "title": "data-presentation — README",
+                  "href": "https://github.com/zixcel/data-presentation/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-graph — README",
+                  "href": "https://github.com/zixcel/zixcel-graph/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-domain — README",
+                  "href": "https://github.com/zixcel/zixcel-domain/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-github-auth — README",
+                  "href": "https://github.com/zixcel/zixcel-github-auth/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-local-inference — README",
+                  "href": "https://github.com/zixcel/zixcel-local-inference/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-contracts — README",
+                  "href": "https://github.com/zixcel/zixcel-contracts/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-source-evidence — README",
+                  "href": "https://github.com/zixcel/zixcel-source-evidence/blob/main/README.md"
+                }
+              ]
             }
           ],
           "kind": "page",
@@ -411,14 +789,302 @@
           "label": "サイトマップ",
           "category": "",
           "status": "published"
+        },
+        {
+          "path": "/capabilities/identity",
+          "title": "認証とアカウント",
+          "summary": "認証フロー、WebAuthn、アカウント復旧を利用アプリに組み込む。",
+          "sections": [
+            {
+              "title": "対応するリポジトリ",
+              "text": "用途に合う実装を選び、ソースとREADMEの導入手順を確認できます。",
+              "links": [
+                {
+                  "title": "zixcel-github-auth",
+                  "href": "https://github.com/zixcel/zixcel-github-auth",
+                  "summary": "GitHub Device Flowを、明示したクライアント登録に沿って組み込む。"
+                },
+                {
+                  "title": "zixcel-openai-auth",
+                  "href": "https://github.com/zixcel/zixcel-openai-auth",
+                  "summary": "外部から渡した通信手段で、OpenAIの認証フローを組み立てる。"
+                },
+                {
+                  "title": "zixcel-webauthn",
+                  "href": "https://github.com/zixcel/zixcel-webauthn",
+                  "summary": "WebAuthnの認証・登録要求と、ブラウザが返す結果を扱う。"
+                },
+                {
+                  "title": "zixcel-owner-recovery",
+                  "href": "https://github.com/zixcel/zixcel-owner-recovery",
+                  "summary": "アカウント復旧と端末移行を、所有者を明示した手順で組み立てる。"
+                }
+              ]
+            },
+            {
+              "title": "導入手順を読む",
+              "text": "必要な環境・API・利用例は、各リポジトリのREADMEで確認できます。",
+              "links": [
+                {
+                  "title": "zixcel-github-auth — README",
+                  "href": "https://github.com/zixcel/zixcel-github-auth/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-openai-auth — README",
+                  "href": "https://github.com/zixcel/zixcel-openai-auth/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-webauthn — README",
+                  "href": "https://github.com/zixcel/zixcel-webauthn/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "ほかの機能を探す",
+              "text": "関連する機能とライブラリもご覧ください。",
+              "links": [
+                {
+                  "title": "機能から探す",
+                  "href": "/capabilities"
+                },
+                {
+                  "title": "ライブラリ一覧",
+                  "href": "/oss"
+                }
+              ]
+            }
+          ],
+          "kind": "page",
+          "label": "認証とアカウント",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/capabilities/local-ai",
+          "title": "ローカルAI",
+          "summary": "推論環境の確認、モデルの準備、変換の実験と費用見積もり。",
+          "sections": [
+            {
+              "title": "対応するリポジトリ",
+              "text": "用途に合う実装を選び、ソースとREADMEの導入手順を確認できます。",
+              "links": [
+                {
+                  "title": "zixcel-local-inference",
+                  "href": "https://github.com/zixcel/zixcel-local-inference",
+                  "summary": "利用側が推論を開始する前に、ローカルモデルの配布物を準備・検査する。"
+                },
+                {
+                  "title": "devino",
+                  "href": "https://github.com/zixcel/devino",
+                  "summary": "モデル変換やローカル推論の構成を試すための実験用ツール。"
+                },
+                {
+                  "title": "intel-gpu-wsl-advisor",
+                  "href": "https://github.com/zixcel/intel-gpu-wsl-advisor",
+                  "summary": "Intel GPUとWSLの環境を確認し、推論環境に必要な設定を整理する。"
+                },
+                {
+                  "title": "zixcel-cost",
+                  "href": "https://github.com/zixcel/zixcel-cost",
+                  "summary": "明示した使用量と料金から、推論の費用を見積もる。"
+                }
+              ]
+            },
+            {
+              "title": "導入手順を読む",
+              "text": "必要な環境・API・利用例は、各リポジトリのREADMEで確認できます。",
+              "links": [
+                {
+                  "title": "zixcel-local-inference — README",
+                  "href": "https://github.com/zixcel/zixcel-local-inference/blob/main/README.md"
+                },
+                {
+                  "title": "devino — README",
+                  "href": "https://github.com/zixcel/devino/blob/main/README.md"
+                },
+                {
+                  "title": "intel-gpu-wsl-advisor — README",
+                  "href": "https://github.com/zixcel/intel-gpu-wsl-advisor/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "ほかの機能を探す",
+              "text": "関連する機能とライブラリもご覧ください。",
+              "links": [
+                {
+                  "title": "機能から探す",
+                  "href": "/capabilities"
+                },
+                {
+                  "title": "ライブラリ一覧",
+                  "href": "/oss"
+                }
+              ]
+            }
+          ],
+          "kind": "page",
+          "label": "ローカルAI",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/capabilities/interaction",
+          "title": "アプリ連携の基盤",
+          "summary": "操作やサービスの関係、公開メタデータを構造化してアプリへ渡す。",
+          "sections": [
+            {
+              "title": "対応するリポジトリ",
+              "text": "用途に合う実装を選び、ソースとREADMEの導入手順を確認できます。",
+              "links": [
+                {
+                  "title": "zixcel-contracts",
+                  "href": "https://github.com/zixcel/zixcel-contracts",
+                  "summary": "要求・結果・サービス境界を検査するための共通の型を提供する。"
+                },
+                {
+                  "title": "zixcel-interaction",
+                  "href": "https://github.com/zixcel/zixcel-interaction",
+                  "summary": "リソースの読取・操作・状態変更を、型付きの要求と結果で表す。"
+                },
+                {
+                  "title": "zixcel-topology-api",
+                  "href": "https://github.com/zixcel/zixcel-topology-api",
+                  "summary": "登録されたサービス・組織・配備先の関係を、限定されたメタデータとして提供する。"
+                },
+                {
+                  "title": "zixcel-mcp-gateway",
+                  "href": "https://github.com/zixcel/zixcel-mcp-gateway",
+                  "summary": "公開範囲を定めたメタデータを、入力を検査するMCPインターフェースで提供する。"
+                },
+                {
+                  "title": "japan-administrative-areas",
+                  "href": "https://github.com/zixcel/japan-administrative-areas",
+                  "summary": "日本の行政区画コードと名称を扱うデータとインターフェース。"
+                }
+              ]
+            },
+            {
+              "title": "導入手順を読む",
+              "text": "必要な環境・API・利用例は、各リポジトリのREADMEで確認できます。",
+              "links": [
+                {
+                  "title": "zixcel-contracts — README",
+                  "href": "https://github.com/zixcel/zixcel-contracts/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-interaction — README",
+                  "href": "https://github.com/zixcel/zixcel-interaction/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-topology-api — README",
+                  "href": "https://github.com/zixcel/zixcel-topology-api/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "ほかの機能を探す",
+              "text": "関連する機能とライブラリもご覧ください。",
+              "links": [
+                {
+                  "title": "機能から探す",
+                  "href": "/capabilities"
+                },
+                {
+                  "title": "ライブラリ一覧",
+                  "href": "/oss"
+                }
+              ]
+            }
+          ],
+          "kind": "page",
+          "label": "アプリ連携の基盤",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/capabilities/developer-tools",
+          "title": "開発と配布の道具",
+          "summary": "ソースの証跡、変更確認、公開前検査と配布物の管理。",
+          "sections": [
+            {
+              "title": "対応するリポジトリ",
+              "text": "用途に合う実装を選び、ソースとREADMEの導入手順を確認できます。",
+              "links": [
+                {
+                  "title": "zixcel-source-evidence",
+                  "href": "https://github.com/zixcel/zixcel-source-evidence",
+                  "summary": "ソースの観測情報をリビジョンと結び付け、根拠を検索する。"
+                },
+                {
+                  "title": "zixcel-version-control",
+                  "href": "https://github.com/zixcel/zixcel-version-control",
+                  "summary": "ローカルのバージョン管理状態を読み取り、変更の根拠を得る。"
+                },
+                {
+                  "title": "zixcel-repository-security",
+                  "href": "https://github.com/zixcel/zixcel-repository-security",
+                  "summary": "公開前のソースから、秘密情報や共有すべきでない情報を検査する。"
+                },
+                {
+                  "title": "zixcel-local-registry",
+                  "href": "https://github.com/zixcel/zixcel-local-registry",
+                  "summary": "取り込んだ配布物と、配布先・公開の根拠を検査し記録する。"
+                }
+              ]
+            },
+            {
+              "title": "導入手順を読む",
+              "text": "必要な環境・API・利用例は、各リポジトリのREADMEで確認できます。",
+              "links": [
+                {
+                  "title": "zixcel-source-evidence — README",
+                  "href": "https://github.com/zixcel/zixcel-source-evidence/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-version-control — README",
+                  "href": "https://github.com/zixcel/zixcel-version-control/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-repository-security — README",
+                  "href": "https://github.com/zixcel/zixcel-repository-security/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "ほかの機能を探す",
+              "text": "関連する機能とライブラリもご覧ください。",
+              "links": [
+                {
+                  "title": "機能から探す",
+                  "href": "/capabilities"
+                },
+                {
+                  "title": "ライブラリ一覧",
+                  "href": "/oss"
+                }
+              ]
+            }
+          ],
+          "kind": "page",
+          "label": "開発と配布の道具",
+          "category": "",
+          "status": "published"
         }
       ],
       "resources": [
         {
+          "title": "zixcel-domain",
+          "href": "https://github.com/zixcel/zixcel-domain",
+          "summary": "ValueDomainのドメイン一覧、DNSの確認とCloudflareへの変更計画を扱うライブラリ・CLI。",
+          "category": "外部サービス連携",
+          "license": "Apache-2.0"
+        },
+        {
           "title": "zixcel-imap",
-          "summary": "Check a IMAP mail integration configuration and produce a plan before implementing or enabling the connection.",
+          "summary": "IMAP接続の設定を検査し、接続を有効にする前の変更案を作る。",
           "href": "https://github.com/zixcel/zixcel-imap",
-          "category": "データと文書",
+          "category": "外部サービス連携",
           "license": "Apache-2.0"
         },
         {
@@ -437,205 +1103,205 @@
         },
         {
           "title": "zixcel-apple",
-          "summary": "apple の対象と要求内容をprepare/approve/executeで束縛し、読み書きを扱うSDK。現在の受入はfake HTTPで、実accountの検証は後続です。",
+          "summary": "Apple向けの操作要求を、対象・権限・入力を明示して組み立てる。",
           "href": "https://github.com/zixcel/zixcel-apple",
-          "category": "外部連携",
+          "category": "外部サービス連携",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-microsoft",
-          "summary": "microsoft の対象と要求内容をprepare/approve/executeで束縛し、読み書きを扱うSDK。現在の受入はfake HTTPで、実accountの検証は後続です。",
+          "summary": "Microsoft向けの操作要求を、対象・権限・入力を明示して組み立てる。",
           "href": "https://github.com/zixcel/zixcel-microsoft",
-          "category": "外部連携",
+          "category": "外部サービス連携",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-google",
-          "summary": "google の対象と要求内容をprepare/approve/executeで束縛し、読み書きを扱うSDK。現在の受入はfake HTTPで、実accountの検証は後続です。",
+          "summary": "Google向けの操作要求を、対象・権限・入力を明示して組み立てる。",
           "href": "https://github.com/zixcel/zixcel-google",
-          "category": "外部連携",
+          "category": "外部サービス連携",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-cloudflare",
-          "summary": "cloudflare の対象と要求内容をprepare/approve/executeで束縛し、読み書きを扱うSDK。現在の受入はfake HTTPで、実accountの検証は後続です。",
+          "summary": "Cloudflare向けの操作要求を、対象・権限・入力を明示して組み立てる。",
           "href": "https://github.com/zixcel/zixcel-cloudflare",
-          "category": "外部連携",
+          "category": "外部サービス連携",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-azure",
-          "summary": "azure の対象と要求内容をprepare/approve/executeで束縛し、読み書きを扱うSDK。現在の受入はfake HTTPで、実accountの検証は後続です。",
+          "summary": "Azure向けの操作要求を、対象・権限・入力を明示して組み立てる。",
           "href": "https://github.com/zixcel/zixcel-azure",
-          "category": "外部連携",
+          "category": "外部サービス連携",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-contracts",
-          "summary": "Give integrations a shared vocabulary for requests and results so callers can validate service boundaries.",
+          "summary": "要求・結果・サービス境界を検査するための共通の型を提供する。",
           "href": "https://github.com/zixcel/zixcel-contracts",
-          "category": "外部連携",
+          "category": "アプリ連携の基盤",
           "license": "Apache-2.0"
         },
         {
           "title": "japan-administrative-areas",
-          "summary": "Exact Japanese subdivision codes and names without product role policy",
+          "summary": "日本の行政区画コードと名称を扱うデータとインターフェース。",
           "href": "https://github.com/zixcel/japan-administrative-areas",
-          "category": "外部連携",
+          "category": "アプリ連携の基盤",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-source-evidence",
-          "summary": "Index source observations and query evidence tied to a specific source revision.",
+          "summary": "ソースの観測情報をリビジョンと結び付け、根拠を検索する。",
           "href": "https://github.com/zixcel/zixcel-source-evidence",
-          "category": "外部連携",
+          "category": "開発と配布の道具",
           "license": "Apache-2.0"
         },
         {
           "title": "devino",
-          "summary": "Experiment with model conversion and local inference setup before adopting a verified feature in another tool.",
+          "summary": "モデル変換やローカル推論の構成を試すための実験用ツール。",
           "href": "https://github.com/zixcel/devino",
-          "category": "外部連携",
+          "category": "ローカルAI",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-revision",
-          "summary": "Retain immutable revisions and detect conflicting updates when an operation is retried.",
+          "summary": "不変の変更履歴を保持し、更新や再試行の整合性を確認する。",
           "href": "https://github.com/zixcel/zixcel-revision",
           "category": "状態と情報構造",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-graph",
-          "summary": "Store a reviewed set of relationships as an exact snapshot and update it with revision checks.",
+          "summary": "データ間の関係をスナップショットで保存し、変更の競合を検出する。",
           "href": "https://github.com/zixcel/zixcel-graph",
           "category": "状態と情報構造",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-github",
-          "summary": "Build and validate typed GitHub requests for repository observation and explicitly enabled operations.",
+          "summary": "対象と権限を明示したGitHub API要求を組み立て、検査する。",
           "href": "https://github.com/zixcel/zixcel-github",
-          "category": "外部連携",
+          "category": "外部サービス連携",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-site",
-          "summary": "Explain integration contracts, package responsibilities and adoption choices.",
+          "summary": "Zixcelの機能・ライブラリ・導入先を紹介するサイトのソース。",
           "href": "https://github.com/zixcel/zixcel-site",
-          "category": "外部連携",
+          "category": "プロジェクト情報",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-topology-api",
-          "summary": "Serve a bounded metadata view of registered service, organization and deployment relationships.",
+          "summary": "登録されたサービス・組織・配備先の関係を、限定されたメタデータとして提供する。",
           "href": "https://github.com/zixcel/zixcel-topology-api",
-          "category": "外部連携",
+          "category": "アプリ連携の基盤",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-local-inference",
-          "summary": "Prepare and verify local model artifacts before a caller starts a managed inference runtime.",
+          "summary": "利用側が推論を開始する前に、ローカルモデルの配布物を準備・検査する。",
           "href": "https://github.com/zixcel/zixcel-local-inference",
-          "category": "外部連携",
+          "category": "ローカルAI",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-owner-recovery",
-          "summary": "Coordinate explicit owner-recovery and device-transfer steps without taking ownership of account records.",
+          "summary": "アカウント復旧と端末移行を、所有者を明示した手順で組み立てる。",
           "href": "https://github.com/zixcel/zixcel-owner-recovery",
-          "category": "外部連携",
+          "category": "認証とアカウント",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-version-control",
-          "summary": "Read the state of a local version-control workspace for a caller that needs change evidence.",
+          "summary": "ローカルのバージョン管理状態を読み取り、変更の根拠を得る。",
           "href": "https://github.com/zixcel/zixcel-version-control",
-          "category": "外部連携",
+          "category": "開発と配布の道具",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-webauthn",
-          "summary": "Build WebAuthn ceremony options and interpret browser evidence for a caller-owned identity flow.",
+          "summary": "WebAuthnの認証・登録要求と、ブラウザが返す結果を扱う。",
           "href": "https://github.com/zixcel/zixcel-webauthn",
-          "category": "外部連携",
+          "category": "認証とアカウント",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-github-auth",
-          "summary": "Add GitHub Device Flow to an application using an explicit public client registration.",
+          "summary": "GitHub Device Flowを、明示したクライアント登録に沿って組み込む。",
           "href": "https://github.com/zixcel/zixcel-github-auth",
-          "category": "外部連携",
+          "category": "認証とアカウント",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-domain-structure",
-          "summary": "Split a DNS name into a useful hierarchy while respecting public and private suffix rules.",
+          "summary": "公開・非公開サフィックスの規則に沿ってドメイン名の階層を扱う。",
           "href": "https://github.com/zixcel/zixcel-domain-structure",
           "category": "状態と情報構造",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-interaction",
-          "summary": "Describe resource reads, actions and state changes with typed requests and explicit results.",
+          "summary": "リソースの読取・操作・状態変更を、型付きの要求と結果で表す。",
           "href": "https://github.com/zixcel/zixcel-interaction",
-          "category": "外部連携",
+          "category": "アプリ連携の基盤",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-aws",
-          "summary": "Prepare bounded AWS operations and signing requests without making secrets part of the public contract.",
+          "summary": "操作の対象と入力を限定し、AWS API要求や署名を組み立てる。",
           "href": "https://github.com/zixcel/zixcel-aws",
-          "category": "外部連携",
+          "category": "外部サービス連携",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-openai-auth",
-          "summary": "Compose OpenAI account authorization through an injected transport and explicit validation boundaries.",
+          "summary": "外部から渡した通信手段で、OpenAIの認証フローを組み立てる。",
           "href": "https://github.com/zixcel/zixcel-openai-auth",
-          "category": "外部連携",
+          "category": "認証とアカウント",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-mcp-gateway",
-          "summary": "Expose reviewed metadata through a validated, bounded MCP interface.",
+          "summary": "公開範囲を定めたメタデータを、入力を検査するMCPインターフェースで提供する。",
           "href": "https://github.com/zixcel/zixcel-mcp-gateway",
-          "category": "外部連携",
+          "category": "アプリ連携の基盤",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-local-registry",
-          "summary": "Validate imported artifacts and record where they may be distributed and what publication evidence exists.",
+          "summary": "取り込んだ配布物と、配布先・公開の根拠を検査し記録する。",
           "href": "https://github.com/zixcel/zixcel-local-registry",
-          "category": "外部連携",
+          "category": "開発と配布の道具",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-line",
-          "summary": "Check a LINE metadata integration configuration and produce a plan before implementing or enabling the connection.",
+          "summary": "LINE連携の設定を検査し、有効にする前の接続案を作る。",
           "href": "https://github.com/zixcel/zixcel-line",
-          "category": "外部連携",
+          "category": "外部サービス連携",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-cost",
-          "summary": "Calculate an inference-cost estimate from explicit usage and price inputs.",
+          "summary": "明示した使用量と料金から、推論の費用を見積もる。",
           "href": "https://github.com/zixcel/zixcel-cost",
-          "category": "外部連携",
+          "category": "ローカルAI",
           "license": "Apache-2.0"
         },
         {
           "title": "intel-gpu-wsl-advisor",
-          "summary": "Check an Intel GPU and WSL environment and see which setup requirements need attention.",
+          "summary": "Intel GPUとWSLの環境を確認し、推論環境に必要な設定を整理する。",
           "href": "https://github.com/zixcel/intel-gpu-wsl-advisor",
-          "category": "外部連携",
+          "category": "ローカルAI",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-repository-security",
-          "summary": "Check a source tree for secrets and information that should not be published before sharing it.",
+          "summary": "公開前のソースから、秘密情報や共有すべきでない情報を検査する。",
           "href": "https://github.com/zixcel/zixcel-repository-security",
-          "category": "外部連携",
+          "category": "開発と配布の道具",
           "license": "Apache-2.0"
         }
       ],
@@ -722,38 +1388,145 @@
         {
           "path": "/capabilities",
           "title": "Explore capabilities",
-          "summary": "Build with focused foundations for documents, information structures and external services.",
+          "summary": "Choose a capability and continue to its repositories and setup instructions.",
           "sections": [
             {
               "title": "Data and documents",
-              "text": "Choose tools for presentation data, document parsing and transformation.",
+              "text": "Build presentation data and parse, structure or transform documents.",
               "links": [
                 {
-                  "title": "Explore the capability",
-                  "href": "/capabilities/data-documents",
-                  "icon": "/brand/icons/layers.svg"
+                  "title": "Libraries and usage",
+                  "href": "/capabilities/data-documents"
+                },
+                {
+                  "title": "data-presentation",
+                  "href": "https://github.com/zixcel/data-presentation",
+                  "summary": "Build, update and deliver presentation data through feature-scoped packages."
+                },
+                {
+                  "title": "document-processing",
+                  "href": "https://github.com/zixcel/document-processing",
+                  "summary": "A generic workspace for document parsing, structure and output."
                 }
               ]
             },
             {
-              "title": "State and history",
-              "text": "Use graph structures and revision history as foundations for application data.",
+              "title": "State and structure",
+              "text": "Work with graph snapshots, revision history and domain-name hierarchies.",
               "links": [
                 {
-                  "title": "Explore the capability",
-                  "href": "/capabilities/state-history",
-                  "icon": "/brand/icons/flow.svg"
+                  "title": "Libraries and usage",
+                  "href": "/capabilities/state-history"
+                },
+                {
+                  "title": "zixcel-graph",
+                  "href": "https://github.com/zixcel/zixcel-graph",
+                  "summary": "Store a reviewed set of relationships as an exact snapshot and update it with revision checks."
+                },
+                {
+                  "title": "zixcel-revision",
+                  "href": "https://github.com/zixcel/zixcel-revision",
+                  "summary": "Retain immutable revisions and detect conflicting updates when an operation is retried."
                 }
               ]
             },
             {
-              "title": "External services",
-              "text": "Connect cloud, mail and domain workflows with explicit permissions and operation boundaries.",
+              "title": "Service integrations",
+              "text": "Prepare scoped requests and connection settings for clouds, GitHub, domains and mail.",
               "links": [
                 {
-                  "title": "Explore the capability",
-                  "href": "/capabilities/integrations",
-                  "icon": "/brand/icons/cloud.svg"
+                  "title": "Libraries and usage",
+                  "href": "/capabilities/integrations"
+                },
+                {
+                  "title": "zixcel-domain",
+                  "href": "https://github.com/zixcel/zixcel-domain",
+                  "summary": "Inspect ValueDomain domains and DNS and prepare scoped Cloudflare changes with a shared library and CLI."
+                },
+                {
+                  "title": "zixcel-cloudflare",
+                  "href": "https://github.com/zixcel/zixcel-cloudflare",
+                  "summary": "Prepare, approve and execute account-bound cloudflare reads and writes. Current acceptance uses fake HTTP; live account acceptance is separate."
+                }
+              ]
+            },
+            {
+              "title": "Identity and accounts",
+              "text": "Compose authorization flows, WebAuthn and account recovery in a caller-owned application.",
+              "links": [
+                {
+                  "title": "Libraries and usage",
+                  "href": "/capabilities/identity"
+                },
+                {
+                  "title": "zixcel-github-auth",
+                  "href": "https://github.com/zixcel/zixcel-github-auth",
+                  "summary": "Add GitHub Device Flow to an application using an explicit public client registration."
+                },
+                {
+                  "title": "zixcel-openai-auth",
+                  "href": "https://github.com/zixcel/zixcel-openai-auth",
+                  "summary": "Compose OpenAI account authorization through an injected transport and explicit validation boundaries."
+                }
+              ]
+            },
+            {
+              "title": "Local AI",
+              "text": "Inspect inference environments, prepare model artifacts, experiment with conversion and estimate costs.",
+              "links": [
+                {
+                  "title": "Libraries and usage",
+                  "href": "/capabilities/local-ai"
+                },
+                {
+                  "title": "zixcel-local-inference",
+                  "href": "https://github.com/zixcel/zixcel-local-inference",
+                  "summary": "Prepare and verify local model artifacts before a caller starts a managed inference runtime."
+                },
+                {
+                  "title": "devino",
+                  "href": "https://github.com/zixcel/devino",
+                  "summary": "Experiment with model conversion and local inference setup before adopting a verified feature in another tool."
+                }
+              ]
+            },
+            {
+              "title": "Application interfaces",
+              "text": "Structure operations, service relationships and approved metadata for applications.",
+              "links": [
+                {
+                  "title": "Libraries and usage",
+                  "href": "/capabilities/interaction"
+                },
+                {
+                  "title": "zixcel-contracts",
+                  "href": "https://github.com/zixcel/zixcel-contracts",
+                  "summary": "Give integrations a shared vocabulary for requests and results so callers can validate service boundaries."
+                },
+                {
+                  "title": "zixcel-interaction",
+                  "href": "https://github.com/zixcel/zixcel-interaction",
+                  "summary": "Describe resource reads, actions and state changes with typed requests and explicit results."
+                }
+              ]
+            },
+            {
+              "title": "Development and distribution",
+              "text": "Inspect source evidence, workspace changes, publication safety and imported artifacts.",
+              "links": [
+                {
+                  "title": "Libraries and usage",
+                  "href": "/capabilities/developer-tools"
+                },
+                {
+                  "title": "zixcel-source-evidence",
+                  "href": "https://github.com/zixcel/zixcel-source-evidence",
+                  "summary": "Index source observations and query evidence tied to a specific source revision."
+                },
+                {
+                  "title": "zixcel-version-control",
+                  "href": "https://github.com/zixcel/zixcel-version-control",
+                  "summary": "Read the state of a local version-control workspace for a caller that needs change evidence."
                 }
               ]
             }
@@ -766,29 +1539,49 @@
         {
           "path": "/capabilities/data-documents",
           "title": "Data and documents",
-          "summary": "Choose tools for presentation data, document parsing and transformation.",
+          "summary": "Build presentation data and parse, structure or transform documents.",
           "sections": [
             {
-              "title": "When to use it",
-              "text": "Start with the information and outcome you need, then combine focused capabilities.",
+              "title": "Repositories for this capability",
+              "text": "Choose an implementation and open its source and README to get started.",
               "links": [
                 {
-                  "title": "Read the guide",
-                  "href": "/docs/getting-started"
+                  "title": "data-presentation",
+                  "href": "https://github.com/zixcel/data-presentation",
+                  "summary": "Build, update and deliver presentation data through feature-scoped packages."
+                },
+                {
+                  "title": "document-processing",
+                  "href": "https://github.com/zixcel/document-processing",
+                  "summary": "A generic workspace for document parsing, structure and output."
                 }
               ]
             },
             {
-              "title": "Next steps",
-              "text": "Explore the guides and related topics.",
+              "title": "Read the setup instructions",
+              "text": "Each repository README describes prerequisites, interfaces and examples.",
               "links": [
                 {
-                  "title": "Use cases",
-                  "href": "/use-cases"
+                  "title": "data-presentation — README",
+                  "href": "https://github.com/zixcel/data-presentation/blob/main/README.md"
                 },
+                {
+                  "title": "document-processing — README",
+                  "href": "https://github.com/zixcel/document-processing/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "Explore other capabilities",
+              "text": "Browse related capabilities and the full library.",
+              "links": [
                 {
                   "title": "Explore capabilities",
                   "href": "/capabilities"
+                },
+                {
+                  "title": "All libraries",
+                  "href": "/oss"
                 }
               ]
             }
@@ -800,71 +1593,164 @@
         },
         {
           "path": "/capabilities/state-history",
-          "title": "State and history",
-          "summary": "Use graph structures and revision history as foundations for application data.",
+          "title": "State and structure",
+          "summary": "Work with graph snapshots, revision history and domain-name hierarchies.",
           "sections": [
             {
-              "title": "When to use it",
-              "text": "Start with the information and outcome you need, then combine focused capabilities.",
+              "title": "Repositories for this capability",
+              "text": "Choose an implementation and open its source and README to get started.",
               "links": [
                 {
-                  "title": "Read the guide",
-                  "href": "/docs/getting-started"
+                  "title": "zixcel-graph",
+                  "href": "https://github.com/zixcel/zixcel-graph",
+                  "summary": "Store a reviewed set of relationships as an exact snapshot and update it with revision checks."
+                },
+                {
+                  "title": "zixcel-revision",
+                  "href": "https://github.com/zixcel/zixcel-revision",
+                  "summary": "Retain immutable revisions and detect conflicting updates when an operation is retried."
+                },
+                {
+                  "title": "zixcel-domain-structure",
+                  "href": "https://github.com/zixcel/zixcel-domain-structure",
+                  "summary": "Split a DNS name into a useful hierarchy while respecting public and private suffix rules."
                 }
               ]
             },
             {
-              "title": "Next steps",
-              "text": "Explore the guides and related topics.",
+              "title": "Read the setup instructions",
+              "text": "Each repository README describes prerequisites, interfaces and examples.",
               "links": [
                 {
-                  "title": "Use cases",
-                  "href": "/use-cases"
+                  "title": "zixcel-graph — README",
+                  "href": "https://github.com/zixcel/zixcel-graph/blob/main/README.md"
                 },
+                {
+                  "title": "zixcel-revision — README",
+                  "href": "https://github.com/zixcel/zixcel-revision/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-domain-structure — README",
+                  "href": "https://github.com/zixcel/zixcel-domain-structure/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "Explore other capabilities",
+              "text": "Browse related capabilities and the full library.",
+              "links": [
                 {
                   "title": "Explore capabilities",
                   "href": "/capabilities"
+                },
+                {
+                  "title": "All libraries",
+                  "href": "/oss"
                 }
               ]
             }
           ],
           "kind": "page",
-          "label": "State and history",
+          "label": "State and structure",
           "category": "",
           "status": "published"
         },
         {
           "path": "/capabilities/integrations",
-          "title": "External services",
-          "summary": "Connect cloud, mail and domain workflows with explicit permissions and operation boundaries.",
+          "title": "Service integrations",
+          "summary": "Prepare scoped requests and connection settings for clouds, GitHub, domains and mail.",
           "sections": [
             {
-              "title": "When to use it",
-              "text": "Start with the information and outcome you need, then combine focused capabilities.",
+              "title": "Repositories for this capability",
+              "text": "Choose an implementation and open its source and README to get started.",
               "links": [
                 {
-                  "title": "Read the guide",
-                  "href": "/docs/getting-started"
+                  "title": "zixcel-domain",
+                  "href": "https://github.com/zixcel/zixcel-domain",
+                  "summary": "Inspect ValueDomain domains and DNS and prepare scoped Cloudflare changes with a shared library and CLI."
+                },
+                {
+                  "title": "zixcel-cloudflare",
+                  "href": "https://github.com/zixcel/zixcel-cloudflare",
+                  "summary": "Prepare, approve and execute account-bound cloudflare reads and writes. Current acceptance uses fake HTTP; live account acceptance is separate."
+                },
+                {
+                  "title": "zixcel-azure",
+                  "href": "https://github.com/zixcel/zixcel-azure",
+                  "summary": "Prepare, approve and execute account-bound azure reads and writes. Current acceptance uses fake HTTP; live account acceptance is separate."
+                },
+                {
+                  "title": "zixcel-google",
+                  "href": "https://github.com/zixcel/zixcel-google",
+                  "summary": "Prepare, approve and execute account-bound google reads and writes. Current acceptance uses fake HTTP; live account acceptance is separate."
+                },
+                {
+                  "title": "zixcel-microsoft",
+                  "href": "https://github.com/zixcel/zixcel-microsoft",
+                  "summary": "Prepare, approve and execute account-bound microsoft reads and writes. Current acceptance uses fake HTTP; live account acceptance is separate."
+                },
+                {
+                  "title": "zixcel-apple",
+                  "href": "https://github.com/zixcel/zixcel-apple",
+                  "summary": "Prepare, approve and execute account-bound apple reads and writes. Current acceptance uses fake HTTP; live account acceptance is separate."
+                },
+                {
+                  "title": "zixcel-aws",
+                  "href": "https://github.com/zixcel/zixcel-aws",
+                  "summary": "Prepare bounded AWS operations and signing requests without making secrets part of the public contract."
+                },
+                {
+                  "title": "zixcel-github",
+                  "href": "https://github.com/zixcel/zixcel-github",
+                  "summary": "Build and validate typed GitHub requests for repository observation and explicitly enabled operations."
+                },
+                {
+                  "title": "zixcel-line",
+                  "href": "https://github.com/zixcel/zixcel-line",
+                  "summary": "Check a LINE metadata integration configuration and produce a plan before implementing or enabling the connection."
+                },
+                {
+                  "title": "zixcel-imap",
+                  "href": "https://github.com/zixcel/zixcel-imap",
+                  "summary": "Check a IMAP mail integration configuration and produce a plan before implementing or enabling the connection."
                 }
               ]
             },
             {
-              "title": "Next steps",
-              "text": "Explore the guides and related topics.",
+              "title": "Read the setup instructions",
+              "text": "Each repository README describes prerequisites, interfaces and examples.",
               "links": [
                 {
-                  "title": "Use cases",
-                  "href": "/use-cases"
+                  "title": "zixcel-domain — README",
+                  "href": "https://github.com/zixcel/zixcel-domain/blob/main/README.md"
                 },
+                {
+                  "title": "zixcel-cloudflare — README",
+                  "href": "https://github.com/zixcel/zixcel-cloudflare/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-azure — README",
+                  "href": "https://github.com/zixcel/zixcel-azure/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "Explore other capabilities",
+              "text": "Browse related capabilities and the full library.",
+              "links": [
                 {
                   "title": "Explore capabilities",
                   "href": "/capabilities"
+                },
+                {
+                  "title": "All libraries",
+                  "href": "/oss"
                 }
               ]
             }
           ],
           "kind": "page",
-          "label": "External services",
+          "label": "Service integrations",
           "category": "",
           "status": "published"
         },
@@ -878,9 +1764,8 @@
               "text": "Choose tools for presentation data, document parsing and transformation.",
               "links": [
                 {
-                  "title": "Explore the capability",
-                  "href": "/capabilities/data-documents",
-                  "icon": "/brand/icons/layers.svg"
+                  "title": "Choose: data-presentation, document-processing",
+                  "href": "/capabilities/data-documents"
                 }
               ]
             },
@@ -889,9 +1774,8 @@
               "text": "Use graph structures and revision history as foundations for application data.",
               "links": [
                 {
-                  "title": "Explore the capability",
-                  "href": "/capabilities/state-history",
-                  "icon": "/brand/icons/flow.svg"
+                  "title": "Choose: zixcel-graph, zixcel-revision",
+                  "href": "/capabilities/state-history"
                 }
               ]
             },
@@ -900,9 +1784,8 @@
               "text": "Connect cloud, mail and domain workflows with explicit permissions and operation boundaries.",
               "links": [
                 {
-                  "title": "Explore the capability",
-                  "href": "/capabilities/integrations",
-                  "icon": "/brand/icons/cloud.svg"
+                  "title": "Choose: zixcel-domain, zixcel-cloudflare",
+                  "href": "/capabilities/integrations"
                 }
               ]
             }
@@ -925,19 +1808,127 @@
         {
           "path": "/docs",
           "title": "Guides and documentation",
-          "summary": "Explore usage guides and design principles.",
+          "summary": "Find implementation READMEs and usage by capability.",
           "sections": [
             {
-              "title": "Getting started",
-              "text": "Start with your goal and the capabilities you need.",
+              "title": "Data and documents",
+              "text": "Build presentation data and parse, structure or transform documents.",
               "links": [
                 {
-                  "title": "Getting started",
-                  "href": "/docs/getting-started"
+                  "title": "data-presentation — README",
+                  "href": "https://github.com/zixcel/data-presentation/blob/main/README.md"
                 },
                 {
-                  "title": "Security guide",
-                  "href": "/security"
+                  "title": "document-processing — README",
+                  "href": "https://github.com/zixcel/document-processing/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "State and structure",
+              "text": "Work with graph snapshots, revision history and domain-name hierarchies.",
+              "links": [
+                {
+                  "title": "zixcel-graph — README",
+                  "href": "https://github.com/zixcel/zixcel-graph/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-revision — README",
+                  "href": "https://github.com/zixcel/zixcel-revision/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-domain-structure — README",
+                  "href": "https://github.com/zixcel/zixcel-domain-structure/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "Service integrations",
+              "text": "Prepare scoped requests and connection settings for clouds, GitHub, domains and mail.",
+              "links": [
+                {
+                  "title": "zixcel-domain — README",
+                  "href": "https://github.com/zixcel/zixcel-domain/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-cloudflare — README",
+                  "href": "https://github.com/zixcel/zixcel-cloudflare/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-azure — README",
+                  "href": "https://github.com/zixcel/zixcel-azure/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "Identity and accounts",
+              "text": "Compose authorization flows, WebAuthn and account recovery in a caller-owned application.",
+              "links": [
+                {
+                  "title": "zixcel-github-auth — README",
+                  "href": "https://github.com/zixcel/zixcel-github-auth/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-openai-auth — README",
+                  "href": "https://github.com/zixcel/zixcel-openai-auth/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-webauthn — README",
+                  "href": "https://github.com/zixcel/zixcel-webauthn/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "Local AI",
+              "text": "Inspect inference environments, prepare model artifacts, experiment with conversion and estimate costs.",
+              "links": [
+                {
+                  "title": "zixcel-local-inference — README",
+                  "href": "https://github.com/zixcel/zixcel-local-inference/blob/main/README.md"
+                },
+                {
+                  "title": "devino — README",
+                  "href": "https://github.com/zixcel/devino/blob/main/README.md"
+                },
+                {
+                  "title": "intel-gpu-wsl-advisor — README",
+                  "href": "https://github.com/zixcel/intel-gpu-wsl-advisor/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "Application interfaces",
+              "text": "Structure operations, service relationships and approved metadata for applications.",
+              "links": [
+                {
+                  "title": "zixcel-contracts — README",
+                  "href": "https://github.com/zixcel/zixcel-contracts/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-interaction — README",
+                  "href": "https://github.com/zixcel/zixcel-interaction/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-topology-api — README",
+                  "href": "https://github.com/zixcel/zixcel-topology-api/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "Development and distribution",
+              "text": "Inspect source evidence, workspace changes, publication safety and imported artifacts.",
+              "links": [
+                {
+                  "title": "zixcel-source-evidence — README",
+                  "href": "https://github.com/zixcel/zixcel-source-evidence/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-version-control — README",
+                  "href": "https://github.com/zixcel/zixcel-version-control/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-repository-security — README",
+                  "href": "https://github.com/zixcel/zixcel-repository-security/blob/main/README.md"
                 }
               ]
             }
@@ -953,19 +1944,72 @@
           "summary": "A guide to capabilities, use cases and data boundaries.",
           "sections": [
             {
-              "title": "Choose a goal",
-              "text": "Explore the capability or use-case pages for the work you have in mind.",
+              "title": "Choose an implementation",
+              "text": "Find repositories and usage for each capability.",
               "links": [
                 {
-                  "title": "Explore capabilities",
-                  "href": "/capabilities"
+                  "title": "Data and documents",
+                  "href": "/capabilities/data-documents"
+                },
+                {
+                  "title": "State and structure",
+                  "href": "/capabilities/state-history"
+                },
+                {
+                  "title": "Service integrations",
+                  "href": "/capabilities/integrations"
+                },
+                {
+                  "title": "Identity and accounts",
+                  "href": "/capabilities/identity"
+                },
+                {
+                  "title": "Local AI",
+                  "href": "/capabilities/local-ai"
+                },
+                {
+                  "title": "Application interfaces",
+                  "href": "/capabilities/interaction"
+                },
+                {
+                  "title": "Development and distribution",
+                  "href": "/capabilities/developer-tools"
                 }
               ]
             },
             {
-              "title": "Review usage conditions",
-              "text": "Check the supported environment, license and available release of the software you select.",
-              "links": []
+              "title": "Start with the README",
+              "text": "Check prerequisites, examples and verification commands before adoption.",
+              "links": [
+                {
+                  "title": "data-presentation — README",
+                  "href": "https://github.com/zixcel/data-presentation/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-graph — README",
+                  "href": "https://github.com/zixcel/zixcel-graph/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-domain — README",
+                  "href": "https://github.com/zixcel/zixcel-domain/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-github-auth — README",
+                  "href": "https://github.com/zixcel/zixcel-github-auth/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-local-inference — README",
+                  "href": "https://github.com/zixcel/zixcel-local-inference/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-contracts — README",
+                  "href": "https://github.com/zixcel/zixcel-contracts/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-source-evidence — README",
+                  "href": "https://github.com/zixcel/zixcel-source-evidence/blob/main/README.md"
+                }
+              ]
             }
           ],
           "kind": "page",
@@ -1049,14 +2093,302 @@
           "label": "Sitemap",
           "category": "",
           "status": "published"
+        },
+        {
+          "path": "/capabilities/identity",
+          "title": "Identity and accounts",
+          "summary": "Compose authorization flows, WebAuthn and account recovery in a caller-owned application.",
+          "sections": [
+            {
+              "title": "Repositories for this capability",
+              "text": "Choose an implementation and open its source and README to get started.",
+              "links": [
+                {
+                  "title": "zixcel-github-auth",
+                  "href": "https://github.com/zixcel/zixcel-github-auth",
+                  "summary": "Add GitHub Device Flow to an application using an explicit public client registration."
+                },
+                {
+                  "title": "zixcel-openai-auth",
+                  "href": "https://github.com/zixcel/zixcel-openai-auth",
+                  "summary": "Compose OpenAI account authorization through an injected transport and explicit validation boundaries."
+                },
+                {
+                  "title": "zixcel-webauthn",
+                  "href": "https://github.com/zixcel/zixcel-webauthn",
+                  "summary": "Build WebAuthn ceremony options and interpret browser evidence for a caller-owned identity flow."
+                },
+                {
+                  "title": "zixcel-owner-recovery",
+                  "href": "https://github.com/zixcel/zixcel-owner-recovery",
+                  "summary": "Coordinate explicit owner-recovery and device-transfer steps without taking ownership of account records."
+                }
+              ]
+            },
+            {
+              "title": "Read the setup instructions",
+              "text": "Each repository README describes prerequisites, interfaces and examples.",
+              "links": [
+                {
+                  "title": "zixcel-github-auth — README",
+                  "href": "https://github.com/zixcel/zixcel-github-auth/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-openai-auth — README",
+                  "href": "https://github.com/zixcel/zixcel-openai-auth/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-webauthn — README",
+                  "href": "https://github.com/zixcel/zixcel-webauthn/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "Explore other capabilities",
+              "text": "Browse related capabilities and the full library.",
+              "links": [
+                {
+                  "title": "Explore capabilities",
+                  "href": "/capabilities"
+                },
+                {
+                  "title": "All libraries",
+                  "href": "/oss"
+                }
+              ]
+            }
+          ],
+          "kind": "page",
+          "label": "Identity and accounts",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/capabilities/local-ai",
+          "title": "Local AI",
+          "summary": "Inspect inference environments, prepare model artifacts, experiment with conversion and estimate costs.",
+          "sections": [
+            {
+              "title": "Repositories for this capability",
+              "text": "Choose an implementation and open its source and README to get started.",
+              "links": [
+                {
+                  "title": "zixcel-local-inference",
+                  "href": "https://github.com/zixcel/zixcel-local-inference",
+                  "summary": "Prepare and verify local model artifacts before a caller starts a managed inference runtime."
+                },
+                {
+                  "title": "devino",
+                  "href": "https://github.com/zixcel/devino",
+                  "summary": "Experiment with model conversion and local inference setup before adopting a verified feature in another tool."
+                },
+                {
+                  "title": "intel-gpu-wsl-advisor",
+                  "href": "https://github.com/zixcel/intel-gpu-wsl-advisor",
+                  "summary": "Check an Intel GPU and WSL environment and see which setup requirements need attention."
+                },
+                {
+                  "title": "zixcel-cost",
+                  "href": "https://github.com/zixcel/zixcel-cost",
+                  "summary": "Calculate an inference-cost estimate from explicit usage and price inputs."
+                }
+              ]
+            },
+            {
+              "title": "Read the setup instructions",
+              "text": "Each repository README describes prerequisites, interfaces and examples.",
+              "links": [
+                {
+                  "title": "zixcel-local-inference — README",
+                  "href": "https://github.com/zixcel/zixcel-local-inference/blob/main/README.md"
+                },
+                {
+                  "title": "devino — README",
+                  "href": "https://github.com/zixcel/devino/blob/main/README.md"
+                },
+                {
+                  "title": "intel-gpu-wsl-advisor — README",
+                  "href": "https://github.com/zixcel/intel-gpu-wsl-advisor/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "Explore other capabilities",
+              "text": "Browse related capabilities and the full library.",
+              "links": [
+                {
+                  "title": "Explore capabilities",
+                  "href": "/capabilities"
+                },
+                {
+                  "title": "All libraries",
+                  "href": "/oss"
+                }
+              ]
+            }
+          ],
+          "kind": "page",
+          "label": "Local AI",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/capabilities/interaction",
+          "title": "Application interfaces",
+          "summary": "Structure operations, service relationships and approved metadata for applications.",
+          "sections": [
+            {
+              "title": "Repositories for this capability",
+              "text": "Choose an implementation and open its source and README to get started.",
+              "links": [
+                {
+                  "title": "zixcel-contracts",
+                  "href": "https://github.com/zixcel/zixcel-contracts",
+                  "summary": "Give integrations a shared vocabulary for requests and results so callers can validate service boundaries."
+                },
+                {
+                  "title": "zixcel-interaction",
+                  "href": "https://github.com/zixcel/zixcel-interaction",
+                  "summary": "Describe resource reads, actions and state changes with typed requests and explicit results."
+                },
+                {
+                  "title": "zixcel-topology-api",
+                  "href": "https://github.com/zixcel/zixcel-topology-api",
+                  "summary": "Serve a bounded metadata view of registered service, organization and deployment relationships."
+                },
+                {
+                  "title": "zixcel-mcp-gateway",
+                  "href": "https://github.com/zixcel/zixcel-mcp-gateway",
+                  "summary": "Expose reviewed metadata through a validated, bounded MCP interface."
+                },
+                {
+                  "title": "japan-administrative-areas",
+                  "href": "https://github.com/zixcel/japan-administrative-areas",
+                  "summary": "Exact Japanese subdivision codes and names without product role policy"
+                }
+              ]
+            },
+            {
+              "title": "Read the setup instructions",
+              "text": "Each repository README describes prerequisites, interfaces and examples.",
+              "links": [
+                {
+                  "title": "zixcel-contracts — README",
+                  "href": "https://github.com/zixcel/zixcel-contracts/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-interaction — README",
+                  "href": "https://github.com/zixcel/zixcel-interaction/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-topology-api — README",
+                  "href": "https://github.com/zixcel/zixcel-topology-api/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "Explore other capabilities",
+              "text": "Browse related capabilities and the full library.",
+              "links": [
+                {
+                  "title": "Explore capabilities",
+                  "href": "/capabilities"
+                },
+                {
+                  "title": "All libraries",
+                  "href": "/oss"
+                }
+              ]
+            }
+          ],
+          "kind": "page",
+          "label": "Application interfaces",
+          "category": "",
+          "status": "published"
+        },
+        {
+          "path": "/capabilities/developer-tools",
+          "title": "Development and distribution",
+          "summary": "Inspect source evidence, workspace changes, publication safety and imported artifacts.",
+          "sections": [
+            {
+              "title": "Repositories for this capability",
+              "text": "Choose an implementation and open its source and README to get started.",
+              "links": [
+                {
+                  "title": "zixcel-source-evidence",
+                  "href": "https://github.com/zixcel/zixcel-source-evidence",
+                  "summary": "Index source observations and query evidence tied to a specific source revision."
+                },
+                {
+                  "title": "zixcel-version-control",
+                  "href": "https://github.com/zixcel/zixcel-version-control",
+                  "summary": "Read the state of a local version-control workspace for a caller that needs change evidence."
+                },
+                {
+                  "title": "zixcel-repository-security",
+                  "href": "https://github.com/zixcel/zixcel-repository-security",
+                  "summary": "Check a source tree for secrets and information that should not be published before sharing it."
+                },
+                {
+                  "title": "zixcel-local-registry",
+                  "href": "https://github.com/zixcel/zixcel-local-registry",
+                  "summary": "Validate imported artifacts and record where they may be distributed and what publication evidence exists."
+                }
+              ]
+            },
+            {
+              "title": "Read the setup instructions",
+              "text": "Each repository README describes prerequisites, interfaces and examples.",
+              "links": [
+                {
+                  "title": "zixcel-source-evidence — README",
+                  "href": "https://github.com/zixcel/zixcel-source-evidence/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-version-control — README",
+                  "href": "https://github.com/zixcel/zixcel-version-control/blob/main/README.md"
+                },
+                {
+                  "title": "zixcel-repository-security — README",
+                  "href": "https://github.com/zixcel/zixcel-repository-security/blob/main/README.md"
+                }
+              ]
+            },
+            {
+              "title": "Explore other capabilities",
+              "text": "Browse related capabilities and the full library.",
+              "links": [
+                {
+                  "title": "Explore capabilities",
+                  "href": "/capabilities"
+                },
+                {
+                  "title": "All libraries",
+                  "href": "/oss"
+                }
+              ]
+            }
+          ],
+          "kind": "page",
+          "label": "Development and distribution",
+          "category": "",
+          "status": "published"
         }
       ],
       "resources": [
         {
+          "title": "zixcel-domain",
+          "href": "https://github.com/zixcel/zixcel-domain",
+          "summary": "Inspect ValueDomain domains and DNS and prepare scoped Cloudflare changes with a shared library and CLI.",
+          "category": "Service integrations",
+          "license": "Apache-2.0"
+        },
+        {
           "title": "zixcel-imap",
           "summary": "Check a IMAP mail integration configuration and produce a plan before implementing or enabling the connection.",
           "href": "https://github.com/zixcel/zixcel-imap",
-          "category": "Data and documents",
+          "category": "Service integrations",
           "license": "Apache-2.0"
         },
         {
@@ -1077,203 +2409,203 @@
           "title": "zixcel-apple",
           "summary": "Prepare, approve and execute account-bound apple reads and writes. Current acceptance uses fake HTTP; live account acceptance is separate.",
           "href": "https://github.com/zixcel/zixcel-apple",
-          "category": "Integrations",
+          "category": "Service integrations",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-microsoft",
           "summary": "Prepare, approve and execute account-bound microsoft reads and writes. Current acceptance uses fake HTTP; live account acceptance is separate.",
           "href": "https://github.com/zixcel/zixcel-microsoft",
-          "category": "Integrations",
+          "category": "Service integrations",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-google",
           "summary": "Prepare, approve and execute account-bound google reads and writes. Current acceptance uses fake HTTP; live account acceptance is separate.",
           "href": "https://github.com/zixcel/zixcel-google",
-          "category": "Integrations",
+          "category": "Service integrations",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-cloudflare",
           "summary": "Prepare, approve and execute account-bound cloudflare reads and writes. Current acceptance uses fake HTTP; live account acceptance is separate.",
           "href": "https://github.com/zixcel/zixcel-cloudflare",
-          "category": "Integrations",
+          "category": "Service integrations",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-azure",
           "summary": "Prepare, approve and execute account-bound azure reads and writes. Current acceptance uses fake HTTP; live account acceptance is separate.",
           "href": "https://github.com/zixcel/zixcel-azure",
-          "category": "Integrations",
+          "category": "Service integrations",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-contracts",
           "summary": "Give integrations a shared vocabulary for requests and results so callers can validate service boundaries.",
           "href": "https://github.com/zixcel/zixcel-contracts",
-          "category": "Integrations",
+          "category": "Application interfaces",
           "license": "Apache-2.0"
         },
         {
           "title": "japan-administrative-areas",
           "summary": "Exact Japanese subdivision codes and names without product role policy",
           "href": "https://github.com/zixcel/japan-administrative-areas",
-          "category": "Integrations",
+          "category": "Application interfaces",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-source-evidence",
           "summary": "Index source observations and query evidence tied to a specific source revision.",
           "href": "https://github.com/zixcel/zixcel-source-evidence",
-          "category": "Integrations",
+          "category": "Development and distribution",
           "license": "Apache-2.0"
         },
         {
           "title": "devino",
           "summary": "Experiment with model conversion and local inference setup before adopting a verified feature in another tool.",
           "href": "https://github.com/zixcel/devino",
-          "category": "Integrations",
+          "category": "Local AI",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-revision",
           "summary": "Retain immutable revisions and detect conflicting updates when an operation is retried.",
           "href": "https://github.com/zixcel/zixcel-revision",
-          "category": "State and structures",
+          "category": "State and structure",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-graph",
           "summary": "Store a reviewed set of relationships as an exact snapshot and update it with revision checks.",
           "href": "https://github.com/zixcel/zixcel-graph",
-          "category": "State and structures",
+          "category": "State and structure",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-github",
           "summary": "Build and validate typed GitHub requests for repository observation and explicitly enabled operations.",
           "href": "https://github.com/zixcel/zixcel-github",
-          "category": "Integrations",
+          "category": "Service integrations",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-site",
           "summary": "Explain integration contracts, package responsibilities and adoption choices.",
           "href": "https://github.com/zixcel/zixcel-site",
-          "category": "Integrations",
+          "category": "Project information",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-topology-api",
           "summary": "Serve a bounded metadata view of registered service, organization and deployment relationships.",
           "href": "https://github.com/zixcel/zixcel-topology-api",
-          "category": "Integrations",
+          "category": "Application interfaces",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-local-inference",
           "summary": "Prepare and verify local model artifacts before a caller starts a managed inference runtime.",
           "href": "https://github.com/zixcel/zixcel-local-inference",
-          "category": "Integrations",
+          "category": "Local AI",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-owner-recovery",
           "summary": "Coordinate explicit owner-recovery and device-transfer steps without taking ownership of account records.",
           "href": "https://github.com/zixcel/zixcel-owner-recovery",
-          "category": "Integrations",
+          "category": "Identity and accounts",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-version-control",
           "summary": "Read the state of a local version-control workspace for a caller that needs change evidence.",
           "href": "https://github.com/zixcel/zixcel-version-control",
-          "category": "Integrations",
+          "category": "Development and distribution",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-webauthn",
           "summary": "Build WebAuthn ceremony options and interpret browser evidence for a caller-owned identity flow.",
           "href": "https://github.com/zixcel/zixcel-webauthn",
-          "category": "Integrations",
+          "category": "Identity and accounts",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-github-auth",
           "summary": "Add GitHub Device Flow to an application using an explicit public client registration.",
           "href": "https://github.com/zixcel/zixcel-github-auth",
-          "category": "Integrations",
+          "category": "Identity and accounts",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-domain-structure",
           "summary": "Split a DNS name into a useful hierarchy while respecting public and private suffix rules.",
           "href": "https://github.com/zixcel/zixcel-domain-structure",
-          "category": "State and structures",
+          "category": "State and structure",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-interaction",
           "summary": "Describe resource reads, actions and state changes with typed requests and explicit results.",
           "href": "https://github.com/zixcel/zixcel-interaction",
-          "category": "Integrations",
+          "category": "Application interfaces",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-aws",
           "summary": "Prepare bounded AWS operations and signing requests without making secrets part of the public contract.",
           "href": "https://github.com/zixcel/zixcel-aws",
-          "category": "Integrations",
+          "category": "Service integrations",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-openai-auth",
           "summary": "Compose OpenAI account authorization through an injected transport and explicit validation boundaries.",
           "href": "https://github.com/zixcel/zixcel-openai-auth",
-          "category": "Integrations",
+          "category": "Identity and accounts",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-mcp-gateway",
           "summary": "Expose reviewed metadata through a validated, bounded MCP interface.",
           "href": "https://github.com/zixcel/zixcel-mcp-gateway",
-          "category": "Integrations",
+          "category": "Application interfaces",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-local-registry",
           "summary": "Validate imported artifacts and record where they may be distributed and what publication evidence exists.",
           "href": "https://github.com/zixcel/zixcel-local-registry",
-          "category": "Integrations",
+          "category": "Development and distribution",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-line",
           "summary": "Check a LINE metadata integration configuration and produce a plan before implementing or enabling the connection.",
           "href": "https://github.com/zixcel/zixcel-line",
-          "category": "Integrations",
+          "category": "Service integrations",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-cost",
           "summary": "Calculate an inference-cost estimate from explicit usage and price inputs.",
           "href": "https://github.com/zixcel/zixcel-cost",
-          "category": "Integrations",
+          "category": "Local AI",
           "license": "Apache-2.0"
         },
         {
           "title": "intel-gpu-wsl-advisor",
           "summary": "Check an Intel GPU and WSL environment and see which setup requirements need attention.",
           "href": "https://github.com/zixcel/intel-gpu-wsl-advisor",
-          "category": "Integrations",
+          "category": "Local AI",
           "license": "Apache-2.0"
         },
         {
           "title": "zixcel-repository-security",
           "summary": "Check a source tree for secrets and information that should not be published before sharing it.",
           "href": "https://github.com/zixcel/zixcel-repository-security",
-          "category": "Integrations",
+          "category": "Development and distribution",
           "license": "Apache-2.0"
         }
       ],
