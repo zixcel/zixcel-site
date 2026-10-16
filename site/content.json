@@ -25,10 +25,6 @@
         {
           "title": "ドキュメント",
           "href": "/docs"
-        },
-        {
-          "title": "読みもの",
-          "href": "/journal"
         }
       ],
       "pages": [
@@ -38,8 +34,8 @@
           "summary": "文書、情報構造、外部サービス。アプリケーションに必要な基盤を、目的に合った部品から組み立てる。",
           "sections": [
             {
-              "title": "目的から、次の一歩へ。",
-              "text": "関心のあるテーマから、機能と使い方をご覧ください。",
+              "title": "アプリケーションのための部品を選ぶ",
+              "text": "文書、状態、外部連携。用途からライブラリを選び、実装と使い方を確かめます。",
               "links": [
                 {
                   "title": "データと文書",
@@ -62,8 +58,8 @@
               ]
             },
             {
-              "title": "使い方をイメージする",
-              "text": "用途ごとに、取り組み方と選ぶ道具を整理しています。",
+              "title": "組み合わせから実装へ",
+              "text": "各機能ページからリポジトリとREADMEへ進めます。APIや導入例は、それぞれのライブラリで確認できます。",
               "links": [
                 {
                   "title": "活用シーンを見る",
@@ -452,8 +448,8 @@
         },
         {
           "path": "/use-cases",
-          "title": "使う場面から、考える。",
-          "summary": "目的に合わせて、情報の扱いと道具の選び方を整理します。",
+          "title": "ライブラリの組み合わせを考える",
+          "summary": "各場面から、Zixcelの使い方と関連するガイドへ進めます。",
           "sections": [
             {
               "title": "データと文書",
@@ -487,13 +483,13 @@
             }
           ],
           "kind": "page",
-          "label": "使う場面から、考える。",
+          "label": "ライブラリの組み合わせを考える",
           "category": "",
           "status": "published"
         },
         {
           "path": "/oss",
-          "title": "目的に合った部品を探す",
+          "title": "Zixcelのライブラリ",
           "summary": "カテゴリとキーワードから、公開ライブラリとソースを探せます。",
           "sections": [],
           "kind": "catalog",
@@ -503,7 +499,7 @@
         },
         {
           "path": "/docs",
-          "title": "ガイドとドキュメント",
+          "title": "Zixcelのガイド",
           "summary": "機能別に、実装のREADMEと使い方を確認できます。",
           "sections": [
             {
@@ -630,7 +626,7 @@
             }
           ],
           "kind": "page",
-          "label": "ガイドとドキュメント",
+          "label": "Zixcelのガイド",
           "category": "",
           "status": "published"
         },
@@ -1305,7 +1301,11 @@
           "license": "Apache-2.0"
         }
       ],
-      "icon": "/brand/icon.png"
+      "icon": "/brand/icon.png",
+      "secondaryAction": {
+        "title": "導入・ドキュメント",
+        "href": "/docs"
+      }
     },
     "en": {
       "brand": "Zixcel",
@@ -1329,10 +1329,6 @@
         {
           "title": "Docs",
           "href": "/docs"
-        },
-        {
-          "title": "Journal",
-          "href": "/journal"
         }
       ],
       "pages": [
@@ -1342,8 +1338,8 @@
           "summary": "Build with focused foundations for documents, information structures and external services.",
           "sections": [
             {
-              "title": "Find your next step.",
-              "text": "Explore capabilities and guides by the work you want to do.",
+              "title": "Choose building blocks for your application",
+              "text": "Choose libraries for documents, state and integrations, then inspect their implementations and usage.",
               "links": [
                 {
                   "title": "Data and documents",
@@ -1366,8 +1362,8 @@
               ]
             },
             {
-              "title": "Explore the possibilities",
-              "text": "Find a workflow and the tools that fit your use case.",
+              "title": "From a use case to implementation",
+              "text": "Follow capability pages to repositories and READMEs for APIs and setup examples.",
               "links": [
                 {
                   "title": "Explore use cases",
@@ -1756,8 +1752,8 @@
         },
         {
           "path": "/use-cases",
-          "title": "Start with the work.",
-          "summary": "Explore approaches to organizing information and selecting tools.",
+          "title": "Combine libraries for your application",
+          "summary": "Explore Zixcel through specific scenarios and related guides.",
           "sections": [
             {
               "title": "Data and documents",
@@ -1791,13 +1787,13 @@
             }
           ],
           "kind": "page",
-          "label": "Start with the work.",
+          "label": "Combine libraries for your application",
           "category": "",
           "status": "published"
         },
         {
           "path": "/oss",
-          "title": "Find the right building blocks",
+          "title": "Zixcel libraries",
           "summary": "Browse public libraries and source by category and keyword.",
           "sections": [],
           "kind": "catalog",
@@ -1807,7 +1803,7 @@
         },
         {
           "path": "/docs",
-          "title": "Guides and documentation",
+          "title": "Zixcel guides",
           "summary": "Find implementation READMEs and usage by capability.",
           "sections": [
             {
@@ -1934,7 +1930,7 @@
             }
           ],
           "kind": "page",
-          "label": "Guides and documentation",
+          "label": "Zixcel guides",
           "category": "",
           "status": "published"
         },
@@ -2609,7 +2605,11 @@
           "license": "Apache-2.0"
         }
       ],
-      "icon": "/brand/icon.png"
+      "icon": "/brand/icon.png",
+      "secondaryAction": {
+        "title": "Setup & documentation",
+        "href": "/docs"
+      }
     }
   }
 }
