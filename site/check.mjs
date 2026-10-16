@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import { validateIntroduction } from './navigation.mts'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 
@@ -24,6 +25,7 @@ export function validateContent(data) {
       else { const url = new URL(item.href); assert.equal(url.protocol, 'https:'); assert.equal(url.username + url.password, '') }
       if (item.icon) assert.match(item.icon, /^\/brand\/[a-zA-Z0-9/_.-]+\.(svg|png)$/)
     }
+    validateIntroduction(content)
     content.navigation.forEach(checkLink)
     if (content.secondaryAction) checkLink(content.secondaryAction)
     content.resources.forEach(item => { checkLink(item); assert.ok(item.category && item.summary) })

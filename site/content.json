@@ -503,6 +503,16 @@
           "summary": "機能別に、実装のREADMEと使い方を確認できます。",
           "sections": [
             {
+              "title": "はじめて使う方へ",
+              "text": "目的に合う実装を選び、各プロジェクトの導入手順へ進みます。",
+              "links": [
+                {
+                  "title": "導入ガイド",
+                  "href": "/docs/getting-started"
+                }
+              ]
+            },
+            {
               "title": "データと文書",
               "text": "表示データの構築と、文書の解析・構造化・変換。",
               "links": [
@@ -1806,6 +1816,16 @@
           "title": "Zixcel guides",
           "summary": "Find implementation READMEs and usage by capability.",
           "sections": [
+            {
+              "title": "Start here",
+              "text": "Choose an implementation for your needs and continue to its setup instructions.",
+              "links": [
+                {
+                  "title": "Getting started",
+                  "href": "/docs/getting-started"
+                }
+              ]
+            },
             {
               "title": "Data and documents",
               "text": "Build presentation data and parse, structure or transform documents.",

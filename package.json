@@ -18,7 +18,7 @@
     "dev": "nuxtjp-localized-site site dev",
     "preview": "nuxtjp-localized-site site preview",
     "test:dependency-security": "node --test scripts/dependency-security.check.cjs",
-    "test:site-structure": "node site/check.mjs"
+    "test:site-structure": "node --test site/navigation.test.mts && node site/check.mjs"
   },
   "dependencies": {
     "@nuxtjp/localized-site": "0.2.6",
