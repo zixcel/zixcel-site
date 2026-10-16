@@ -34,6 +34,10 @@ export function validateContent(data) {
       assert.ok(['page', 'home', 'catalog', 'journal', 'article'].includes(page.kind))
       if (page.kind === 'article') assert.ok(page.category && page.sections.length, 'empty published article')
       for (const section of page.sections) { assert.ok(section.title && section.text); section.links?.forEach(checkLink) }
+      if (content.resources.length && page.path.startsWith(content.navigation[0].href + '/')) {
+        const links = page.sections.flatMap(section => section.links || [])
+        assert.ok(content.resources.some(resource => links.some(link => link.href === resource.href)), `missing concrete repository link: ${page.path}`)
+      }
     }
   }
   return { site: data.siteId, locales: 2, pages: paths.length * 2, brokenInternalLinks: 0, bundledDrafts: 0 }
