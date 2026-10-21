@@ -3,7 +3,7 @@ import { mkdirSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import type { NuxtModule } from 'nuxt/schema'
 import data from './content.json'
-import { validateContent } from './check.mjs'
+import { validateContent } from './check.mts'
 
 // A site-owned scaffold: no checkout, manager service, or unreleased package required.
 const sitePages: NuxtModule = (_options, nuxt) => {

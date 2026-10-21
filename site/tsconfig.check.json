@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "types": [
+      "node"
+    ]
+  },
+  "files": [
+    "check.mts",
+    "content-input.mts",
+    "source-languages.mts",
+    "content-input.test.mts",
+    "source-languages.test.mts"
+  ]
+}

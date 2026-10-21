@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
-import type { Experience } from './experience-types'
-import type { SiteContent } from './types'
+import type { Experience } from './experience-types.ts'
+import type { SiteContent } from './types.ts'
 
 export function validateExperience(experience: Experience, content: SiteContent) {
   const routes = new Set(content.pages.filter(page => page.status !== 'draft').map(page => page.path))

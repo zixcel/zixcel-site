@@ -1,14 +1,17 @@
 import { validateExperience } from './experience.mts'
 import assert from 'node:assert/strict'
+import { decodeContent } from './content-input.mts'
+import type { Link } from './types.ts'
 import { validateIntroduction } from './navigation.mts'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 
-export function validateContent(data) {
+export function validateContent(value: unknown) {
+  const data = decodeContent(value)
   assert.match(data.siteId, /^[a-z][a-z0-9-]+$/)
   assert.match(data.origin, /^https:\/\/[a-z0-9.-]+$/)
   assert.ok(['ja', 'en'].includes(data.defaultLocale))
-  const locales = ['ja', 'en']
+  const locales = ['ja', 'en'] as const
   const paths = data.locales.en.pages.map(page => page.path).sort()
   for (const locale of locales) {
     const content = data.locales[locale]
@@ -21,7 +24,7 @@ export function validateContent(data) {
     assert.deepEqual(current, paths, `${locale}: translation routes differ`)
     assert.equal(new Set(current).size, current.length, 'duplicate routes')
     for (const required of ['/', '/docs', '/journal', '/privacy', '/security', '/sitemap']) assert.ok(current.includes(required), `missing ${required}`)
-    const checkLink = item => {
+    const checkLink = (item: Link) => {
       assert.ok(item.title?.trim(), 'empty link title')
       if (item.href.startsWith('/')) assert.ok(current.includes(item.href), `broken internal link: ${item.href}`)
       else { const url = new URL(item.href); assert.equal(url.protocol, 'https:'); assert.equal(url.username + url.password, '') }
@@ -35,10 +38,10 @@ export function validateContent(data) {
       assert.match(page.path, /^\/(?:[a-z0-9-]+(?:\/[a-z0-9-]+)*)?$/)
       assert.equal(page.status, 'published', 'draft content must stay outside the bundle')
       assert.ok(page.title.trim() && page.summary.trim())
-      assert.ok(['page', 'home', 'catalog', 'journal', 'article'].includes(page.kind))
+      assert.ok(['page', 'home', 'catalog', 'journal', 'article'].includes(page.kind ?? ''))
       if (page.kind === 'article') assert.ok(page.category && page.sections.length, 'empty published article')
       for (const section of page.sections) { assert.ok(section.title && section.text); section.links?.forEach(checkLink) }
-      if (content.resources.length && page.path.startsWith(content.navigation[0].href + '/')) {
+      if (content.resources.length && page.path.startsWith(content.navigation[0]!.href + '/')) {
         const links = page.sections.flatMap(section => section.links || [])
         assert.ok(content.resources.some(resource => links.some(link => link.href === resource.href)), `missing concrete repository link: ${page.path}`)
       }
