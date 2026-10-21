@@ -1,0 +1,100 @@
+{
+  "ja": {
+    "category": "ローカルから使う開発ツール",
+    "primary": {
+      "href": "/capabilities",
+      "title": "用途から探す"
+    },
+    "secondary": {
+      "href": "/oss",
+      "title": "ツール一覧を見る"
+    },
+    "pathsTitle": "何をお探しですか？",
+    "paths": [
+      {
+        "href": "/capabilities/integrations",
+        "title": "外部サービスを扱う",
+        "summary": "CLIとproviderの連携を知る"
+      },
+      {
+        "href": "/capabilities/data-documents",
+        "title": "データや文書を扱う",
+        "summary": "必要な処理から部品を選ぶ"
+      },
+      {
+        "href": "/capabilities/developer-tools",
+        "title": "開発・配布の道具を探す",
+        "summary": "検査と配布の基盤を知る"
+      }
+    ],
+    "preview": {
+      "kind": "code",
+      "label": "使い方のイメージ",
+      "title": "目的から、必要な道具へ。",
+      "rows": [
+        {
+          "label": "選ぶ",
+          "detail": "目的に合うCLI・ライブラリ"
+        },
+        {
+          "label": "確かめる",
+          "detail": "対象と実行条件を確認"
+        },
+        {
+          "label": "ローカルから使う",
+          "detail": "手元の環境と組み合わせる"
+        }
+      ],
+      "outcome": "ツールごとの公開実装と配布先へ。"
+    }
+  },
+  "en": {
+    "category": "Development tools, local first",
+    "primary": {
+      "href": "/capabilities",
+      "title": "Explore capabilities"
+    },
+    "secondary": {
+      "href": "/oss",
+      "title": "Browse tools"
+    },
+    "pathsTitle": "What brings you here?",
+    "paths": [
+      {
+        "href": "/capabilities/integrations",
+        "title": "Connect services",
+        "summary": "Explore CLI and provider integrations"
+      },
+      {
+        "href": "/capabilities/data-documents",
+        "title": "Work with data & documents",
+        "summary": "Choose building blocks for the task"
+      },
+      {
+        "href": "/capabilities/developer-tools",
+        "title": "Developer tools",
+        "summary": "Explore inspection and distribution tools"
+      }
+    ],
+    "preview": {
+      "kind": "code",
+      "label": "Workflow illustration",
+      "title": "Start with the task. Find the tool.",
+      "rows": [
+        {
+          "label": "Select",
+          "detail": "The CLI or library that fits the task"
+        },
+        {
+          "label": "Inspect",
+          "detail": "Review the target and execution conditions"
+        },
+        {
+          "label": "Use locally",
+          "detail": "Compose tools in your local environment"
+        }
+      ],
+      "outcome": "Each tool has its own source and distribution."
+    }
+  }
+}

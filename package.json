@@ -12,7 +12,7 @@
   "scripts": {
     "site": "nuxtjp-localized-site site",
     "validate:content": "nuxtjp-localized-site site check",
-    "test": "nuxtjp-localized-site site check && pnpm run test:dependency-security && pnpm run test:site-structure",
+    "test": "nuxtjp-localized-site site check && pnpm run test:dependency-security && pnpm run test:site-structure && node --test site/experience.cases.mts",
     "typecheck": "nuxtjp-localized-site site typecheck",
     "build": "nuxtjp-localized-site site build",
     "dev": "nuxtjp-localized-site site dev",
