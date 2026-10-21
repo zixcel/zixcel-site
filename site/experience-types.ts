@@ -1,4 +1,4 @@
-import type { Link } from './types'
+import type { Link } from './types.ts'
 
 export type PreviewKind = 'workspace' | 'directory' | 'meaning' | 'code' | 'portfolio' | 'business' | 'trust' | 'plan' | 'environment'
 export interface Experience {
