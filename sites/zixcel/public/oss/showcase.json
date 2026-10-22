@@ -4,18 +4,18 @@
   "observedAt": "2026-10-14T15:09:41Z",
   "entries": [
     {
-      "id": "zixcel-zixcel-imap",
+      "id": "zixcel-zixcel-mail",
       "kind": "oss",
       "name": {
-        "ja": "zixcel-imap",
-        "en": "zixcel-imap"
+        "ja": "zixcel-mail",
+        "en": "zixcel-mail"
       },
       "summary": {
-        "ja": "zixcel/zixcel-imap の公開ソース・利用情報。仕様、公開版、権利表示と検証範囲は正本のREADMEで確認できます。",
-        "en": "Check a IMAP mail integration configuration and produce a plan before implementing or enabling the connection."
+        "ja": "IMAP受信・SMTP送信・MIME処理を分けて扱うRustのメールクライアント群。",
+        "en": "Rust mail clients for IMAP reception, SMTP submission and bounded MIME handling."
       },
-      "repository": "https://github.com/zixcel/zixcel-imap",
-      "homepage": "https://github.com/zixcel/zixcel-imap",
+      "repository": "https://github.com/zixcel/zixcel-mail",
+      "homepage": "https://github.com/zixcel/zixcel-mail",
       "license": "Apache-2.0",
       "metrics": []
     },

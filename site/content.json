@@ -402,9 +402,9 @@
                   "summary": "LINE連携の設定を検査し、有効にする前の接続案を作る。"
                 },
                 {
-                  "title": "zixcel-imap",
-                  "href": "https://github.com/zixcel/zixcel-imap",
-                  "summary": "IMAP接続の設定を検査し、接続を有効にする前の変更案を作る。"
+                  "title": "zixcel-mail",
+                  "href": "https://github.com/zixcel/zixcel-mail",
+                  "summary": "IMAP受信・SMTP送信・MIME処理を分けて扱うRustのメールクライアント群。"
                 }
               ]
             },
@@ -1087,9 +1087,9 @@
           "license": "Apache-2.0"
         },
         {
-          "title": "zixcel-imap",
-          "summary": "IMAP接続の設定を検査し、接続を有効にする前の変更案を作る。",
-          "href": "https://github.com/zixcel/zixcel-imap",
+          "title": "zixcel-mail",
+          "summary": "IMAP受信・SMTP送信・MIME処理を分けて扱うRustのメールクライアント群。",
+          "href": "https://github.com/zixcel/zixcel-mail",
           "category": "外部サービス連携",
           "license": "Apache-2.0"
         },
@@ -1716,9 +1716,9 @@
                   "summary": "Check a LINE metadata integration configuration and produce a plan before implementing or enabling the connection."
                 },
                 {
-                  "title": "zixcel-imap",
-                  "href": "https://github.com/zixcel/zixcel-imap",
-                  "summary": "Check a IMAP mail integration configuration and produce a plan before implementing or enabling the connection."
+                  "title": "zixcel-mail",
+                  "href": "https://github.com/zixcel/zixcel-mail",
+                  "summary": "Rust mail clients for IMAP reception, SMTP submission and bounded MIME handling."
                 }
               ]
             },
@@ -2401,9 +2401,9 @@
           "license": "Apache-2.0"
         },
         {
-          "title": "zixcel-imap",
-          "summary": "Check a IMAP mail integration configuration and produce a plan before implementing or enabling the connection.",
-          "href": "https://github.com/zixcel/zixcel-imap",
+          "title": "zixcel-mail",
+          "summary": "Rust mail clients for IMAP reception, SMTP submission and bounded MIME handling.",
+          "href": "https://github.com/zixcel/zixcel-mail",
           "category": "Service integrations",
           "license": "Apache-2.0"
         },
