@@ -1,11 +1,4 @@
 {
   "schema": "owner-source-language-inventory/v1",
-  "retained": [
-    {
-      "path": "scripts/dependency-security.check.cjs",
-      "classification": "unchanged-upstream-verification-fixture",
-      "source": "https://github.com/nuxtjp/site-builder/blob/62de3237b443f61816a385683e5242b010411937/scripts/dependency-security.check.cjs",
-      "sha256": "60b47badec8435747e59b3ad1629ebc711618875dd191e179b59f4fdcdece500"
-    }
-  ]
+  "retained": []
 }
