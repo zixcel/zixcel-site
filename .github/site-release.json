@@ -8,7 +8,7 @@
   "sites": [
     {
       "id": "zixcel",
-      "version": "0.1.15",
+      "version": "0.1.16",
       "account": "0655772369a7b3425e3398313a36521b",
       "worker": "zixcel-site",
       "domain": "zixcel.com",
