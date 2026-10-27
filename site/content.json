@@ -39,8 +39,12 @@
           "sections": [
             {
               "title": "1. GitHub拡張を導入する",
-              "text": "まずCLIとGitHub拡張の正式版を導入します。サービスを絞り、読み取り2操作だけをモデルの候補にします。",
+              "text": "まずOS依存を準備し、共通インストーラーで正式版CLI・GitHub拡張・任意の0.5B環境を導入します。既存のghや開発環境は不要です。",
               "links": [
+                {
+                  "href": "/docs/setup",
+                  "title": "基盤をまとめて導入"
+                },
                 {
                   "href": "/tools/github",
                   "title": "GitHubのインストール"
@@ -706,17 +710,16 @@
           "status": "published",
           "sections": [
             {
-              "title": "1. CLI を導入する",
-              "text": "Linux x86_64 / WSL 用の GNU 版、SHA256SUMS.gnu を同じリリースから取得します。OS 認証ストア対応版には libsecret と既存の Secret Service が必要です。チェックサムと GitHub CLI のビルド証明を確認して展開し、PATH に ~/.local/bin を追加してください。",
-              "code": "sha256sum --check SHA256SUMS.gnu\ngh attestation verify zix-cli-v0.7.0-x86_64-unknown-linux-gnu.tar.gz --repo zixcel/cli --signer-workflow zixcel/cli/.github/workflows/release.yml --source-ref refs/tags/v0.7.0\ntar -xzf zix-cli-v0.7.0-x86_64-unknown-linux-gnu.tar.gz\n(cd zix-cli-v0.7.0-x86_64-unknown-linux-gnu && sha256sum --check CONTENTS.sha256)\nmkdir -p \"$HOME/.local/bin\"\ninstall -m 0755 zix-cli-v0.7.0-x86_64-unknown-linux-gnu/zix \"$HOME/.local/bin/zix\"\n\"$HOME/.local/bin/zix\" version",
+              "title": "1. 基盤を導入する",
+              "text": "基盤インストーラーが検証用gh・正式版zix・選択した拡張を導入します。対応OSとPython・libsecretの準備を確認し、まず共通手順から始めてください。任意で0.5B環境も導入できます。",
               "links": [
                 {
-                  "href": "https://github.com/zixcel/cli/releases/tag/v0.7.0",
-                  "title": "CLI 0.7.0 の正式配布"
+                  "href": "/docs/setup",
+                  "title": "基盤のインストールと更新"
                 },
                 {
-                  "href": "https://github.com/zixcel/cli/blob/main/README.md",
-                  "title": "対応環境と詳しい導入手順"
+                  "href": "https://github.com/zixcel/cli",
+                  "title": "CLIの公開ソース"
                 }
               ]
             },
@@ -1123,13 +1126,17 @@
           "status": "published",
           "sections": [
             {
-              "title": "GitHub 拡張の具体例",
-              "text": "CLI 0.7.0 を導入済みの Linux x86_64 を想定しています。下記リリースから musl 版アーカイブと SHA256SUMS を同じディレクトリへ取得し、検証して登録します。package は展開先の絶対パスです。",
-              "code": "sha256sum --check SHA256SUMS\ngh attestation verify zixcel-github-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-github --signer-workflow zixcel/zixcel-github/.github/workflows/release-native.yml --source-ref refs/tags/native/github/v0.2.0\ntar -xzf zixcel-github-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-github-cli-v0.2.0-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/github.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/github.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-github\" --executable-sha256 \"$(sha256sum \"$package/zix-github\" | cut -d ' ' -f1)\"\nzix extensions list --format json",
+              "title": "GitHub拡張を導入する",
+              "text": "基盤導入後に実行します。パッケージの取得・来歴検証・登録は補助ツールが行い、低水準の extensions add / replace の検証と状態維持を利用します。",
+              "code": "zix-setup install --with github\nzix extensions inspect github --format json",
               "links": [
                 {
-                  "href": "https://github.com/zixcel/zixcel-github/releases/tag/native/github/v0.2.0",
-                  "title": "GitHub 拡張 0.2.0 を取得"
+                  "href": "/docs/setup",
+                  "title": "基盤の準備"
+                },
+                {
+                  "href": "/tools/github",
+                  "title": "GitHubの機能一覧"
                 }
               ]
             },
@@ -1536,12 +1543,12 @@
           "sections": [
             {
               "title": "1. インストールと有効化",
-              "text": "zix CLI 0.7.0、Linux x86_64（musl）向けの正式版 0.4.1。下記は空の作業ディレクトリで実行します。展開先を移動・削除すると登録した実行ファイルを利用できなくなるため、永続的なパッケージ置き場を使ってください。",
-              "code": "gh release download native/domain/v0.4.1 --repo zixcel/zixcel-domain --pattern zixcel-domain-cli-v0.4.1-x86_64-unknown-linux-musl.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-domain-cli-v0.4.1-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-domain --signer-workflow zixcel/zixcel-domain/.github/workflows/release-native.yml --source-ref refs/tags/native/domain/v0.4.1\ntar -xzf zixcel-domain-cli-v0.4.1-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-domain-cli-v0.4.1-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/domain.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/domain.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-domain\" --executable-sha256 \"$(sha256sum \"$package/zix-domain\" | cut -d ' ' -f1)\"\nzix extensions enable domain\nzix extensions inspect domain --format json",
+              "text": "初回はUbuntu 24.04以降相当のOS依存を準備してから、以下を実行します。ghの事前導入・GitHubログインは不要です。既に基盤がある場合は zix-setup install --with domain だけで追加できます。機能一覧は記載バージョン時点で、導入時には最新安定版を選びます。",
+              "code": "mkdir -p \"$HOME/.local/share/zix/bootstrap\"\nchmod 700 \"$HOME/.local/share/zix/bootstrap\"\ncd \"$HOME/.local/share/zix/bootstrap\"\ncurl --fail --location https://zixcel.com/install.sh -o install.sh\ncurl --fail --location https://zixcel.com/SHA256SUMS.installer -o SHA256SUMS.installer\nsha256sum --check SHA256SUMS.installer\n# Inspect install.sh before running.\nbash install.sh install --with domain\nexport PATH=\"$HOME/.local/bin:$PATH\"\nzix-setup doctor\nzix extensions inspect domain --format json",
               "links": [
                 {
-                  "href": "/docs/getting-started",
-                  "title": "CLIを先に導入"
+                  "href": "/docs/setup",
+                  "title": "対応OS・依存関係を先に準備"
                 },
                 {
                   "href": "https://github.com/zixcel/zixcel-domain/releases/tag/native/domain/v0.4.1",
@@ -1596,12 +1603,12 @@
           "sections": [
             {
               "title": "1. インストールと有効化",
-              "text": "zix CLI 0.7.0、Linux x86_64（musl）向けの正式版 0.3.1。下記は空の作業ディレクトリで実行します。展開先を移動・削除すると登録した実行ファイルを利用できなくなるため、永続的なパッケージ置き場を使ってください。",
-              "code": "gh release download native/cloudflare/v0.3.1 --repo zixcel/zixcel-cloudflare --pattern zixcel-cloudflare-cli-v0.3.1-x86_64-unknown-linux-musl.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-cloudflare-cli-v0.3.1-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-cloudflare --signer-workflow zixcel/zixcel-cloudflare/.github/workflows/release-native.yml --source-ref refs/tags/native/cloudflare/v0.3.1\ntar -xzf zixcel-cloudflare-cli-v0.3.1-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-cloudflare-cli-v0.3.1-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/cloudflare.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/cloudflare.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-cloudflare\" --executable-sha256 \"$(sha256sum \"$package/zix-cloudflare\" | cut -d ' ' -f1)\"\nzix extensions enable cloudflare\nzix extensions inspect cloudflare --format json",
+              "text": "初回はUbuntu 24.04以降相当のOS依存を準備してから、以下を実行します。ghの事前導入・GitHubログインは不要です。既に基盤がある場合は zix-setup install --with cloudflare だけで追加できます。機能一覧は記載バージョン時点で、導入時には最新安定版を選びます。",
+              "code": "mkdir -p \"$HOME/.local/share/zix/bootstrap\"\nchmod 700 \"$HOME/.local/share/zix/bootstrap\"\ncd \"$HOME/.local/share/zix/bootstrap\"\ncurl --fail --location https://zixcel.com/install.sh -o install.sh\ncurl --fail --location https://zixcel.com/SHA256SUMS.installer -o SHA256SUMS.installer\nsha256sum --check SHA256SUMS.installer\n# Inspect install.sh before running.\nbash install.sh install --with cloudflare\nexport PATH=\"$HOME/.local/bin:$PATH\"\nzix-setup doctor\nzix extensions inspect cloudflare --format json",
               "links": [
                 {
-                  "href": "/docs/getting-started",
-                  "title": "CLIを先に導入"
+                  "href": "/docs/setup",
+                  "title": "対応OS・依存関係を先に準備"
                 },
                 {
                   "href": "https://github.com/zixcel/zixcel-cloudflare/releases/tag/native/cloudflare/v0.3.1",
@@ -1656,12 +1663,12 @@
           "sections": [
             {
               "title": "1. インストールと有効化",
-              "text": "zix CLI 0.7.0、Linux x86_64（gnu）向けの正式版 0.5.1。下記は空の作業ディレクトリで実行します。展開先を移動・削除すると登録した実行ファイルを利用できなくなるため、永続的なパッケージ置き場を使ってください。",
-              "code": "gh release download native/microsoft/v0.5.1 --repo zixcel/zixcel-microsoft --pattern zixcel-microsoft-cli-v0.5.1-x86_64-unknown-linux-gnu.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-microsoft-cli-v0.5.1-x86_64-unknown-linux-gnu.tar.gz --repo zixcel/zixcel-microsoft --signer-workflow zixcel/zixcel-microsoft/.github/workflows/release-native.yml --source-ref refs/tags/native/microsoft/v0.5.1\ntar -xzf zixcel-microsoft-cli-v0.5.1-x86_64-unknown-linux-gnu.tar.gz\npackage=\"$PWD/zixcel-microsoft-cli-v0.5.1-x86_64-unknown-linux-gnu\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/microsoft.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/microsoft.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-microsoft\" --executable-sha256 \"$(sha256sum \"$package/zix-microsoft\" | cut -d ' ' -f1)\"\nzix extensions enable microsoft\nzix extensions inspect microsoft --format json",
+              "text": "初回はUbuntu 24.04以降相当のOS依存を準備してから、以下を実行します。ghの事前導入・GitHubログインは不要です。既に基盤がある場合は zix-setup install --with microsoft だけで追加できます。機能一覧は記載バージョン時点で、導入時には最新安定版を選びます。",
+              "code": "mkdir -p \"$HOME/.local/share/zix/bootstrap\"\nchmod 700 \"$HOME/.local/share/zix/bootstrap\"\ncd \"$HOME/.local/share/zix/bootstrap\"\ncurl --fail --location https://zixcel.com/install.sh -o install.sh\ncurl --fail --location https://zixcel.com/SHA256SUMS.installer -o SHA256SUMS.installer\nsha256sum --check SHA256SUMS.installer\n# Inspect install.sh before running.\nbash install.sh install --with microsoft\nexport PATH=\"$HOME/.local/bin:$PATH\"\nzix-setup doctor\nzix extensions inspect microsoft --format json",
               "links": [
                 {
-                  "href": "/docs/getting-started",
-                  "title": "CLIを先に導入"
+                  "href": "/docs/setup",
+                  "title": "対応OS・依存関係を先に準備"
                 },
                 {
                   "href": "https://github.com/zixcel/zixcel-microsoft/releases/tag/native/microsoft/v0.5.1",
@@ -1716,12 +1723,12 @@
           "sections": [
             {
               "title": "1. インストールと有効化",
-              "text": "zix CLI 0.7.0、Linux x86_64（musl）向けの正式版 0.2.0。下記は空の作業ディレクトリで実行します。展開先を移動・削除すると登録した実行ファイルを利用できなくなるため、永続的なパッケージ置き場を使ってください。",
-              "code": "gh release download native/github/v0.2.0 --repo zixcel/zixcel-github --pattern zixcel-github-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-github-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-github --signer-workflow zixcel/zixcel-github/.github/workflows/release-native.yml --source-ref refs/tags/native/github/v0.2.0\ntar -xzf zixcel-github-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-github-cli-v0.2.0-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/github.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/github.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-github\" --executable-sha256 \"$(sha256sum \"$package/zix-github\" | cut -d ' ' -f1)\"\nzix extensions enable github\nzix extensions inspect github --format json",
+              "text": "初回はUbuntu 24.04以降相当のOS依存を準備してから、以下を実行します。ghの事前導入・GitHubログインは不要です。既に基盤がある場合は zix-setup install --with github だけで追加できます。機能一覧は記載バージョン時点で、導入時には最新安定版を選びます。",
+              "code": "mkdir -p \"$HOME/.local/share/zix/bootstrap\"\nchmod 700 \"$HOME/.local/share/zix/bootstrap\"\ncd \"$HOME/.local/share/zix/bootstrap\"\ncurl --fail --location https://zixcel.com/install.sh -o install.sh\ncurl --fail --location https://zixcel.com/SHA256SUMS.installer -o SHA256SUMS.installer\nsha256sum --check SHA256SUMS.installer\n# Inspect install.sh before running.\nbash install.sh install --with github\nexport PATH=\"$HOME/.local/bin:$PATH\"\nzix-setup doctor\nzix extensions inspect github --format json",
               "links": [
                 {
-                  "href": "/docs/getting-started",
-                  "title": "CLIを先に導入"
+                  "href": "/docs/setup",
+                  "title": "対応OS・依存関係を先に準備"
                 },
                 {
                   "href": "https://github.com/zixcel/zixcel-github/releases/tag/native/github/v0.2.0",
@@ -1776,12 +1783,12 @@
           "sections": [
             {
               "title": "1. インストールと有効化",
-              "text": "zix CLI 0.7.0、Linux x86_64（gnu）向けの正式版 0.3.0。下記は空の作業ディレクトリで実行します。展開先を移動・削除すると登録した実行ファイルを利用できなくなるため、永続的なパッケージ置き場を使ってください。",
-              "code": "gh release download v0.3.0 --repo zixcel/zixcel-container-registry --pattern zixcel-container-registry-v0.3.0-x86_64-unknown-linux-gnu.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-container-registry-v0.3.0-x86_64-unknown-linux-gnu.tar.gz --repo zixcel/zixcel-container-registry --signer-workflow zixcel/zixcel-container-registry/.github/workflows/release.yml --source-ref refs/tags/v0.3.0\ntar -xzf zixcel-container-registry-v0.3.0-x86_64-unknown-linux-gnu.tar.gz\npackage=\"$PWD/zixcel-container-registry-v0.3.0-x86_64-unknown-linux-gnu\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/docker.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/docker.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-docker\" --executable-sha256 \"$(sha256sum \"$package/zix-docker\" | cut -d ' ' -f1)\"\nzix extensions enable docker\nzix extensions inspect docker --format json",
+              "text": "初回はUbuntu 24.04以降相当のOS依存を準備してから、以下を実行します。ghの事前導入・GitHubログインは不要です。既に基盤がある場合は zix-setup install --with docker だけで追加できます。機能一覧は記載バージョン時点で、導入時には最新安定版を選びます。",
+              "code": "mkdir -p \"$HOME/.local/share/zix/bootstrap\"\nchmod 700 \"$HOME/.local/share/zix/bootstrap\"\ncd \"$HOME/.local/share/zix/bootstrap\"\ncurl --fail --location https://zixcel.com/install.sh -o install.sh\ncurl --fail --location https://zixcel.com/SHA256SUMS.installer -o SHA256SUMS.installer\nsha256sum --check SHA256SUMS.installer\n# Inspect install.sh before running.\nbash install.sh install --with docker\nexport PATH=\"$HOME/.local/bin:$PATH\"\nzix-setup doctor\nzix extensions inspect docker --format json",
               "links": [
                 {
-                  "href": "/docs/getting-started",
-                  "title": "CLIを先に導入"
+                  "href": "/docs/setup",
+                  "title": "対応OS・依存関係を先に準備"
                 },
                 {
                   "href": "https://github.com/zixcel/zixcel-container-registry/releases/tag/v0.3.0",
@@ -1836,12 +1843,12 @@
           "sections": [
             {
               "title": "1. インストールと有効化",
-              "text": "zix CLI 0.7.0、Linux x86_64（musl）向けの正式版 0.2.0。下記は空の作業ディレクトリで実行します。展開先を移動・削除すると登録した実行ファイルを利用できなくなるため、永続的なパッケージ置き場を使ってください。",
-              "code": "gh release download native/azure/v0.2.0 --repo zixcel/zixcel-azure --pattern zixcel-azure-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-azure-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-azure --signer-workflow zixcel/zixcel-azure/.github/workflows/release-native.yml --source-ref refs/tags/native/azure/v0.2.0\ntar -xzf zixcel-azure-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-azure-cli-v0.2.0-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/azure.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/azure.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-azure\" --executable-sha256 \"$(sha256sum \"$package/zix-azure\" | cut -d ' ' -f1)\"\nzix extensions enable azure\nzix extensions inspect azure --format json",
+              "text": "初回はUbuntu 24.04以降相当のOS依存を準備してから、以下を実行します。ghの事前導入・GitHubログインは不要です。既に基盤がある場合は zix-setup install --with azure だけで追加できます。機能一覧は記載バージョン時点で、導入時には最新安定版を選びます。",
+              "code": "mkdir -p \"$HOME/.local/share/zix/bootstrap\"\nchmod 700 \"$HOME/.local/share/zix/bootstrap\"\ncd \"$HOME/.local/share/zix/bootstrap\"\ncurl --fail --location https://zixcel.com/install.sh -o install.sh\ncurl --fail --location https://zixcel.com/SHA256SUMS.installer -o SHA256SUMS.installer\nsha256sum --check SHA256SUMS.installer\n# Inspect install.sh before running.\nbash install.sh install --with azure\nexport PATH=\"$HOME/.local/bin:$PATH\"\nzix-setup doctor\nzix extensions inspect azure --format json",
               "links": [
                 {
-                  "href": "/docs/getting-started",
-                  "title": "CLIを先に導入"
+                  "href": "/docs/setup",
+                  "title": "対応OS・依存関係を先に準備"
                 },
                 {
                   "href": "https://github.com/zixcel/zixcel-azure/releases/tag/native/azure/v0.2.0",
@@ -1896,12 +1903,12 @@
           "sections": [
             {
               "title": "1. インストールと有効化",
-              "text": "zix CLI 0.7.0、Linux x86_64（musl）向けの正式版 0.2.0。下記は空の作業ディレクトリで実行します。展開先を移動・削除すると登録した実行ファイルを利用できなくなるため、永続的なパッケージ置き場を使ってください。",
-              "code": "gh release download native/apple/v0.2.0 --repo zixcel/zixcel-apple --pattern zixcel-apple-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-apple-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-apple --signer-workflow zixcel/zixcel-apple/.github/workflows/release-native.yml --source-ref refs/tags/native/apple/v0.2.0\ntar -xzf zixcel-apple-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-apple-cli-v0.2.0-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/apple.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/apple.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-apple\" --executable-sha256 \"$(sha256sum \"$package/zix-apple\" | cut -d ' ' -f1)\"\nzix extensions enable apple\nzix extensions inspect apple --format json",
+              "text": "初回はUbuntu 24.04以降相当のOS依存を準備してから、以下を実行します。ghの事前導入・GitHubログインは不要です。既に基盤がある場合は zix-setup install --with apple だけで追加できます。機能一覧は記載バージョン時点で、導入時には最新安定版を選びます。",
+              "code": "mkdir -p \"$HOME/.local/share/zix/bootstrap\"\nchmod 700 \"$HOME/.local/share/zix/bootstrap\"\ncd \"$HOME/.local/share/zix/bootstrap\"\ncurl --fail --location https://zixcel.com/install.sh -o install.sh\ncurl --fail --location https://zixcel.com/SHA256SUMS.installer -o SHA256SUMS.installer\nsha256sum --check SHA256SUMS.installer\n# Inspect install.sh before running.\nbash install.sh install --with apple\nexport PATH=\"$HOME/.local/bin:$PATH\"\nzix-setup doctor\nzix extensions inspect apple --format json",
               "links": [
                 {
-                  "href": "/docs/getting-started",
-                  "title": "CLIを先に導入"
+                  "href": "/docs/setup",
+                  "title": "対応OS・依存関係を先に準備"
                 },
                 {
                   "href": "https://github.com/zixcel/zixcel-apple/releases/tag/native/apple/v0.2.0",
@@ -1956,12 +1963,12 @@
           "sections": [
             {
               "title": "1. インストールと有効化",
-              "text": "zix CLI 0.7.0、Linux x86_64（musl）向けの正式版 0.7.0。下記は空の作業ディレクトリで実行します。展開先を移動・削除すると登録した実行ファイルを利用できなくなるため、永続的なパッケージ置き場を使ってください。",
-              "code": "gh release download google/v0.7.0 --repo zixcel/zixcel-google --pattern zixcel-google-cli-v0.7.0-x86_64-unknown-linux-musl.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-google-cli-v0.7.0-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-google --signer-workflow zixcel/zixcel-google/.github/workflows/release-google.yml --source-ref refs/tags/google/v0.7.0\ntar -xzf zixcel-google-cli-v0.7.0-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-google-cli-v0.7.0-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/google.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/google.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-google\" --executable-sha256 \"$(sha256sum \"$package/zix-google\" | cut -d ' ' -f1)\"\nzix extensions enable google\nzix extensions inspect google --format json",
+              "text": "初回はUbuntu 24.04以降相当のOS依存を準備してから、以下を実行します。ghの事前導入・GitHubログインは不要です。既に基盤がある場合は zix-setup install --with google だけで追加できます。機能一覧は記載バージョン時点で、導入時には最新安定版を選びます。",
+              "code": "mkdir -p \"$HOME/.local/share/zix/bootstrap\"\nchmod 700 \"$HOME/.local/share/zix/bootstrap\"\ncd \"$HOME/.local/share/zix/bootstrap\"\ncurl --fail --location https://zixcel.com/install.sh -o install.sh\ncurl --fail --location https://zixcel.com/SHA256SUMS.installer -o SHA256SUMS.installer\nsha256sum --check SHA256SUMS.installer\n# Inspect install.sh before running.\nbash install.sh install --with google\nexport PATH=\"$HOME/.local/bin:$PATH\"\nzix-setup doctor\nzix extensions inspect google --format json",
               "links": [
                 {
-                  "href": "/docs/getting-started",
-                  "title": "CLIを先に導入"
+                  "href": "/docs/setup",
+                  "title": "対応OS・依存関係を先に準備"
                 },
                 {
                   "href": "https://github.com/zixcel/zixcel-google/releases/tag/google/v0.7.0",
@@ -2016,12 +2023,12 @@
           "sections": [
             {
               "title": "1. インストールと有効化",
-              "text": "zix CLI 0.7.0、Linux x86_64（gnu）向けの正式版 0.4.1。下記は空の作業ディレクトリで実行します。展開先を移動・削除すると登録した実行ファイルを利用できなくなるため、永続的なパッケージ置き場を使ってください。",
-              "code": "gh release download v0.4.1 --repo zixcel/zixcel-wordpress --pattern zixcel-wordpress-v0.4.1-x86_64-unknown-linux-gnu.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-wordpress-v0.4.1-x86_64-unknown-linux-gnu.tar.gz --repo zixcel/zixcel-wordpress --signer-workflow zixcel/zixcel-wordpress/.github/workflows/release.yml --source-ref refs/tags/v0.4.1\ntar -xzf zixcel-wordpress-v0.4.1-x86_64-unknown-linux-gnu.tar.gz\npackage=\"$PWD/zixcel-wordpress-v0.4.1-x86_64-unknown-linux-gnu\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/wordpress.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/wordpress.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-wordpress\" --executable-sha256 \"$(sha256sum \"$package/zix-wordpress\" | cut -d ' ' -f1)\"\nzix extensions enable wordpress\nzix extensions inspect wordpress --format json",
+              "text": "初回はUbuntu 24.04以降相当のOS依存を準備してから、以下を実行します。ghの事前導入・GitHubログインは不要です。既に基盤がある場合は zix-setup install --with wordpress だけで追加できます。機能一覧は記載バージョン時点で、導入時には最新安定版を選びます。",
+              "code": "mkdir -p \"$HOME/.local/share/zix/bootstrap\"\nchmod 700 \"$HOME/.local/share/zix/bootstrap\"\ncd \"$HOME/.local/share/zix/bootstrap\"\ncurl --fail --location https://zixcel.com/install.sh -o install.sh\ncurl --fail --location https://zixcel.com/SHA256SUMS.installer -o SHA256SUMS.installer\nsha256sum --check SHA256SUMS.installer\n# Inspect install.sh before running.\nbash install.sh install --with wordpress\nexport PATH=\"$HOME/.local/bin:$PATH\"\nzix-setup doctor\nzix extensions inspect wordpress --format json",
               "links": [
                 {
-                  "href": "/docs/getting-started",
-                  "title": "CLIを先に導入"
+                  "href": "/docs/setup",
+                  "title": "対応OS・依存関係を先に準備"
                 },
                 {
                   "href": "https://github.com/zixcel/zixcel-wordpress/releases/tag/v0.4.1",
@@ -2073,27 +2080,20 @@
           "status": "published",
           "sections": [
             {
-              "title": "1. 事前に導入するもの",
-              "text": "正式版zixとGitHub拡張、llama.cpp b11913の llama-completion、Qwen2.5-0.5B-Instruct-GGUF の q8_0 を使う例です。ランタイムとモデルは各公式配布から取得し、リリースのハッシュを確認してください。",
+              "title": "1. CLI・拡張・モデルを導入",
+              "text": "基盤のOS依存を準備し、インストーラーの --local-model を指定します。モデルの保存先や共有ライブラリのパスは補助コマンドが設定するため、開発用ビルドや手動のパス置換は不要です。",
+              "code": "mkdir -p \"$HOME/.local/share/zix/bootstrap\"\nchmod 700 \"$HOME/.local/share/zix/bootstrap\"\ncd \"$HOME/.local/share/zix/bootstrap\"\ncurl --fail --location https://zixcel.com/install.sh -o install.sh\ncurl --fail --location https://zixcel.com/SHA256SUMS.installer -o SHA256SUMS.installer\nsha256sum --check SHA256SUMS.installer\n# Inspect install.sh before running.\nbash install.sh install --with github --local-model\nexport PATH=\"$HOME/.local/bin:$PATH\"\nzix-setup doctor\nzix-local-model --version",
               "links": [
                 {
-                  "href": "/tools/github",
-                  "title": "GitHub拡張"
-                },
-                {
-                  "href": "https://github.com/ggml-org/llama.cpp/releases/tag/b11913",
-                  "title": "llama.cpp b11913"
-                },
-                {
-                  "href": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/tree/9217f5db79a29953eb74d5343926648285ec7e67",
-                  "title": "Qwen 0.5B GGUF (pinned revision)"
+                  "href": "/docs/setup",
+                  "title": "OS要件と導入・更新"
                 }
               ]
             },
             {
               "title": "2. 候補を取得してローカル推論",
-              "text": "model に取得したGGUFのパスを設定します。候補は下記の2つに固定し、温度0・回答32トークンで推論します。これはモデルがIDを返すところまでの例です。",
-              "code": "zix capabilities --namespace github --compact --format json\nmodel=\"/path/to/qwen2.5-0.5b-instruct-q8_0.gguf\"\nprompt='<|im_start|>system\nMatch the final request to one listed ID. Return only the matching identifier.<|im_end|>\n<|im_start|>user\nCHOICES AND MEANINGS:\nuser.read: GITHUB IDENTITY READ\nrepository.read: GITHUB REPOSITORY READ\nREQUEST: Read GitHub repository metadata.<|im_end|>\n<|im_start|>assistant\n'\nllama-completion -m \"$model\" --no-conversation --no-display-prompt --no-warmup --no-perf --grammar 'root ::= \"user.read\" | \"repository.read\"' -p \"$prompt\" -n 32 -c 4096 -t 2 -tb 2 -ngl 0 --temp 0 --seed 42"
+              "text": "以下をそのまま実行できます。候補2件、CPU 2スレッド、温度0、回答32トークンに限定した例です。モデルがIDを返す段階までを示します。",
+              "code": "zix capabilities --namespace github --compact --format json\nprompt='<|im_start|>system\nMatch the final request to one listed ID. Return only the matching identifier.<|im_end|>\n<|im_start|>user\nCHOICES AND MEANINGS:\nuser.read: GITHUB IDENTITY READ\nrepository.read: GITHUB REPOSITORY READ\nREQUEST: Read GitHub repository metadata.<|im_end|>\n<|im_start|>assistant\n'\nzix-local-model --no-conversation --no-display-prompt --no-warmup --no-perf --grammar 'root ::= \"user.read\" | \"repository.read\"' -p \"$prompt\" -n 32 -c 4096 -t 2 -tb 2 -ngl 0 --temp 0 --seed 42"
             },
             {
               "title": "3. 回答を検証する",
@@ -2117,6 +2117,78 @@
                 {
                   "href": "/docs/llm",
                   "title": "設計と停止条件"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/docs/setup",
+          "title": "ローカル基盤を導入・更新する",
+          "summary": "依存ツール、zix、拡張、任意の0.5B環境までを正式配布から準備します。",
+          "kind": "page",
+          "status": "published",
+          "sections": [
+            {
+              "title": "1. 対応環境とOSの準備",
+              "text": "Linux x86_64・glibc 2.39以降（Ubuntu 24.04以降、WSL2を含む）、Bash、Python 3.12以降、curl、CA証明書、libsecretが必要です。以下はUbuntu 24.04の例です。既存のgh、GitHubログイン、Rust、Nodeは不要です。",
+              "code": "sudo apt-get update\nsudo apt-get install -y --no-install-recommends python3 curl ca-certificates libsecret-1-0 gnome-keyring dbus-user-session"
+            },
+            {
+              "title": "2. インストーラーを確認して実行",
+              "text": "ログインユーザーとして、sudoを付けずに実行します。検証用ghを専用領域へ導入し、最新安定版のzixと指定した拡張を取得します。チェックサム・配布元の署名付き来歴・ソース・タグ・内容を検証してから有効化します。最初のスクリプトはこのHTTPSサイトを信頼して取得する入口で、同じ配布元のチェックサムだけでは独立した真正性の証明にはなりません。",
+              "code": "mkdir -p \"$HOME/.local/share/zix/bootstrap\"\nchmod 700 \"$HOME/.local/share/zix/bootstrap\"\ncd \"$HOME/.local/share/zix/bootstrap\"\ncurl --fail --location https://zixcel.com/install.sh -o install.sh\ncurl --fail --location https://zixcel.com/SHA256SUMS.installer -o SHA256SUMS.installer\nsha256sum --check SHA256SUMS.installer\n# Inspect install.sh before running.\nbash install.sh install --with github\nexport PATH=\"$HOME/.local/bin:$PATH\"\nzix-setup doctor",
+              "links": [
+                {
+                  "href": "https://github.com/zixcel/cli/releases/tag/installer/v0.1.0",
+                  "title": "インストーラー正式配布・来歴"
+                },
+                {
+                  "href": "https://github.com/zixcel/cli/blob/main/docs/setup.md",
+                  "title": "実装・保存先・信頼境界"
+                }
+              ]
+            },
+            {
+              "title": "3. 最新版への更新と拡張追加",
+              "text": "updateはインストーラー・検証用gh・zixと登録済みの対応拡張を更新します。新規導入は有効、既存拡張の有効／無効は維持します。未知の第三者拡張は変更しません。各パッケージ単位の更新であり、途中停止時は完了した更新と記録を保持します。自動的なダウングレードは行いません。",
+              "code": "zix-setup update\nzix-setup install --with domain,microsoft\nzix extensions list --format json",
+              "links": [
+                {
+                  "href": "/tools",
+                  "title": "拡張ごとの機能・導入手順"
+                }
+              ]
+            },
+            {
+              "title": "4. 任意で0.5Bサンプル環境も導入",
+              "text": "--local-modelを指定すると、検証済みのllama.cpp b11913とQwen2.5-0.5B q8_0も公式配布から取得し、SHA256を照合します。作業中は約2GBの空き容量を用意し、メモリー4GB以上の端末を推奨します。zix-local-modelはモデルとライブラリのパスを設定する外部補助コマンドです。モデルとランタイムは検証済みの組み合わせに固定し、未試験の最新版へ自動置換しません。",
+              "code": "zix-setup install --with github --local-model\nzix-local-model --version",
+              "links": [
+                {
+                  "href": "/docs/local-model",
+                  "title": "0.5Bサンプルを実行"
+                }
+              ]
+            },
+            {
+              "title": "5. PATHと認証ストアを確認",
+              "text": "doctorは外部通信や秘密値の参照をせず、PATH・バージョン・D-Bus・Secret Serviceの稼働状況を確認します。Secret Serviceの存在はコレクションの解錠や認証成功を保証しません。WSLやヘッドレス環境ではログインセッションの認証ストアを別途準備してください。OSパッケージの導入だけでは準備完了になりません。PATHは現在のシェルに設定し、必要に応じて自身のシェル設定へ追加します。 デスクトップでは「パスワードと鍵」（Seahorse。未導入なら sudo apt-get install seahorse）で、パスワード付きの永続キーリングを既定に設定し、解錠してください。認証登録の前に zix credential status --collection default で確認できます。",
+              "code": "export PATH=\"$HOME/.local/bin:$PATH\"\nzix-setup doctor",
+              "links": [
+                {
+                  "href": "/docs/credentials",
+                  "title": "サービス認証を登録"
+                }
+              ]
+            },
+            {
+              "title": "6. 保存・復旧・停止時の扱い",
+              "text": "パッケージは ~/.local/share/zix/packages、補助ツール・任意モデル・導入記録は ~/.local/share/zix/setup に保存します。一時ダウンロードは終了時に削除し、以前の版はロールバック用に保持します。権限不足やAPI制限は診断に従って確認し、設定を推測して変えたり失敗要求を連続再試行したりしません。",
+              "links": [
+                {
+                  "href": "https://github.com/zixcel/cli/blob/main/docs/setup.md",
+                  "title": "固定バージョン・ロールバック・削除"
                 }
               ]
             }
@@ -2419,8 +2491,12 @@
           "sections": [
             {
               "title": "1. Install the GitHub extension",
-              "text": "Install the official core CLI and GitHub package. Fix the provider first and offer only its two read operations.",
+              "text": "Prepare the OS prerequisites, then use the shared installer for the released CLI, GitHub extension and optional 0.5B environment. No existing gh or development environment is needed.",
               "links": [
+                {
+                  "href": "/docs/setup",
+                  "title": "Install the foundation"
+                },
                 {
                   "href": "/tools/github",
                   "title": "Install GitHub"
@@ -3086,17 +3162,16 @@
           "status": "published",
           "sections": [
             {
-              "title": "1. Install the CLI",
-              "text": "Download the Linux x86_64/WSL GNU archive and SHA256SUMS.gnu from the same release. OS custody needs libsecret and an existing Secret Service. Verify checksums and GitHub CLI provenance before extraction, and add ~/.local/bin to PATH.",
-              "code": "sha256sum --check SHA256SUMS.gnu\ngh attestation verify zix-cli-v0.7.0-x86_64-unknown-linux-gnu.tar.gz --repo zixcel/cli --signer-workflow zixcel/cli/.github/workflows/release.yml --source-ref refs/tags/v0.7.0\ntar -xzf zix-cli-v0.7.0-x86_64-unknown-linux-gnu.tar.gz\n(cd zix-cli-v0.7.0-x86_64-unknown-linux-gnu && sha256sum --check CONTENTS.sha256)\nmkdir -p \"$HOME/.local/bin\"\ninstall -m 0755 zix-cli-v0.7.0-x86_64-unknown-linux-gnu/zix \"$HOME/.local/bin/zix\"\n\"$HOME/.local/bin/zix\" version",
+              "title": "1. Install the foundation",
+              "text": "The foundation installer manages verification gh, official Zix and selected extensions. Start with the shared guide to prepare the supported OS, Python and libsecret. The local 0.5B environment is optional.",
               "links": [
                 {
-                  "href": "https://github.com/zixcel/cli/releases/tag/v0.7.0",
-                  "title": "Official CLI 0.7.0 packages"
+                  "href": "/docs/setup",
+                  "title": "Foundation installation and updates"
                 },
                 {
-                  "href": "https://github.com/zixcel/cli/blob/main/README.md",
-                  "title": "Platform requirements and installation"
+                  "href": "https://github.com/zixcel/cli",
+                  "title": "CLI public source"
                 }
               ]
             },
@@ -3503,13 +3578,17 @@
           "status": "published",
           "sections": [
             {
-              "title": "A concrete GitHub example",
-              "text": "This example assumes CLI 0.7.0 on Linux x86_64. Download the musl archive and SHA256SUMS into the same directory, verify them, then register. package is the absolute extraction path.",
-              "code": "sha256sum --check SHA256SUMS\ngh attestation verify zixcel-github-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-github --signer-workflow zixcel/zixcel-github/.github/workflows/release-native.yml --source-ref refs/tags/native/github/v0.2.0\ntar -xzf zixcel-github-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-github-cli-v0.2.0-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/github.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/github.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-github\" --executable-sha256 \"$(sha256sum \"$package/zix-github\" | cut -d ' ' -f1)\"\nzix extensions list --format json",
+              "title": "Install the GitHub extension",
+              "text": "Run after foundation setup. The helper downloads, verifies and registers the package using the existing integrity checks and state-preserving extensions add / replace interface.",
+              "code": "zix-setup install --with github\nzix extensions inspect github --format json",
               "links": [
                 {
-                  "href": "https://github.com/zixcel/zixcel-github/releases/tag/native/github/v0.2.0",
-                  "title": "Download GitHub extension 0.2.0"
+                  "href": "/docs/setup",
+                  "title": "Prepare the foundation"
+                },
+                {
+                  "href": "/tools/github",
+                  "title": "GitHub features"
                 }
               ]
             },
@@ -3916,12 +3995,12 @@
           "sections": [
             {
               "title": "1. Install and enable",
-              "text": "Official 0.4.1 package for zix CLI 0.7.0 on Linux x86_64 (musl). Run in an empty directory under your permanent package location; registration references the extracted files.",
-              "code": "gh release download native/domain/v0.4.1 --repo zixcel/zixcel-domain --pattern zixcel-domain-cli-v0.4.1-x86_64-unknown-linux-musl.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-domain-cli-v0.4.1-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-domain --signer-workflow zixcel/zixcel-domain/.github/workflows/release-native.yml --source-ref refs/tags/native/domain/v0.4.1\ntar -xzf zixcel-domain-cli-v0.4.1-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-domain-cli-v0.4.1-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/domain.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/domain.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-domain\" --executable-sha256 \"$(sha256sum \"$package/zix-domain\" | cut -d ' ' -f1)\"\nzix extensions enable domain\nzix extensions inspect domain --format json",
+              "text": "First prepare the OS prerequisites on Ubuntu 24.04+ or equivalent, then run below. No preinstalled gh or GitHub login is needed. With setup already installed, use zix-setup install --with domain alone. The feature list describes the stated release; installation selects the newest stable native package.",
+              "code": "mkdir -p \"$HOME/.local/share/zix/bootstrap\"\nchmod 700 \"$HOME/.local/share/zix/bootstrap\"\ncd \"$HOME/.local/share/zix/bootstrap\"\ncurl --fail --location https://zixcel.com/install.sh -o install.sh\ncurl --fail --location https://zixcel.com/SHA256SUMS.installer -o SHA256SUMS.installer\nsha256sum --check SHA256SUMS.installer\n# Inspect install.sh before running.\nbash install.sh install --with domain\nexport PATH=\"$HOME/.local/bin:$PATH\"\nzix-setup doctor\nzix extensions inspect domain --format json",
               "links": [
                 {
-                  "href": "/docs/getting-started",
-                  "title": "Install the core CLI first"
+                  "href": "/docs/setup",
+                  "title": "Prepare host prerequisites first"
                 },
                 {
                   "href": "https://github.com/zixcel/zixcel-domain/releases/tag/native/domain/v0.4.1",
@@ -3976,12 +4055,12 @@
           "sections": [
             {
               "title": "1. Install and enable",
-              "text": "Official 0.3.1 package for zix CLI 0.7.0 on Linux x86_64 (musl). Run in an empty directory under your permanent package location; registration references the extracted files.",
-              "code": "gh release download native/cloudflare/v0.3.1 --repo zixcel/zixcel-cloudflare --pattern zixcel-cloudflare-cli-v0.3.1-x86_64-unknown-linux-musl.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-cloudflare-cli-v0.3.1-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-cloudflare --signer-workflow zixcel/zixcel-cloudflare/.github/workflows/release-native.yml --source-ref refs/tags/native/cloudflare/v0.3.1\ntar -xzf zixcel-cloudflare-cli-v0.3.1-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-cloudflare-cli-v0.3.1-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/cloudflare.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/cloudflare.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-cloudflare\" --executable-sha256 \"$(sha256sum \"$package/zix-cloudflare\" | cut -d ' ' -f1)\"\nzix extensions enable cloudflare\nzix extensions inspect cloudflare --format json",
+              "text": "First prepare the OS prerequisites on Ubuntu 24.04+ or equivalent, then run below. No preinstalled gh or GitHub login is needed. With setup already installed, use zix-setup install --with cloudflare alone. The feature list describes the stated release; installation selects the newest stable native package.",
+              "code": "mkdir -p \"$HOME/.local/share/zix/bootstrap\"\nchmod 700 \"$HOME/.local/share/zix/bootstrap\"\ncd \"$HOME/.local/share/zix/bootstrap\"\ncurl --fail --location https://zixcel.com/install.sh -o install.sh\ncurl --fail --location https://zixcel.com/SHA256SUMS.installer -o SHA256SUMS.installer\nsha256sum --check SHA256SUMS.installer\n# Inspect install.sh before running.\nbash install.sh install --with cloudflare\nexport PATH=\"$HOME/.local/bin:$PATH\"\nzix-setup doctor\nzix extensions inspect cloudflare --format json",
               "links": [
                 {
-                  "href": "/docs/getting-started",
-                  "title": "Install the core CLI first"
+                  "href": "/docs/setup",
+                  "title": "Prepare host prerequisites first"
                 },
                 {
                   "href": "https://github.com/zixcel/zixcel-cloudflare/releases/tag/native/cloudflare/v0.3.1",
@@ -4036,12 +4115,12 @@
           "sections": [
             {
               "title": "1. Install and enable",
-              "text": "Official 0.5.1 package for zix CLI 0.7.0 on Linux x86_64 (gnu). Run in an empty directory under your permanent package location; registration references the extracted files.",
-              "code": "gh release download native/microsoft/v0.5.1 --repo zixcel/zixcel-microsoft --pattern zixcel-microsoft-cli-v0.5.1-x86_64-unknown-linux-gnu.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-microsoft-cli-v0.5.1-x86_64-unknown-linux-gnu.tar.gz --repo zixcel/zixcel-microsoft --signer-workflow zixcel/zixcel-microsoft/.github/workflows/release-native.yml --source-ref refs/tags/native/microsoft/v0.5.1\ntar -xzf zixcel-microsoft-cli-v0.5.1-x86_64-unknown-linux-gnu.tar.gz\npackage=\"$PWD/zixcel-microsoft-cli-v0.5.1-x86_64-unknown-linux-gnu\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/microsoft.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/microsoft.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-microsoft\" --executable-sha256 \"$(sha256sum \"$package/zix-microsoft\" | cut -d ' ' -f1)\"\nzix extensions enable microsoft\nzix extensions inspect microsoft --format json",
+              "text": "First prepare the OS prerequisites on Ubuntu 24.04+ or equivalent, then run below. No preinstalled gh or GitHub login is needed. With setup already installed, use zix-setup install --with microsoft alone. The feature list describes the stated release; installation selects the newest stable native package.",
+              "code": "mkdir -p \"$HOME/.local/share/zix/bootstrap\"\nchmod 700 \"$HOME/.local/share/zix/bootstrap\"\ncd \"$HOME/.local/share/zix/bootstrap\"\ncurl --fail --location https://zixcel.com/install.sh -o install.sh\ncurl --fail --location https://zixcel.com/SHA256SUMS.installer -o SHA256SUMS.installer\nsha256sum --check SHA256SUMS.installer\n# Inspect install.sh before running.\nbash install.sh install --with microsoft\nexport PATH=\"$HOME/.local/bin:$PATH\"\nzix-setup doctor\nzix extensions inspect microsoft --format json",
               "links": [
                 {
-                  "href": "/docs/getting-started",
-                  "title": "Install the core CLI first"
+                  "href": "/docs/setup",
+                  "title": "Prepare host prerequisites first"
                 },
                 {
                   "href": "https://github.com/zixcel/zixcel-microsoft/releases/tag/native/microsoft/v0.5.1",
@@ -4096,12 +4175,12 @@
           "sections": [
             {
               "title": "1. Install and enable",
-              "text": "Official 0.2.0 package for zix CLI 0.7.0 on Linux x86_64 (musl). Run in an empty directory under your permanent package location; registration references the extracted files.",
-              "code": "gh release download native/github/v0.2.0 --repo zixcel/zixcel-github --pattern zixcel-github-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-github-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-github --signer-workflow zixcel/zixcel-github/.github/workflows/release-native.yml --source-ref refs/tags/native/github/v0.2.0\ntar -xzf zixcel-github-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-github-cli-v0.2.0-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/github.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/github.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-github\" --executable-sha256 \"$(sha256sum \"$package/zix-github\" | cut -d ' ' -f1)\"\nzix extensions enable github\nzix extensions inspect github --format json",
+              "text": "First prepare the OS prerequisites on Ubuntu 24.04+ or equivalent, then run below. No preinstalled gh or GitHub login is needed. With setup already installed, use zix-setup install --with github alone. The feature list describes the stated release; installation selects the newest stable native package.",
+              "code": "mkdir -p \"$HOME/.local/share/zix/bootstrap\"\nchmod 700 \"$HOME/.local/share/zix/bootstrap\"\ncd \"$HOME/.local/share/zix/bootstrap\"\ncurl --fail --location https://zixcel.com/install.sh -o install.sh\ncurl --fail --location https://zixcel.com/SHA256SUMS.installer -o SHA256SUMS.installer\nsha256sum --check SHA256SUMS.installer\n# Inspect install.sh before running.\nbash install.sh install --with github\nexport PATH=\"$HOME/.local/bin:$PATH\"\nzix-setup doctor\nzix extensions inspect github --format json",
               "links": [
                 {
-                  "href": "/docs/getting-started",
-                  "title": "Install the core CLI first"
+                  "href": "/docs/setup",
+                  "title": "Prepare host prerequisites first"
                 },
                 {
                   "href": "https://github.com/zixcel/zixcel-github/releases/tag/native/github/v0.2.0",
@@ -4156,12 +4235,12 @@
           "sections": [
             {
               "title": "1. Install and enable",
-              "text": "Official 0.3.0 package for zix CLI 0.7.0 on Linux x86_64 (gnu). Run in an empty directory under your permanent package location; registration references the extracted files.",
-              "code": "gh release download v0.3.0 --repo zixcel/zixcel-container-registry --pattern zixcel-container-registry-v0.3.0-x86_64-unknown-linux-gnu.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-container-registry-v0.3.0-x86_64-unknown-linux-gnu.tar.gz --repo zixcel/zixcel-container-registry --signer-workflow zixcel/zixcel-container-registry/.github/workflows/release.yml --source-ref refs/tags/v0.3.0\ntar -xzf zixcel-container-registry-v0.3.0-x86_64-unknown-linux-gnu.tar.gz\npackage=\"$PWD/zixcel-container-registry-v0.3.0-x86_64-unknown-linux-gnu\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/docker.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/docker.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-docker\" --executable-sha256 \"$(sha256sum \"$package/zix-docker\" | cut -d ' ' -f1)\"\nzix extensions enable docker\nzix extensions inspect docker --format json",
+              "text": "First prepare the OS prerequisites on Ubuntu 24.04+ or equivalent, then run below. No preinstalled gh or GitHub login is needed. With setup already installed, use zix-setup install --with docker alone. The feature list describes the stated release; installation selects the newest stable native package.",
+              "code": "mkdir -p \"$HOME/.local/share/zix/bootstrap\"\nchmod 700 \"$HOME/.local/share/zix/bootstrap\"\ncd \"$HOME/.local/share/zix/bootstrap\"\ncurl --fail --location https://zixcel.com/install.sh -o install.sh\ncurl --fail --location https://zixcel.com/SHA256SUMS.installer -o SHA256SUMS.installer\nsha256sum --check SHA256SUMS.installer\n# Inspect install.sh before running.\nbash install.sh install --with docker\nexport PATH=\"$HOME/.local/bin:$PATH\"\nzix-setup doctor\nzix extensions inspect docker --format json",
               "links": [
                 {
-                  "href": "/docs/getting-started",
-                  "title": "Install the core CLI first"
+                  "href": "/docs/setup",
+                  "title": "Prepare host prerequisites first"
                 },
                 {
                   "href": "https://github.com/zixcel/zixcel-container-registry/releases/tag/v0.3.0",
@@ -4216,12 +4295,12 @@
           "sections": [
             {
               "title": "1. Install and enable",
-              "text": "Official 0.2.0 package for zix CLI 0.7.0 on Linux x86_64 (musl). Run in an empty directory under your permanent package location; registration references the extracted files.",
-              "code": "gh release download native/azure/v0.2.0 --repo zixcel/zixcel-azure --pattern zixcel-azure-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-azure-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-azure --signer-workflow zixcel/zixcel-azure/.github/workflows/release-native.yml --source-ref refs/tags/native/azure/v0.2.0\ntar -xzf zixcel-azure-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-azure-cli-v0.2.0-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/azure.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/azure.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-azure\" --executable-sha256 \"$(sha256sum \"$package/zix-azure\" | cut -d ' ' -f1)\"\nzix extensions enable azure\nzix extensions inspect azure --format json",
+              "text": "First prepare the OS prerequisites on Ubuntu 24.04+ or equivalent, then run below. No preinstalled gh or GitHub login is needed. With setup already installed, use zix-setup install --with azure alone. The feature list describes the stated release; installation selects the newest stable native package.",
+              "code": "mkdir -p \"$HOME/.local/share/zix/bootstrap\"\nchmod 700 \"$HOME/.local/share/zix/bootstrap\"\ncd \"$HOME/.local/share/zix/bootstrap\"\ncurl --fail --location https://zixcel.com/install.sh -o install.sh\ncurl --fail --location https://zixcel.com/SHA256SUMS.installer -o SHA256SUMS.installer\nsha256sum --check SHA256SUMS.installer\n# Inspect install.sh before running.\nbash install.sh install --with azure\nexport PATH=\"$HOME/.local/bin:$PATH\"\nzix-setup doctor\nzix extensions inspect azure --format json",
               "links": [
                 {
-                  "href": "/docs/getting-started",
-                  "title": "Install the core CLI first"
+                  "href": "/docs/setup",
+                  "title": "Prepare host prerequisites first"
                 },
                 {
                   "href": "https://github.com/zixcel/zixcel-azure/releases/tag/native/azure/v0.2.0",
@@ -4276,12 +4355,12 @@
           "sections": [
             {
               "title": "1. Install and enable",
-              "text": "Official 0.2.0 package for zix CLI 0.7.0 on Linux x86_64 (musl). Run in an empty directory under your permanent package location; registration references the extracted files.",
-              "code": "gh release download native/apple/v0.2.0 --repo zixcel/zixcel-apple --pattern zixcel-apple-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-apple-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-apple --signer-workflow zixcel/zixcel-apple/.github/workflows/release-native.yml --source-ref refs/tags/native/apple/v0.2.0\ntar -xzf zixcel-apple-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-apple-cli-v0.2.0-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/apple.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/apple.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-apple\" --executable-sha256 \"$(sha256sum \"$package/zix-apple\" | cut -d ' ' -f1)\"\nzix extensions enable apple\nzix extensions inspect apple --format json",
+              "text": "First prepare the OS prerequisites on Ubuntu 24.04+ or equivalent, then run below. No preinstalled gh or GitHub login is needed. With setup already installed, use zix-setup install --with apple alone. The feature list describes the stated release; installation selects the newest stable native package.",
+              "code": "mkdir -p \"$HOME/.local/share/zix/bootstrap\"\nchmod 700 \"$HOME/.local/share/zix/bootstrap\"\ncd \"$HOME/.local/share/zix/bootstrap\"\ncurl --fail --location https://zixcel.com/install.sh -o install.sh\ncurl --fail --location https://zixcel.com/SHA256SUMS.installer -o SHA256SUMS.installer\nsha256sum --check SHA256SUMS.installer\n# Inspect install.sh before running.\nbash install.sh install --with apple\nexport PATH=\"$HOME/.local/bin:$PATH\"\nzix-setup doctor\nzix extensions inspect apple --format json",
               "links": [
                 {
-                  "href": "/docs/getting-started",
-                  "title": "Install the core CLI first"
+                  "href": "/docs/setup",
+                  "title": "Prepare host prerequisites first"
                 },
                 {
                   "href": "https://github.com/zixcel/zixcel-apple/releases/tag/native/apple/v0.2.0",
@@ -4336,12 +4415,12 @@
           "sections": [
             {
               "title": "1. Install and enable",
-              "text": "Official 0.7.0 package for zix CLI 0.7.0 on Linux x86_64 (musl). Run in an empty directory under your permanent package location; registration references the extracted files.",
-              "code": "gh release download google/v0.7.0 --repo zixcel/zixcel-google --pattern zixcel-google-cli-v0.7.0-x86_64-unknown-linux-musl.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-google-cli-v0.7.0-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-google --signer-workflow zixcel/zixcel-google/.github/workflows/release-google.yml --source-ref refs/tags/google/v0.7.0\ntar -xzf zixcel-google-cli-v0.7.0-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-google-cli-v0.7.0-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/google.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/google.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-google\" --executable-sha256 \"$(sha256sum \"$package/zix-google\" | cut -d ' ' -f1)\"\nzix extensions enable google\nzix extensions inspect google --format json",
+              "text": "First prepare the OS prerequisites on Ubuntu 24.04+ or equivalent, then run below. No preinstalled gh or GitHub login is needed. With setup already installed, use zix-setup install --with google alone. The feature list describes the stated release; installation selects the newest stable native package.",
+              "code": "mkdir -p \"$HOME/.local/share/zix/bootstrap\"\nchmod 700 \"$HOME/.local/share/zix/bootstrap\"\ncd \"$HOME/.local/share/zix/bootstrap\"\ncurl --fail --location https://zixcel.com/install.sh -o install.sh\ncurl --fail --location https://zixcel.com/SHA256SUMS.installer -o SHA256SUMS.installer\nsha256sum --check SHA256SUMS.installer\n# Inspect install.sh before running.\nbash install.sh install --with google\nexport PATH=\"$HOME/.local/bin:$PATH\"\nzix-setup doctor\nzix extensions inspect google --format json",
               "links": [
                 {
-                  "href": "/docs/getting-started",
-                  "title": "Install the core CLI first"
+                  "href": "/docs/setup",
+                  "title": "Prepare host prerequisites first"
                 },
                 {
                   "href": "https://github.com/zixcel/zixcel-google/releases/tag/google/v0.7.0",
@@ -4396,12 +4475,12 @@
           "sections": [
             {
               "title": "1. Install and enable",
-              "text": "Official 0.4.1 package for zix CLI 0.7.0 on Linux x86_64 (gnu). Run in an empty directory under your permanent package location; registration references the extracted files.",
-              "code": "gh release download v0.4.1 --repo zixcel/zixcel-wordpress --pattern zixcel-wordpress-v0.4.1-x86_64-unknown-linux-gnu.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-wordpress-v0.4.1-x86_64-unknown-linux-gnu.tar.gz --repo zixcel/zixcel-wordpress --signer-workflow zixcel/zixcel-wordpress/.github/workflows/release.yml --source-ref refs/tags/v0.4.1\ntar -xzf zixcel-wordpress-v0.4.1-x86_64-unknown-linux-gnu.tar.gz\npackage=\"$PWD/zixcel-wordpress-v0.4.1-x86_64-unknown-linux-gnu\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/wordpress.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/wordpress.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-wordpress\" --executable-sha256 \"$(sha256sum \"$package/zix-wordpress\" | cut -d ' ' -f1)\"\nzix extensions enable wordpress\nzix extensions inspect wordpress --format json",
+              "text": "First prepare the OS prerequisites on Ubuntu 24.04+ or equivalent, then run below. No preinstalled gh or GitHub login is needed. With setup already installed, use zix-setup install --with wordpress alone. The feature list describes the stated release; installation selects the newest stable native package.",
+              "code": "mkdir -p \"$HOME/.local/share/zix/bootstrap\"\nchmod 700 \"$HOME/.local/share/zix/bootstrap\"\ncd \"$HOME/.local/share/zix/bootstrap\"\ncurl --fail --location https://zixcel.com/install.sh -o install.sh\ncurl --fail --location https://zixcel.com/SHA256SUMS.installer -o SHA256SUMS.installer\nsha256sum --check SHA256SUMS.installer\n# Inspect install.sh before running.\nbash install.sh install --with wordpress\nexport PATH=\"$HOME/.local/bin:$PATH\"\nzix-setup doctor\nzix extensions inspect wordpress --format json",
               "links": [
                 {
-                  "href": "/docs/getting-started",
-                  "title": "Install the core CLI first"
+                  "href": "/docs/setup",
+                  "title": "Prepare host prerequisites first"
                 },
                 {
                   "href": "https://github.com/zixcel/zixcel-wordpress/releases/tag/v0.4.1",
@@ -4453,27 +4532,20 @@
           "status": "published",
           "sections": [
             {
-              "title": "1. Install prerequisites",
-              "text": "This example uses released Zix and the GitHub extension, llama-completion from llama.cpp b11913, and Qwen2.5-0.5B-Instruct-GGUF q8_0. Obtain the runtime and model from their official distributions and verify artifact hashes.",
+              "title": "1. Install CLI, extension and model",
+              "text": "Prepare the foundation prerequisites and use --local-model. The helper supplies the downloaded model and shared-library paths; no development build or manual path replacement is needed.",
+              "code": "mkdir -p \"$HOME/.local/share/zix/bootstrap\"\nchmod 700 \"$HOME/.local/share/zix/bootstrap\"\ncd \"$HOME/.local/share/zix/bootstrap\"\ncurl --fail --location https://zixcel.com/install.sh -o install.sh\ncurl --fail --location https://zixcel.com/SHA256SUMS.installer -o SHA256SUMS.installer\nsha256sum --check SHA256SUMS.installer\n# Inspect install.sh before running.\nbash install.sh install --with github --local-model\nexport PATH=\"$HOME/.local/bin:$PATH\"\nzix-setup doctor\nzix-local-model --version",
               "links": [
                 {
-                  "href": "/tools/github",
-                  "title": "GitHub extension"
-                },
-                {
-                  "href": "https://github.com/ggml-org/llama.cpp/releases/tag/b11913",
-                  "title": "llama.cpp b11913"
-                },
-                {
-                  "href": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/tree/9217f5db79a29953eb74d5343926648285ec7e67",
-                  "title": "Qwen 0.5B GGUF (pinned revision)"
+                  "href": "/docs/setup",
+                  "title": "Host requirements, installation and updates"
                 }
               ]
             },
             {
               "title": "2. Inspect candidates and run local inference",
-              "text": "Set model to your downloaded GGUF path. The grammar restricts the answer to two IDs, with temperature 0 and 32 output tokens. This example ends at model selection.",
-              "code": "zix capabilities --namespace github --compact --format json\nmodel=\"/path/to/qwen2.5-0.5b-instruct-q8_0.gguf\"\nprompt='<|im_start|>system\nMatch the final request to one listed ID. Return only the matching identifier.<|im_end|>\n<|im_start|>user\nCHOICES AND MEANINGS:\nuser.read: GITHUB IDENTITY READ\nrepository.read: GITHUB REPOSITORY READ\nREQUEST: Read GitHub repository metadata.<|im_end|>\n<|im_start|>assistant\n'\nllama-completion -m \"$model\" --no-conversation --no-display-prompt --no-warmup --no-perf --grammar 'root ::= \"user.read\" | \"repository.read\"' -p \"$prompt\" -n 32 -c 4096 -t 2 -tb 2 -ngl 0 --temp 0 --seed 42"
+              "text": "Run the following directly. This scoped example uses two candidates, two CPU threads, temperature 0 and 32 output tokens, and ends at model selection.",
+              "code": "zix capabilities --namespace github --compact --format json\nprompt='<|im_start|>system\nMatch the final request to one listed ID. Return only the matching identifier.<|im_end|>\n<|im_start|>user\nCHOICES AND MEANINGS:\nuser.read: GITHUB IDENTITY READ\nrepository.read: GITHUB REPOSITORY READ\nREQUEST: Read GitHub repository metadata.<|im_end|>\n<|im_start|>assistant\n'\nzix-local-model --no-conversation --no-display-prompt --no-warmup --no-perf --grammar 'root ::= \"user.read\" | \"repository.read\"' -p \"$prompt\" -n 32 -c 4096 -t 2 -tb 2 -ngl 0 --temp 0 --seed 42"
             },
             {
               "title": "3. Validate the answer",
@@ -4497,6 +4569,78 @@
                 {
                   "href": "/docs/llm",
                   "title": "Design and stop conditions"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/docs/setup",
+          "title": "Install and update your local foundation",
+          "summary": "Prepare dependencies, Zix, extensions and an optional 0.5B environment from official distributions.",
+          "kind": "page",
+          "status": "published",
+          "sections": [
+            {
+              "title": "1. Host and OS prerequisites",
+              "text": "Use Linux x86_64 with glibc 2.39+ (Ubuntu 24.04+, including WSL2), Bash, Python 3.12+, curl, CA certificates and libsecret. The following prepares Ubuntu 24.04. A global gh, GitHub login, Rust and Node are not required.",
+              "code": "sudo apt-get update\nsudo apt-get install -y --no-install-recommends python3 curl ca-certificates libsecret-1-0 gnome-keyring dbus-user-session"
+            },
+            {
+              "title": "2. Inspect and run setup",
+              "text": "Run as your login user without sudo. Setup manages a private gh verifier and installs the newest stable Zix and selected extensions after checking checksums, signed provenance, source, tag and contents. The initial script is an HTTPS bootstrap trust input; its same-origin checksum is not independent publisher authentication.",
+              "code": "mkdir -p \"$HOME/.local/share/zix/bootstrap\"\nchmod 700 \"$HOME/.local/share/zix/bootstrap\"\ncd \"$HOME/.local/share/zix/bootstrap\"\ncurl --fail --location https://zixcel.com/install.sh -o install.sh\ncurl --fail --location https://zixcel.com/SHA256SUMS.installer -o SHA256SUMS.installer\nsha256sum --check SHA256SUMS.installer\n# Inspect install.sh before running.\nbash install.sh install --with github\nexport PATH=\"$HOME/.local/bin:$PATH\"\nzix-setup doctor",
+              "links": [
+                {
+                  "href": "https://github.com/zixcel/cli/releases/tag/installer/v0.1.0",
+                  "title": "Installer release and provenance"
+                },
+                {
+                  "href": "https://github.com/zixcel/cli/blob/main/docs/setup.md",
+                  "title": "Implementation, storage and trust boundaries"
+                }
+              ]
+            },
+            {
+              "title": "3. Update and add extensions",
+              "text": "Update refreshes setup, the private verifier, Zix and supported registered extensions. New registrations are enabled; existing enablement is preserved. Unknown third-party extensions are unchanged. Updates commit per package; a later failure retains completed updates and receipts. No automatic downgrade.",
+              "code": "zix-setup update\nzix-setup install --with domain,microsoft\nzix extensions list --format json",
+              "links": [
+                {
+                  "href": "/tools",
+                  "title": "Features and install guides"
+                }
+              ]
+            },
+            {
+              "title": "4. Optionally install the 0.5B environment",
+              "text": "--local-model obtains the tested llama.cpp b11913 and Qwen2.5-0.5B q8_0 from official distributions with pinned SHA256 checks. Allow about 2 GB free during installation; a machine with 4 GB RAM or more is recommended. zix-local-model is an external helper that supplies model and library paths. This tested pair stays pinned rather than silently changing to untested latest models.",
+              "code": "zix-setup install --with github --local-model\nzix-local-model --version",
+              "links": [
+                {
+                  "href": "/docs/local-model",
+                  "title": "Run the 0.5B example"
+                }
+              ]
+            },
+            {
+              "title": "5. Check PATH and credential custody",
+              "text": "Doctor observes PATH, versions, D-Bus and Secret Service without network or secret reads. Service ownership does not prove a collection is unlocked or authentication will succeed. WSL/headless hosts need a separately configured login-session Secret Service; installing OS packages alone does not provision it. Export PATH in the current shell and add it to your shell configuration if desired. On a desktop, use Passwords and Keys (Seahorse; install with sudo apt-get install seahorse if absent) to configure and unlock a password-protected persistent default keyring. Before enrollment, inspect it with zix credential status --collection default.",
+              "code": "export PATH=\"$HOME/.local/bin:$PATH\"\nzix-setup doctor",
+              "links": [
+                {
+                  "href": "/docs/credentials",
+                  "title": "Enroll service credentials"
+                }
+              ]
+            },
+            {
+              "title": "6. Storage, recovery and stopped updates",
+              "text": "Packages live under ~/.local/share/zix/packages; helpers, optional models and receipts under ~/.local/share/zix/setup. Temporary downloads are removed, previous versions retained for rollback. Inspect download/access/rate-limit failures rather than changing provider settings or repeatedly retrying.",
+              "links": [
+                {
+                  "href": "https://github.com/zixcel/cli/blob/main/docs/setup.md",
+                  "title": "Pinning, rollback and removal"
                 }
               ]
             }
