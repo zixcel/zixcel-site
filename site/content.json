@@ -1221,6 +1221,25 @@
               "code": "zix capabilities --compact --format json\nzix capabilities --namespace github --compact --format json\nzix describe github --operation repository.read --compact --format json"
             },
             {
+              "title": "小型モデルにはIDとキーワードを渡す",
+              "text": "JSON全体は連携ホストに保持し、モデルには選択した一覧のID・キーワード・短い意味だけを渡します。依頼はデータの後ろに置き、応答は候補IDに制約します。モデルの選択は、利用者が許可した対象・操作の範囲と照合します。",
+              "code": "CHOICES AND MEANINGS:\ngithub: REPOSITORY, READ\nmicrosoft: GRAPH, EXCHANGE, AUTH\nREQUEST: Read GitHub repository metadata."
+            },
+            {
+              "title": "停止条件はプログラムで処理する",
+              "text": "入力不足、認証・権限の問題、部分観測、変更結果の不明は、モデルの判断で解除しません。参照実装は停止条件と候補IDの検証を分け、コマンドを自動実行しません。小さなモデルの精度はモデル・量子化・指示によって変わるため、実際の構成で選択試験を行います。",
+              "links": [
+                {
+                  "href": "https://github.com/zixcel/cli/blob/main/docs/llm_view.py",
+                  "title": "連携側の参照コード（Python標準ライブラリ）"
+                },
+                {
+                  "href": "https://github.com/zixcel/cli/blob/main/docs/llm-operations.md",
+                  "title": "入力形式と実行側の確認事項"
+                }
+              ]
+            },
+            {
               "title": "入力と次の操作を構造で確認する",
               "text": "command は実際のコマンド語、arguments は受け付ける引数、missing_arguments は不足入力です。selector_choices で対象リソースを選び直すと、その条件に合う要件を取得できます。next の runnable は入力形と未確認条件の状態であり、権限や実行承認の証明ではありません。"
             },
@@ -1408,7 +1427,7 @@
             },
             {
               "title": "zix wordpress",
-              "text": "HTTPS オリジンに結び付いた OS 認証ストアを使い、記事・固定ページ・メディアの参照と、確認付きの変更を扱います。 正式版 0.4.0。",
+              "text": "HTTPS オリジンに結び付いた OS 認証ストアを使い、記事・固定ページ・メディアの参照と、確認付きの変更を扱います。 正式版 0.4.1。",
               "links": [
                 {
                   "href": "https://github.com/zixcel/zixcel-wordpress/releases",
@@ -3032,6 +3051,25 @@
               "code": "zix capabilities --compact --format json\nzix capabilities --namespace github --compact --format json\nzix describe github --operation repository.read --compact --format json"
             },
             {
+              "title": "Give small models IDs and keywords",
+              "text": "Keep full JSON in the caller. Give the model only IDs, keywords and short meanings from the selected index. Put the request after the data and constrain the answer to candidate IDs. Validate its choice against the targets and operations authorized for the workflow.",
+              "code": "CHOICES AND MEANINGS:\ngithub: REPOSITORY, READ\nmicrosoft: GRAPH, EXCHANGE, AUTH\nREQUEST: Read GitHub repository metadata."
+            },
+            {
+              "title": "Enforce stop conditions in code",
+              "text": "Missing input, credential or access problems, partial evidence and unknown writes remain blocked independently of model output. The reference formatter separates stop conditions from candidate validation and executes no commands. Routing accuracy depends on model, quantization and prompt; qualify the actual configuration.",
+              "links": [
+                {
+                  "href": "https://github.com/zixcel/cli/blob/main/docs/llm_view.py",
+                  "title": "Caller reference code (Python standard library)"
+                },
+                {
+                  "href": "https://github.com/zixcel/cli/blob/main/docs/llm-operations.md",
+                  "title": "Prompt format and execution checks"
+                }
+              ]
+            },
+            {
               "title": "Use structured inputs and next actions",
               "text": "command contains actual command words; arguments lists accepted inputs; missing_arguments names missing context. Use selector_choices to inspect the correct resource. A next action marked runnable has a usable shape and no declared unresolved context; it is not permission or approval proof."
             },
@@ -3219,7 +3257,7 @@
             },
             {
               "title": "zix wordpress",
-              "text": "Use origin-bound OS custody for post/page/media reads and explicitly reviewed WordPress changes. Official version 0.4.0.",
+              "text": "Use origin-bound OS custody for post/page/media reads and explicitly reviewed WordPress changes. Official version 0.4.1.",
               "links": [
                 {
                   "href": "https://github.com/zixcel/zixcel-wordpress/releases",
