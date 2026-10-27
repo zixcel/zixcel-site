@@ -1,9 +1,10 @@
+import documentContent from './content.mjs'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import test from 'node:test'
 import { validateIntroduction, type Content } from './navigation.mts'
 
-const data = JSON.parse(readFileSync(new URL('./content.json', import.meta.url), 'utf8'))
+const data = documentContent
 for (const locale of ['ja', 'en']) {
   const original = data.locales[locale]
   test(`${locale}: ordinary entry reaches the guide and repository`, () => {

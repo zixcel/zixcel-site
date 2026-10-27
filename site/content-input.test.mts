@@ -1,9 +1,10 @@
+import documentContent from './content.mjs'
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import { readFileSync } from 'node:fs'
 import { decodeContent } from './content-input.mts'
 import { validateContent } from './check.mts'
-const value: unknown = JSON.parse(readFileSync(new URL('./content.json', import.meta.url), 'utf8'))
+const value: unknown = documentContent
 const valid = decodeContent(value)
 test('typed decoder preserves the admitted bilingual site and rejects malformed input', () => {
   assert.deepEqual(valid, value)

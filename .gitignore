@@ -82,3 +82,6 @@ __pycache__/
 
 # The shared site runner may create a generated output symlink.
 /dist
+
+# Generated from the current Markdown/MDC sources; never a second authoring source.
+**/.generated-documents/
