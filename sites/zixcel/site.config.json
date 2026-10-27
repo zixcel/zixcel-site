@@ -15,8 +15,8 @@
   "content": {
     "ja": {
       "brand": "Zixcel",
-      "tagline": "データに、使えるかたちを。",
-      "summary": "表示データ、文書処理、状態管理、クラウドや外部APIとの連携。Zixcelは、製品を越えて利用できる汎用的な部品を提供します。",
+      "tagline": "ローカルの道具から、サービスをつなぐ。",
+      "summary": "zix CLI で対象と必要条件を確認し、拡張パッケージを通じて外部サービスを操作。データ・文書・状態を扱うライブラリも、目的に合わせて組み合わせられます。",
       "features": [
         {
           "id": "focus-1",
@@ -44,7 +44,7 @@
               "id": "connector-model",
               "title": "Connectorモデル",
               "body": [
-                "各Connectorは一つのProviderまたはProtocol境界を担当し、共通の要求・計画・結果契約を入出力に使います。他製品のソースを直接取り込まず、版付きInterfaceで連携します。"
+                "zix 本体は拡張の登録・検査・実行と認証情報の受け渡しを担当します。各サービスの操作定義と API の処理は、独立した拡張パッケージが担当します。"
               ]
             },
             {
@@ -65,8 +65,8 @@
         },
         "gettingStarted": {
           "slug": "/docs/getting-started",
-          "title": "Connectorを選ぶ",
-          "summary": "Providerへ接続する前に確認する最小手順です。",
+          "title": "zix を使い始める",
+          "summary": "正式 CLI、拡張の登録、要件確認、認証と実行の順に進めます。",
           "sections": [
             {
               "id": "select-connector",
@@ -100,7 +100,7 @@
               "id": "external-actions",
               "title": "外部操作は別段階",
               "body": [
-                "このサイトはProviderへ接続しません。Connectorも既定では計画と検証に留め、書き込み、送信、削除等は対象と承認を確認した実行境界へ分離します。"
+                "このサイト自体はプロバイダーへ接続しません。ローカルの zix ではメタデータの確認、実データの読み取り、明示的な変更を分けて扱います。変更は対象・計画・確認・結果照合を伴う実行境界で行います。"
               ]
             }
           ]
@@ -117,8 +117,8 @@
     },
     "en": {
       "brand": "Zixcel",
-      "tagline": "Give data a useful shape.",
-      "summary": "Zixcel provides reusable building blocks for view data, documents, state and cloud or external API integration across products.",
+      "tagline": "Connect services from your own tools.",
+      "summary": "Inspect targets and prerequisites with Zix, then use provider extensions to operate services. Compose focused libraries for data, documents and state alongside the CLI.",
       "features": [
         {
           "id": "focus-1",
@@ -146,7 +146,7 @@
               "id": "connector-model",
               "title": "Connector model",
               "body": [
-                "Each connector owns one provider or protocol boundary and uses common request, plan, and result contracts. Products integrate through versioned interfaces rather than importing each other's source."
+                "Zix owns extension registration, inspection, dispatch and credential composition. Independent provider packages own operation definitions and API behavior."
               ]
             },
             {
@@ -167,8 +167,8 @@
         },
         "gettingStarted": {
           "slug": "/docs/getting-started",
-          "title": "Choose a connector",
-          "summary": "The minimum checks before connecting a provider.",
+          "title": "Get started with Zix",
+          "summary": "Install the official CLI, register an extension, inspect requirements, then authenticate and execute.",
           "sections": [
             {
               "id": "select-connector",
@@ -202,7 +202,7 @@
               "id": "external-actions",
               "title": "Separate external execution",
               "body": [
-                "This site never connects to a provider. Connectors default to planning and validation; writes, sends, and deletes belong to an execution boundary that verifies the target and approval."
+                "This website does not connect to providers. Local Zix separates metadata inspection, live reads and explicit changes. Writes require scoped plans, confirmation and result verification."
               ]
             }
           ]

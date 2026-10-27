@@ -2,99 +2,99 @@
   "ja": {
     "category": "ローカルから使う開発ツール",
     "primary": {
-      "href": "/capabilities",
-      "title": "用途から探す"
+      "href": "/docs/getting-started",
+      "title": "zix を使い始める"
     },
     "secondary": {
-      "href": "/oss",
-      "title": "ツール一覧を見る"
+      "href": "/tools",
+      "title": "対応サービスを見る"
     },
     "pathsTitle": "何をお探しですか？",
     "paths": [
       {
-        "href": "/capabilities/integrations",
-        "title": "外部サービスを扱う",
-        "summary": "CLIとproviderの連携を知る"
+        "href": "/docs/getting-started",
+        "title": "CLI を導入する",
+        "summary": "正式版の取得から、拡張の登録まで"
       },
       {
-        "href": "/capabilities/data-documents",
-        "title": "データや文書を扱う",
-        "summary": "必要な処理から部品を選ぶ"
+        "href": "/docs/llm",
+        "title": "LLM から操作する",
+        "summary": "小さな案内を読んで、１操作ずつ進める"
       },
       {
-        "href": "/capabilities/developer-tools",
-        "title": "開発・配布の道具を探す",
-        "summary": "検査と配布の基盤を知る"
+        "href": "/capabilities",
+        "title": "ライブラリを選ぶ",
+        "summary": "データ・文書・状態・認証の部品を探す"
       }
     ],
     "preview": {
       "kind": "code",
-      "label": "使い方のイメージ",
-      "title": "目的から、必要な道具へ。",
+      "label": "Zix の確認手順",
+      "title": "選ぶ。確かめる。実行する。",
       "rows": [
         {
-          "label": "選ぶ",
-          "detail": "目的に合うCLI・ライブラリ"
+          "label": "1",
+          "detail": "zix capabilities --compact"
         },
         {
-          "label": "確かめる",
-          "detail": "対象と実行条件を確認"
+          "label": "2",
+          "detail": "zix capabilities --namespace github --compact"
         },
         {
-          "label": "ローカルから使う",
-          "detail": "手元の環境と組み合わせる"
+          "label": "3",
+          "detail": "zix describe github --operation repository.read --compact"
         }
       ],
-      "outcome": "ツールごとの公開実装と配布先へ。"
+      "outcome": "認証情報を読まずに、次の操作を確認。"
     }
   },
   "en": {
     "category": "Development tools, local first",
     "primary": {
-      "href": "/capabilities",
-      "title": "Explore capabilities"
+      "href": "/docs/getting-started",
+      "title": "Get started with Zix"
     },
     "secondary": {
-      "href": "/oss",
-      "title": "Browse tools"
+      "href": "/tools",
+      "title": "Browse providers"
     },
     "pathsTitle": "What brings you here?",
     "paths": [
       {
-        "href": "/capabilities/integrations",
-        "title": "Connect services",
-        "summary": "Explore CLI and provider integrations"
+        "href": "/docs/getting-started",
+        "title": "Install the CLI",
+        "summary": "Official packages and extension registration"
       },
       {
-        "href": "/capabilities/data-documents",
-        "title": "Work with data & documents",
-        "summary": "Choose building blocks for the task"
+        "href": "/docs/llm",
+        "title": "Operate with an LLM",
+        "summary": "Read small briefs and execute one scoped operation"
       },
       {
-        "href": "/capabilities/developer-tools",
-        "title": "Developer tools",
-        "summary": "Explore inspection and distribution tools"
+        "href": "/capabilities",
+        "title": "Choose libraries",
+        "summary": "Explore data, document, state and identity libraries"
       }
     ],
     "preview": {
       "kind": "code",
-      "label": "Workflow illustration",
-      "title": "Start with the task. Find the tool.",
+      "label": "Zix discovery",
+      "title": "Select. Inspect. Execute.",
       "rows": [
         {
-          "label": "Select",
-          "detail": "The CLI or library that fits the task"
+          "label": "1",
+          "detail": "zix capabilities --compact"
         },
         {
-          "label": "Inspect",
-          "detail": "Review the target and execution conditions"
+          "label": "2",
+          "detail": "zix capabilities --namespace github --compact"
         },
         {
-          "label": "Use locally",
-          "detail": "Compose tools in your local environment"
+          "label": "3",
+          "detail": "zix describe github --operation repository.read --compact"
         }
       ],
-      "outcome": "Each tool has its own source and distribution."
+      "outcome": "Inspect the next operation without reading credentials."
     }
   }
 }
