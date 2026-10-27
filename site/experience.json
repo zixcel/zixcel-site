@@ -1,100 +1,100 @@
 {
   "ja": {
-    "category": "ローカルから使う開発ツール",
+    "category": "0.5Bから始めるローカル操作",
     "primary": {
-      "href": "/docs/getting-started",
-      "title": "zix を使い始める"
+      "href": "/docs/local-model",
+      "title": "0.5Bのサンプルを試す"
     },
     "secondary": {
-      "href": "/tools",
-      "title": "対応サービスを見る"
+      "href": "/tools/github",
+      "title": "GitHub拡張を導入"
     },
-    "pathsTitle": "何をお探しですか？",
+    "pathsTitle": "サンプルを進める3ステップ",
     "paths": [
       {
-        "href": "/docs/getting-started",
-        "title": "CLI を導入する",
-        "summary": "正式版の取得から、拡張の登録まで"
+        "href": "/tools/github",
+        "title": "1. 導入",
+        "summary": "CLI + GitHub"
+      },
+      {
+        "href": "/docs/local-model",
+        "title": "2. ローカル推論",
+        "summary": "0.5B / ID selection"
       },
       {
         "href": "/docs/llm",
-        "title": "LLM から操作する",
-        "summary": "小さな案内を読んで、１操作ずつ進める"
-      },
-      {
-        "href": "/capabilities",
-        "title": "ライブラリを選ぶ",
-        "summary": "データ・文書・状態・認証の部品を探す"
+        "title": "3. 入力と権限の確認",
+        "summary": "Caller checks / zix describe"
       }
     ],
     "preview": {
       "kind": "code",
-      "label": "Zix の確認手順",
-      "title": "選ぶ。確かめる。実行する。",
+      "label": "Local 0.5B + Zix",
+      "title": "短いIDを選び、定義を確認。",
       "rows": [
         {
-          "label": "1",
-          "detail": "zix capabilities --compact"
+          "label": "INPUT",
+          "detail": "Read GitHub repository metadata."
         },
         {
-          "label": "2",
-          "detail": "zix capabilities --namespace github --compact"
+          "label": "MODEL",
+          "detail": "repository.read"
         },
         {
-          "label": "3",
-          "detail": "zix describe github --operation repository.read --compact"
+          "label": "CALLER",
+          "detail": "Validate ID + target → zix describe"
         }
       ],
-      "outcome": "認証情報を読まずに、次の操作を確認。"
+      "outcome": "実行と認証情報は呼び出し側で管理。"
     }
   },
   "en": {
-    "category": "Development tools, local first",
+    "category": "Start locally with 0.5B",
     "primary": {
-      "href": "/docs/getting-started",
-      "title": "Get started with Zix"
+      "href": "/docs/local-model",
+      "title": "Try the 0.5B walkthrough"
     },
     "secondary": {
-      "href": "/tools",
-      "title": "Browse providers"
+      "href": "/tools/github",
+      "title": "Install the GitHub extension"
     },
-    "pathsTitle": "What brings you here?",
+    "pathsTitle": "Follow the example in three steps",
     "paths": [
       {
-        "href": "/docs/getting-started",
-        "title": "Install the CLI",
-        "summary": "Official packages and extension registration"
+        "href": "/tools/github",
+        "title": "1. Install",
+        "summary": "CLI + GitHub"
+      },
+      {
+        "href": "/docs/local-model",
+        "title": "2. Local inference",
+        "summary": "0.5B / ID selection"
       },
       {
         "href": "/docs/llm",
-        "title": "Operate with an LLM",
-        "summary": "Read small briefs and execute one scoped operation"
-      },
-      {
-        "href": "/capabilities",
-        "title": "Choose libraries",
-        "summary": "Explore data, document, state and identity libraries"
+        "title": "3. Validate inputs and access",
+        "summary": "Caller checks / zix describe"
       }
     ],
     "preview": {
       "kind": "code",
-      "label": "Zix discovery",
-      "title": "Select. Inspect. Execute.",
+      "label": "Local 0.5B + Zix",
+      "title": "Choose one ID. Inspect its definition.",
       "rows": [
         {
-          "label": "1",
-          "detail": "zix capabilities --compact"
+          "label": "INPUT",
+          "detail": "Read GitHub repository metadata."
         },
         {
-          "label": "2",
-          "detail": "zix capabilities --namespace github --compact"
+          "label": "MODEL",
+          "detail": "repository.read"
         },
         {
-          "label": "3",
-          "detail": "zix describe github --operation repository.read --compact"
+          "label": "CALLER",
+          "detail": "Validate ID + target → zix describe"
         }
       ],
-      "outcome": "Inspect the next operation without reading credentials."
+      "outcome": "Execution and credentials stay with the caller."
     }
   }
 }

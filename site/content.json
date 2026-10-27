@@ -34,49 +34,38 @@
       "pages": [
         {
           "path": "/",
-          "title": "手元の道具から、\nサービスをつなぐ。",
-          "summary": "zix CLI で対象と必要条件を確認し、拡張パッケージを通じて外部サービスを操作。データ・文書・状態を扱うライブラリも、目的に合わせて組み合わせられます。",
+          "title": "小さなローカルAIから、\n手元の道具を使う。",
+          "summary": "0.5Bモデルには短い操作IDだけを選ばせ、zixが入力と必要条件を示す。GitHubの読み取りを題材に、ローカルで始める手順を紹介します。",
           "sections": [
             {
-              "title": "zix を使う",
-              "text": "導入、拡張の登録、認証、実行を順に進めます。はじめの確認コマンドは、サービスへ通信せずに使えます。",
+              "title": "1. GitHub拡張を導入する",
+              "text": "まずCLIとGitHub拡張の正式版を導入します。サービスを絞り、読み取り2操作だけをモデルの候補にします。",
               "links": [
                 {
-                  "href": "/docs/getting-started",
-                  "title": "導入手順"
-                },
+                  "href": "/tools/github",
+                  "title": "GitHubのインストール"
+                }
+              ]
+            },
+            {
+              "title": "2. 0.5Bには短い候補を渡す",
+              "text": "例：公開リポジトリの情報を確認したい。JSON全体や秘密値を渡さず、定義から抽出したIDと意味を入力します。",
+              "code": "CHOICES AND MEANINGS:\nuser.read: GITHUB IDENTITY READ\nrepository.read: GITHUB REPOSITORY READ\nREQUEST: Read GitHub repository metadata.\n\n# Example answer: repository.read",
+              "links": [
                 {
-                  "href": "/tools",
-                  "title": "対応する拡張"
-                },
+                  "href": "/docs/local-model",
+                  "title": "ローカル0.5Bの実行手順と制限"
+                }
+              ]
+            },
+            {
+              "title": "3. zixで確かめてから操作する",
+              "text": "呼び出し側が候補IDと許可済み対象を照合し、zixの操作定義で入力・認証・権限を確認します。失敗時の再試行や権限追加はモデルに任せません。",
+              "code": "zix describe github --operation repository.read --compact --format json",
+              "links": [
                 {
                   "href": "/docs/llm",
-                  "title": "LLM から使う"
-                }
-              ]
-            },
-            {
-              "title": "登録した拡張の使い方を調べる",
-              "text": "GitHub 拡張の登録後に実行する例です。操作 ID、入力、必要条件を１操作ずつ確認します。",
-              "code": "zix capabilities --compact --format json\nzix capabilities --namespace github --compact --format json\nzix describe github --operation repository.read --compact --format json",
-              "links": [
-                {
-                  "href": "/docs/extensions",
-                  "title": "拡張の登録へ"
-                }
-              ]
-            },
-            {
-              "title": "ライブラリを組み合わせる",
-              "text": "文書、表示データ、状態と履歴、認証、ローカル AI。アプリケーションに必要な部品は、機能別の一覧から選べます。",
-              "links": [
-                {
-                  "href": "/capabilities",
-                  "title": "機能からライブラリを探す"
-                },
-                {
-                  "href": "/oss",
-                  "title": "公開ソース一覧"
+                  "title": "呼び出し側の実装"
                 }
               ]
             }
@@ -1318,12 +1307,8 @@
               "text": "ValueDomain のドメイン参照、公開 DNS、委任確認、DNS 変更計画と実行。レジストラと DNS 管理先を確認して選びます。 正式版 0.4.1。",
               "links": [
                 {
-                  "href": "https://github.com/zixcel/zixcel-domain/releases",
-                  "title": "正式配布を確認"
-                },
-                {
-                  "href": "https://github.com/zixcel/zixcel-domain/blob/main/docs/operation-guidance.md",
-                  "title": "操作と必要条件"
+                  "href": "/tools/domain",
+                  "title": "インストール・機能一覧・使い方"
                 }
               ]
             },
@@ -1332,12 +1317,8 @@
               "text": "アカウント・DNS の読み取りと、明示した範囲の構成観測。DNS 専用操作は Workers や Pages の一覧を取得しません。 正式版 0.3.1。",
               "links": [
                 {
-                  "href": "https://github.com/zixcel/zixcel-cloudflare/releases",
-                  "title": "正式配布を確認"
-                },
-                {
-                  "href": "https://github.com/zixcel/zixcel-cloudflare/blob/main/docs/operation-guidance.md",
-                  "title": "操作と必要条件"
+                  "href": "/tools/cloudflare",
+                  "title": "インストール・機能一覧・使い方"
                 }
               ]
             },
@@ -1346,12 +1327,8 @@
               "text": "Microsoft Graph と Exchange Online の管理。認証先、必要なスコープ、同意、RBAC、対象を操作ごとに確認します。 正式版 0.5.1。",
               "links": [
                 {
-                  "href": "https://github.com/zixcel/zixcel-microsoft/releases",
-                  "title": "正式配布を確認"
-                },
-                {
-                  "href": "https://github.com/zixcel/zixcel-microsoft/blob/main/docs/operation-guidance.md",
-                  "title": "操作と必要条件"
+                  "href": "/tools/microsoft",
+                  "title": "インストール・機能一覧・使い方"
                 }
               ]
             },
@@ -1360,12 +1337,8 @@
               "text": "認証ユーザーと、選択したリポジトリの基本情報を読み取ります。Issue や PR の更新機能としては案内していません。 正式版 0.2.0。",
               "links": [
                 {
-                  "href": "https://github.com/zixcel/zixcel-github/releases",
-                  "title": "正式配布を確認"
-                },
-                {
-                  "href": "https://github.com/zixcel/zixcel-github/blob/main/docs/operation-guidance.md",
-                  "title": "操作と必要条件"
+                  "href": "/tools/github",
+                  "title": "インストール・機能一覧・使い方"
                 }
               ]
             },
@@ -1374,12 +1347,8 @@
               "text": "Docker Hub のリポジトリ・タグ、公的一覧の観測と、確認した対象だけの削除計画。削除結果が不明なら読み取りで再確認します。 正式版 0.3.0。",
               "links": [
                 {
-                  "href": "https://github.com/zixcel/zixcel-container-registry/releases",
-                  "title": "正式配布を確認"
-                },
-                {
-                  "href": "https://github.com/zixcel/zixcel-container-registry/blob/main/docs/operation-guidance.md",
-                  "title": "操作と必要条件"
+                  "href": "/tools/docker",
+                  "title": "インストール・機能一覧・使い方"
                 }
               ]
             },
@@ -1388,12 +1357,8 @@
               "text": "選択した Azure サブスクリプションと、認証情報から見えるサブスクリプション一覧の参照。 正式版 0.2.0。",
               "links": [
                 {
-                  "href": "https://github.com/zixcel/zixcel-azure/releases",
-                  "title": "正式配布を確認"
-                },
-                {
-                  "href": "https://github.com/zixcel/zixcel-azure/blob/main/docs/operation-guidance.md",
-                  "title": "操作と必要条件"
+                  "href": "/tools/azure",
+                  "title": "インストール・機能一覧・使い方"
                 }
               ]
             },
@@ -1402,12 +1367,8 @@
               "text": "App Store Connect のアプリ情報と、API キーから見えるアプリ一覧の参照。 正式版 0.2.0。",
               "links": [
                 {
-                  "href": "https://github.com/zixcel/zixcel-apple/releases",
-                  "title": "正式配布を確認"
-                },
-                {
-                  "href": "https://github.com/zixcel/zixcel-apple/blob/main/docs/operation-guidance.md",
-                  "title": "操作と必要条件"
+                  "href": "/tools/apple",
+                  "title": "インストール・機能一覧・使い方"
                 }
               ]
             },
@@ -1416,12 +1377,8 @@
               "text": "プロジェクト、IAM キー、リソース一覧、既存の請求エクスポートの読み取り。API 有効化や SQL ジョブの作成は行いません。 正式版 0.7.0。",
               "links": [
                 {
-                  "href": "https://github.com/zixcel/zixcel-google/releases",
-                  "title": "正式配布を確認"
-                },
-                {
-                  "href": "https://github.com/zixcel/zixcel-google/blob/main/docs/operation-guidance.md",
-                  "title": "操作と必要条件"
+                  "href": "/tools/google",
+                  "title": "インストール・機能一覧・使い方"
                 }
               ]
             },
@@ -1430,12 +1387,8 @@
               "text": "HTTPS オリジンに結び付いた OS 認証ストアを使い、記事・固定ページ・メディアの参照と、確認付きの変更を扱います。 正式版 0.4.1。",
               "links": [
                 {
-                  "href": "https://github.com/zixcel/zixcel-wordpress/releases",
-                  "title": "正式配布を確認"
-                },
-                {
-                  "href": "https://github.com/zixcel/zixcel-wordpress/blob/main/docs/operation-guidance.md",
-                  "title": "操作と必要条件"
+                  "href": "/tools/wordpress",
+                  "title": "インストール・機能一覧・使い方"
                 }
               ]
             },
@@ -1567,6 +1520,603 @@
                 {
                   "href": "/docs/troubleshooting",
                   "title": "停止した場合の確認"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/tools/domain",
+          "title": "zix domain",
+          "summary": "ValueDomain のドメイン参照、公開 DNS、委任確認、DNS 変更計画と実行。レジストラと DNS 管理先を確認して選びます。 正式版 0.4.1。",
+          "label": "zix domain",
+          "kind": "page",
+          "category": "",
+          "status": "published",
+          "sections": [
+            {
+              "title": "1. インストールと有効化",
+              "text": "zix CLI 0.7.0、Linux x86_64（musl）向けの正式版 0.4.1。下記は空の作業ディレクトリで実行します。展開先を移動・削除すると登録した実行ファイルを利用できなくなるため、永続的なパッケージ置き場を使ってください。",
+              "code": "gh release download native/domain/v0.4.1 --repo zixcel/zixcel-domain --pattern zixcel-domain-cli-v0.4.1-x86_64-unknown-linux-musl.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-domain-cli-v0.4.1-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-domain --signer-workflow zixcel/zixcel-domain/.github/workflows/release-native.yml --source-ref refs/tags/native/domain/v0.4.1\ntar -xzf zixcel-domain-cli-v0.4.1-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-domain-cli-v0.4.1-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/domain.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/domain.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-domain\" --executable-sha256 \"$(sha256sum \"$package/zix-domain\" | cut -d ' ' -f1)\"\nzix extensions enable domain\nzix extensions inspect domain --format json",
+              "links": [
+                {
+                  "href": "/docs/getting-started",
+                  "title": "CLIを先に導入"
+                },
+                {
+                  "href": "https://github.com/zixcel/zixcel-domain/releases/tag/native/domain/v0.4.1",
+                  "title": "正式版を取得"
+                }
+              ]
+            },
+            {
+              "title": "2. 具体的な機能一覧",
+              "text": "ValueDomain のドメイン参照、公開 DNS、委任確認、DNS 変更計画と実行。レジストラと DNS 管理先を確認して選びます。 正式版 0.4.1。",
+              "code": "valuedomain.domains.list [read] — REGISTRAR VALUEDOMAIN READ: read registrar visible domains\ndns.audit [read] — DNS AUTHORITY READ: read public dns evidence\nregistrar.inspect [read] — REGISTRAR VALUEDOMAIN READ: read registrar registration\ndns.reconcile [read] — DNS AUTHORITY READ: compare dns observations\ndns.inspect [read] — DNS AUTHORITY READ: read public dns records\ndns.delegation [read] — DNS AUTHORITY READ: read parent delegation\ndns.export [read] — DNS PROVIDER READ: read selected dns provider\ndns.records.plan [read] — DNS PROVIDER PLAN: plan selected dns records\ndns.records.resolve.plan [read] — DNS PROVIDER PLAN: plan unresolved dns reconciliation\ndns.records.resolve.apply [operator-write] — DNS PROVIDER APPLY: record reviewed dns reconciliation\ndns.records.apply [operator-write] — DNS PROVIDER APPLY: apply reviewed dns plan\nnameservers.inspect [read] — REGISTRAR DELEGATION: nameservers inspect\nnameservers.plan [read] — REGISTRAR DELEGATION: nameservers plan\nnameservers.apply [operator-write] — REGISTRAR DELEGATION: nameservers apply"
+            },
+            {
+              "title": "3. 入力と必要権限を確認",
+              "text": "この確認は認証情報を読み取らず、外部APIも呼びません。1操作を選び、必須入力・対象・認証先・権限を確認してから実行します。",
+              "code": "zix capabilities --namespace domain --compact --format json\nzix describe domain --operation valuedomain.domains.list --compact --format json",
+              "links": [
+                {
+                  "href": "https://github.com/zixcel/zixcel-domain/blob/main/docs/operation-guidance.md",
+                  "title": "操作と必要条件"
+                },
+                {
+                  "href": "/docs/credentials",
+                  "title": "認証情報の登録"
+                }
+              ]
+            },
+            {
+              "title": "4. 更新とエラー対応",
+              "text": "更新には extensions replace を使い、新旧ハッシュを照合します。登録と有効化はサービス側の権限付与を意味しません。不足入力・権限拒否・結果不明の場合は、診断に示された確認を行ってから進みます。",
+              "links": [
+                {
+                  "href": "/docs/extensions",
+                  "title": "登録・更新の手順"
+                },
+                {
+                  "href": "/docs/troubleshooting",
+                  "title": "診断の読み方"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/tools/cloudflare",
+          "title": "zix cloudflare",
+          "summary": "アカウント・DNS の読み取りと、明示した範囲の構成観測。DNS 専用操作は Workers や Pages の一覧を取得しません。 正式版 0.3.1。",
+          "label": "zix cloudflare",
+          "kind": "page",
+          "category": "",
+          "status": "published",
+          "sections": [
+            {
+              "title": "1. インストールと有効化",
+              "text": "zix CLI 0.7.0、Linux x86_64（musl）向けの正式版 0.3.1。下記は空の作業ディレクトリで実行します。展開先を移動・削除すると登録した実行ファイルを利用できなくなるため、永続的なパッケージ置き場を使ってください。",
+              "code": "gh release download native/cloudflare/v0.3.1 --repo zixcel/zixcel-cloudflare --pattern zixcel-cloudflare-cli-v0.3.1-x86_64-unknown-linux-musl.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-cloudflare-cli-v0.3.1-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-cloudflare --signer-workflow zixcel/zixcel-cloudflare/.github/workflows/release-native.yml --source-ref refs/tags/native/cloudflare/v0.3.1\ntar -xzf zixcel-cloudflare-cli-v0.3.1-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-cloudflare-cli-v0.3.1-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/cloudflare.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/cloudflare.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-cloudflare\" --executable-sha256 \"$(sha256sum \"$package/zix-cloudflare\" | cut -d ' ' -f1)\"\nzix extensions enable cloudflare\nzix extensions inspect cloudflare --format json",
+              "links": [
+                {
+                  "href": "/docs/getting-started",
+                  "title": "CLIを先に導入"
+                },
+                {
+                  "href": "https://github.com/zixcel/zixcel-cloudflare/releases/tag/native/cloudflare/v0.3.1",
+                  "title": "正式版を取得"
+                }
+              ]
+            },
+            {
+              "title": "2. 具体的な機能一覧",
+              "text": "アカウント・DNS の読み取りと、明示した範囲の構成観測。DNS 専用操作は Workers や Pages の一覧を取得しません。 正式版 0.3.1。",
+              "code": "account.read [read] — CLOUDFLARE ACCOUNT READ: read selected cloudflare account\naccounts.list [read] — CLOUDFLARE ACCOUNT READ: list credential visible cloudflare accounts\nlifecycle.observe [read] — CLOUDFLARE LIFECYCLE READ: read cloudflare lifecycle\ndns.audit [read] — CLOUDFLARE DNS READ: audit cloudflare dns zone"
+            },
+            {
+              "title": "3. 入力と必要権限を確認",
+              "text": "この確認は認証情報を読み取らず、外部APIも呼びません。1操作を選び、必須入力・対象・認証先・権限を確認してから実行します。",
+              "code": "zix capabilities --namespace cloudflare --compact --format json\nzix describe cloudflare --operation account.read --compact --format json",
+              "links": [
+                {
+                  "href": "https://github.com/zixcel/zixcel-cloudflare/blob/main/docs/operation-guidance.md",
+                  "title": "操作と必要条件"
+                },
+                {
+                  "href": "/docs/credentials",
+                  "title": "認証情報の登録"
+                }
+              ]
+            },
+            {
+              "title": "4. 更新とエラー対応",
+              "text": "更新には extensions replace を使い、新旧ハッシュを照合します。登録と有効化はサービス側の権限付与を意味しません。不足入力・権限拒否・結果不明の場合は、診断に示された確認を行ってから進みます。",
+              "links": [
+                {
+                  "href": "/docs/extensions",
+                  "title": "登録・更新の手順"
+                },
+                {
+                  "href": "/docs/troubleshooting",
+                  "title": "診断の読み方"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/tools/microsoft",
+          "title": "zix microsoft",
+          "summary": "Microsoft Graph と Exchange Online の管理。認証先、必要なスコープ、同意、RBAC、対象を操作ごとに確認します。 正式版 0.5.1。",
+          "label": "zix microsoft",
+          "kind": "page",
+          "category": "",
+          "status": "published",
+          "sections": [
+            {
+              "title": "1. インストールと有効化",
+              "text": "zix CLI 0.7.0、Linux x86_64（gnu）向けの正式版 0.5.1。下記は空の作業ディレクトリで実行します。展開先を移動・削除すると登録した実行ファイルを利用できなくなるため、永続的なパッケージ置き場を使ってください。",
+              "code": "gh release download native/microsoft/v0.5.1 --repo zixcel/zixcel-microsoft --pattern zixcel-microsoft-cli-v0.5.1-x86_64-unknown-linux-gnu.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-microsoft-cli-v0.5.1-x86_64-unknown-linux-gnu.tar.gz --repo zixcel/zixcel-microsoft --signer-workflow zixcel/zixcel-microsoft/.github/workflows/release-native.yml --source-ref refs/tags/native/microsoft/v0.5.1\ntar -xzf zixcel-microsoft-cli-v0.5.1-x86_64-unknown-linux-gnu.tar.gz\npackage=\"$PWD/zixcel-microsoft-cli-v0.5.1-x86_64-unknown-linux-gnu\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/microsoft.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/microsoft.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-microsoft\" --executable-sha256 \"$(sha256sum \"$package/zix-microsoft\" | cut -d ' ' -f1)\"\nzix extensions enable microsoft\nzix extensions inspect microsoft --format json",
+              "links": [
+                {
+                  "href": "/docs/getting-started",
+                  "title": "CLIを先に導入"
+                },
+                {
+                  "href": "https://github.com/zixcel/zixcel-microsoft/releases/tag/native/microsoft/v0.5.1",
+                  "title": "正式版を取得"
+                }
+              ]
+            },
+            {
+              "title": "2. 具体的な機能一覧",
+              "text": "Microsoft Graph と Exchange Online の管理。認証先、必要なスコープ、同意、RBAC、対象を操作ごとに確認します。 正式版 0.5.1。",
+              "code": "users.read [read] — GRAPH USER READ: read selected graph user\nadmin.organization [read] — GRAPH DIRECTORY READ: read tenant identity\nadmin.licenses [read] — GRAPH DIRECTORY READ: read subscribed licenses\nadmin.domains [read] — GRAPH DOMAIN READ: read verified domains\nadmin.domain-verification [read] — GRAPH DOMAIN READ: read domain verification records\nadmin.users [read] — GRAPH DIRECTORY READ: read directory users\nadmin.user [read] — GRAPH DIRECTORY READ: read selected directory user\nadmin.domain-dns [read] — GRAPH DOMAIN READ: read service dns requirements\nexchange.snapshot [read] — EXCHANGE CONFIGURATION: read exchange configuration\nexchange.plan [read] — EXCHANGE CONFIGURATION: plan exchange change\nexchange.apply [operator-write] — EXCHANGE CONFIGURATION: apply reviewed exchange plan\nadmin.doctor [read] — LOCAL SETUP CHECK: inspect local admin prerequisites\nmanagement.domains.plan [read] — GRAPH DOMAINS PLAN: plan domains change\nmanagement.domains.apply [operator-write] — GRAPH DOMAINS APPLY: apply domains change\nmanagement.users.plan [read] — GRAPH USERS PLAN: plan users change\nmanagement.users.apply [operator-write] — GRAPH USERS APPLY: apply users change\nmanagement.licenses.plan [read] — GRAPH LICENSES PLAN: plan licenses change\nmanagement.licenses.apply [operator-write] — GRAPH LICENSES APPLY: apply licenses change\nmanagement.dkim.plan [read] — EXCHANGE DKIM: plan dkim change\nmanagement.dkim.apply [operator-write] — EXCHANGE DKIM: apply reviewed dkim plan\nmanagement.mail.plan [read] — GRAPH MAIL PLAN: plan mail change\nmanagement.mail.apply [operator-write] — GRAPH MAIL APPLY: apply mail change\nmanagement.dkim.inspect [read] — EXCHANGE DKIM: read dkim state\nmanagement.mail.inspect [read] — GRAPH MAIL READ: read correlated mail probe\nauth.configure [read] — LOCAL OAUTH CONFIGURE: write local oauth profile\nauth.start [read] — AUTH: start resource auth\nauth.poll [read] — AUTH: poll resource auth\nauth.refresh [read] — AUTH: refresh resource auth\nauth.status [read] — AUTH: status resource auth\nauth.logout [read] — AUTH: logout resource auth\nruntime.configure [read] — LOCAL EXCHANGE CONFIGURE: bind local exchange runtime\nruntime.inspect [read] — LOCAL EXCHANGE CHECK: inspect pinned exchange runtime"
+            },
+            {
+              "title": "3. 入力と必要権限を確認",
+              "text": "この確認は認証情報を読み取らず、外部APIも呼びません。1操作を選び、必須入力・対象・認証先・権限を確認してから実行します。",
+              "code": "zix capabilities --namespace microsoft --compact --format json\nzix describe microsoft --operation users.read --compact --format json",
+              "links": [
+                {
+                  "href": "https://github.com/zixcel/zixcel-microsoft/blob/main/docs/operation-guidance.md",
+                  "title": "操作と必要条件"
+                },
+                {
+                  "href": "/docs/credentials",
+                  "title": "認証情報の登録"
+                }
+              ]
+            },
+            {
+              "title": "4. 更新とエラー対応",
+              "text": "更新には extensions replace を使い、新旧ハッシュを照合します。登録と有効化はサービス側の権限付与を意味しません。不足入力・権限拒否・結果不明の場合は、診断に示された確認を行ってから進みます。",
+              "links": [
+                {
+                  "href": "/docs/extensions",
+                  "title": "登録・更新の手順"
+                },
+                {
+                  "href": "/docs/troubleshooting",
+                  "title": "診断の読み方"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/tools/github",
+          "title": "zix github",
+          "summary": "認証ユーザーと、選択したリポジトリの基本情報を読み取ります。Issue や PR の更新機能としては案内していません。 正式版 0.2.0。",
+          "label": "zix github",
+          "kind": "page",
+          "category": "",
+          "status": "published",
+          "sections": [
+            {
+              "title": "1. インストールと有効化",
+              "text": "zix CLI 0.7.0、Linux x86_64（musl）向けの正式版 0.2.0。下記は空の作業ディレクトリで実行します。展開先を移動・削除すると登録した実行ファイルを利用できなくなるため、永続的なパッケージ置き場を使ってください。",
+              "code": "gh release download native/github/v0.2.0 --repo zixcel/zixcel-github --pattern zixcel-github-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-github-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-github --signer-workflow zixcel/zixcel-github/.github/workflows/release-native.yml --source-ref refs/tags/native/github/v0.2.0\ntar -xzf zixcel-github-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-github-cli-v0.2.0-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/github.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/github.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-github\" --executable-sha256 \"$(sha256sum \"$package/zix-github\" | cut -d ' ' -f1)\"\nzix extensions enable github\nzix extensions inspect github --format json",
+              "links": [
+                {
+                  "href": "/docs/getting-started",
+                  "title": "CLIを先に導入"
+                },
+                {
+                  "href": "https://github.com/zixcel/zixcel-github/releases/tag/native/github/v0.2.0",
+                  "title": "正式版を取得"
+                }
+              ]
+            },
+            {
+              "title": "2. 具体的な機能一覧",
+              "text": "認証ユーザーと、選択したリポジトリの基本情報を読み取ります。Issue や PR の更新機能としては案内していません。 正式版 0.2.0。",
+              "code": "user.read [read] — GITHUB IDENTITY READ: read expected github identity\nrepository.read [read] — GITHUB REPOSITORY READ: read selected repository metadata"
+            },
+            {
+              "title": "3. 入力と必要権限を確認",
+              "text": "この確認は認証情報を読み取らず、外部APIも呼びません。1操作を選び、必須入力・対象・認証先・権限を確認してから実行します。",
+              "code": "zix capabilities --namespace github --compact --format json\nzix describe github --operation user.read --compact --format json",
+              "links": [
+                {
+                  "href": "https://github.com/zixcel/zixcel-github/blob/main/docs/operation-guidance.md",
+                  "title": "操作と必要条件"
+                },
+                {
+                  "href": "/docs/credentials",
+                  "title": "認証情報の登録"
+                }
+              ]
+            },
+            {
+              "title": "4. 更新とエラー対応",
+              "text": "更新には extensions replace を使い、新旧ハッシュを照合します。登録と有効化はサービス側の権限付与を意味しません。不足入力・権限拒否・結果不明の場合は、診断に示された確認を行ってから進みます。",
+              "links": [
+                {
+                  "href": "/docs/extensions",
+                  "title": "登録・更新の手順"
+                },
+                {
+                  "href": "/docs/troubleshooting",
+                  "title": "診断の読み方"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/tools/docker",
+          "title": "zix docker",
+          "summary": "Docker Hub のリポジトリ・タグ、公的一覧の観測と、確認した対象だけの削除計画。削除結果が不明なら読み取りで再確認します。 正式版 0.3.0。",
+          "label": "zix docker",
+          "kind": "page",
+          "category": "",
+          "status": "published",
+          "sections": [
+            {
+              "title": "1. インストールと有効化",
+              "text": "zix CLI 0.7.0、Linux x86_64（gnu）向けの正式版 0.3.0。下記は空の作業ディレクトリで実行します。展開先を移動・削除すると登録した実行ファイルを利用できなくなるため、永続的なパッケージ置き場を使ってください。",
+              "code": "gh release download v0.3.0 --repo zixcel/zixcel-container-registry --pattern zixcel-container-registry-v0.3.0-x86_64-unknown-linux-gnu.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-container-registry-v0.3.0-x86_64-unknown-linux-gnu.tar.gz --repo zixcel/zixcel-container-registry --signer-workflow zixcel/zixcel-container-registry/.github/workflows/release.yml --source-ref refs/tags/v0.3.0\ntar -xzf zixcel-container-registry-v0.3.0-x86_64-unknown-linux-gnu.tar.gz\npackage=\"$PWD/zixcel-container-registry-v0.3.0-x86_64-unknown-linux-gnu\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/docker.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/docker.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-docker\" --executable-sha256 \"$(sha256sum \"$package/zix-docker\" | cut -d ' ' -f1)\"\nzix extensions enable docker\nzix extensions inspect docker --format json",
+              "links": [
+                {
+                  "href": "/docs/getting-started",
+                  "title": "CLIを先に導入"
+                },
+                {
+                  "href": "https://github.com/zixcel/zixcel-container-registry/releases/tag/v0.3.0",
+                  "title": "正式版を取得"
+                }
+              ]
+            },
+            {
+              "title": "2. 具体的な機能一覧",
+              "text": "Docker Hub のリポジトリ・タグ、公的一覧の観測と、確認した対象だけの削除計画。削除結果が不明なら読み取りで再確認します。 正式版 0.3.0。",
+              "code": "docker.list [read] — DOCKER REGISTRY READ: list selected namespace repositories\ndocker.get [read] — DOCKER REGISTRY READ: read selected repository metadata\ndocker.tags [read] — DOCKER REGISTRY READ: read selected repository tags\ndocker.verify-absent [read] — DOCKER REGISTRY READ: observe original targets absence\ndocker.delete-plan [read] — DOCKER REGISTRY PLAN: plan explicit repository retirement\ndocker.delete-apply [operator-write] — DOCKER RETIREMENT APPLY: apply reviewed one use retirement\ndocker.snapshot-collect [read] — DOCKER PUBLIC READ: collect bounded public registry snapshot\ndocker.snapshot-show [read] — DOCKER PUBLIC READ: read local public snapshot\ndocker.snapshot-diff [read] — DOCKER PUBLIC READ: compare local public snapshots"
+            },
+            {
+              "title": "3. 入力と必要権限を確認",
+              "text": "この確認は認証情報を読み取らず、外部APIも呼びません。1操作を選び、必須入力・対象・認証先・権限を確認してから実行します。",
+              "code": "zix capabilities --namespace docker --compact --format json\nzix describe docker --operation docker.list --compact --format json",
+              "links": [
+                {
+                  "href": "https://github.com/zixcel/zixcel-container-registry/blob/main/docs/operation-guidance.md",
+                  "title": "操作と必要条件"
+                },
+                {
+                  "href": "/docs/credentials",
+                  "title": "認証情報の登録"
+                }
+              ]
+            },
+            {
+              "title": "4. 更新とエラー対応",
+              "text": "更新には extensions replace を使い、新旧ハッシュを照合します。登録と有効化はサービス側の権限付与を意味しません。不足入力・権限拒否・結果不明の場合は、診断に示された確認を行ってから進みます。",
+              "links": [
+                {
+                  "href": "/docs/extensions",
+                  "title": "登録・更新の手順"
+                },
+                {
+                  "href": "/docs/troubleshooting",
+                  "title": "診断の読み方"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/tools/azure",
+          "title": "zix azure",
+          "summary": "選択した Azure サブスクリプションと、認証情報から見えるサブスクリプション一覧の参照。 正式版 0.2.0。",
+          "label": "zix azure",
+          "kind": "page",
+          "category": "",
+          "status": "published",
+          "sections": [
+            {
+              "title": "1. インストールと有効化",
+              "text": "zix CLI 0.7.0、Linux x86_64（musl）向けの正式版 0.2.0。下記は空の作業ディレクトリで実行します。展開先を移動・削除すると登録した実行ファイルを利用できなくなるため、永続的なパッケージ置き場を使ってください。",
+              "code": "gh release download native/azure/v0.2.0 --repo zixcel/zixcel-azure --pattern zixcel-azure-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-azure-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-azure --signer-workflow zixcel/zixcel-azure/.github/workflows/release-native.yml --source-ref refs/tags/native/azure/v0.2.0\ntar -xzf zixcel-azure-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-azure-cli-v0.2.0-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/azure.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/azure.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-azure\" --executable-sha256 \"$(sha256sum \"$package/zix-azure\" | cut -d ' ' -f1)\"\nzix extensions enable azure\nzix extensions inspect azure --format json",
+              "links": [
+                {
+                  "href": "/docs/getting-started",
+                  "title": "CLIを先に導入"
+                },
+                {
+                  "href": "https://github.com/zixcel/zixcel-azure/releases/tag/native/azure/v0.2.0",
+                  "title": "正式版を取得"
+                }
+              ]
+            },
+            {
+              "title": "2. 具体的な機能一覧",
+              "text": "選択した Azure サブスクリプションと、認証情報から見えるサブスクリプション一覧の参照。 正式版 0.2.0。",
+              "code": "account.read [read] — AZURE SUBSCRIPTION READ: read selected azure subscription\naccounts.list [read] — AZURE SUBSCRIPTION READ: list visible azure subscriptions"
+            },
+            {
+              "title": "3. 入力と必要権限を確認",
+              "text": "この確認は認証情報を読み取らず、外部APIも呼びません。1操作を選び、必須入力・対象・認証先・権限を確認してから実行します。",
+              "code": "zix capabilities --namespace azure --compact --format json\nzix describe azure --operation account.read --compact --format json",
+              "links": [
+                {
+                  "href": "https://github.com/zixcel/zixcel-azure/blob/main/docs/operation-guidance.md",
+                  "title": "操作と必要条件"
+                },
+                {
+                  "href": "/docs/credentials",
+                  "title": "認証情報の登録"
+                }
+              ]
+            },
+            {
+              "title": "4. 更新とエラー対応",
+              "text": "更新には extensions replace を使い、新旧ハッシュを照合します。登録と有効化はサービス側の権限付与を意味しません。不足入力・権限拒否・結果不明の場合は、診断に示された確認を行ってから進みます。",
+              "links": [
+                {
+                  "href": "/docs/extensions",
+                  "title": "登録・更新の手順"
+                },
+                {
+                  "href": "/docs/troubleshooting",
+                  "title": "診断の読み方"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/tools/apple",
+          "title": "zix apple",
+          "summary": "App Store Connect のアプリ情報と、API キーから見えるアプリ一覧の参照。 正式版 0.2.0。",
+          "label": "zix apple",
+          "kind": "page",
+          "category": "",
+          "status": "published",
+          "sections": [
+            {
+              "title": "1. インストールと有効化",
+              "text": "zix CLI 0.7.0、Linux x86_64（musl）向けの正式版 0.2.0。下記は空の作業ディレクトリで実行します。展開先を移動・削除すると登録した実行ファイルを利用できなくなるため、永続的なパッケージ置き場を使ってください。",
+              "code": "gh release download native/apple/v0.2.0 --repo zixcel/zixcel-apple --pattern zixcel-apple-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-apple-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-apple --signer-workflow zixcel/zixcel-apple/.github/workflows/release-native.yml --source-ref refs/tags/native/apple/v0.2.0\ntar -xzf zixcel-apple-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-apple-cli-v0.2.0-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/apple.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/apple.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-apple\" --executable-sha256 \"$(sha256sum \"$package/zix-apple\" | cut -d ' ' -f1)\"\nzix extensions enable apple\nzix extensions inspect apple --format json",
+              "links": [
+                {
+                  "href": "/docs/getting-started",
+                  "title": "CLIを先に導入"
+                },
+                {
+                  "href": "https://github.com/zixcel/zixcel-apple/releases/tag/native/apple/v0.2.0",
+                  "title": "正式版を取得"
+                }
+              ]
+            },
+            {
+              "title": "2. 具体的な機能一覧",
+              "text": "App Store Connect のアプリ情報と、API キーから見えるアプリ一覧の参照。 正式版 0.2.0。",
+              "code": "app.read [read] — APPLE APPSTORE READ: read selected app store app\napps.list [read] — APPLE APPSTORE READ: list visible app store apps"
+            },
+            {
+              "title": "3. 入力と必要権限を確認",
+              "text": "この確認は認証情報を読み取らず、外部APIも呼びません。1操作を選び、必須入力・対象・認証先・権限を確認してから実行します。",
+              "code": "zix capabilities --namespace apple --compact --format json\nzix describe apple --operation app.read --compact --format json",
+              "links": [
+                {
+                  "href": "https://github.com/zixcel/zixcel-apple/blob/main/docs/operation-guidance.md",
+                  "title": "操作と必要条件"
+                },
+                {
+                  "href": "/docs/credentials",
+                  "title": "認証情報の登録"
+                }
+              ]
+            },
+            {
+              "title": "4. 更新とエラー対応",
+              "text": "更新には extensions replace を使い、新旧ハッシュを照合します。登録と有効化はサービス側の権限付与を意味しません。不足入力・権限拒否・結果不明の場合は、診断に示された確認を行ってから進みます。",
+              "links": [
+                {
+                  "href": "/docs/extensions",
+                  "title": "登録・更新の手順"
+                },
+                {
+                  "href": "/docs/troubleshooting",
+                  "title": "診断の読み方"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/tools/google",
+          "title": "zix google",
+          "summary": "プロジェクト、IAM キー、リソース一覧、既存の請求エクスポートの読み取り。API 有効化や SQL ジョブの作成は行いません。 正式版 0.7.0。",
+          "label": "zix google",
+          "kind": "page",
+          "category": "",
+          "status": "published",
+          "sections": [
+            {
+              "title": "1. インストールと有効化",
+              "text": "zix CLI 0.7.0、Linux x86_64（musl）向けの正式版 0.7.0。下記は空の作業ディレクトリで実行します。展開先を移動・削除すると登録した実行ファイルを利用できなくなるため、永続的なパッケージ置き場を使ってください。",
+              "code": "gh release download google/v0.7.0 --repo zixcel/zixcel-google --pattern zixcel-google-cli-v0.7.0-x86_64-unknown-linux-musl.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-google-cli-v0.7.0-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-google --signer-workflow zixcel/zixcel-google/.github/workflows/release-google.yml --source-ref refs/tags/google/v0.7.0\ntar -xzf zixcel-google-cli-v0.7.0-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-google-cli-v0.7.0-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/google.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/google.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-google\" --executable-sha256 \"$(sha256sum \"$package/zix-google\" | cut -d ' ' -f1)\"\nzix extensions enable google\nzix extensions inspect google --format json",
+              "links": [
+                {
+                  "href": "/docs/getting-started",
+                  "title": "CLIを先に導入"
+                },
+                {
+                  "href": "https://github.com/zixcel/zixcel-google/releases/tag/google/v0.7.0",
+                  "title": "正式版を取得"
+                }
+              ]
+            },
+            {
+              "title": "2. 具体的な機能一覧",
+              "text": "プロジェクト、IAM キー、リソース一覧、既存の請求エクスポートの読み取り。API 有効化や SQL ジョブの作成は行いません。 正式版 0.7.0。",
+              "code": "projects.list [read] — GOOGLE INVENTORY READ: list visible google projects\nprojects.inspect [read] — GOOGLE INVENTORY READ: inspect selected google project\nbilling.accounts.list [read] — GOOGLE BILLING READ: list visible billing accounts\nbilling.projects.list [read] — GOOGLE BILLING READ: list selected billing account projects\nbilling.project.inspect [read] — GOOGLE BILLING READ: inspect selected project billing link\nservices.list [read] — GOOGLE INVENTORY READ: list selected project services\niam.accounts.list [read] — GOOGLE IAM READ: list selected project service accounts\nassets.search [read] — GOOGLE INVENTORY READ: search selected project assets\ncompute.instances.list [read] — GOOGLE INVENTORY READ: list selected project instances\ncompute.disks.list [read] — GOOGLE INVENTORY READ: list selected project disks\ncompute.snapshots.list [read] — GOOGLE INVENTORY READ: list selected project snapshots\ncompute.commitments.list [read] — GOOGLE INVENTORY READ: list selected project commitments\nsql.instances.list [read] — GOOGLE INVENTORY READ: list selected project sql instances\nstorage.buckets.list [read] — GOOGLE INVENTORY READ: list selected project buckets\nrun.services.list [read] — GOOGLE INVENTORY READ: list selected project run services\ncompute.addresses.list [read] — GOOGLE INVENTORY READ: list selected project addresses\noverview.accessible [read] — GOOGLE INVENTORY READ: summarize accessible project visibility\noverview.project [read] — GOOGLE INVENTORY READ: summarize explicit project inventory\nbilling.exports.discover [read] — GOOGLE BILLING READ: discover existing billing exports\nbilling.exports.read [read] — GOOGLE BILLING READ: read existing billing export page\niam.keys.inspect [read] — GOOGLE IAM READ: inspect one service account key"
+            },
+            {
+              "title": "3. 入力と必要権限を確認",
+              "text": "この確認は認証情報を読み取らず、外部APIも呼びません。1操作を選び、必須入力・対象・認証先・権限を確認してから実行します。",
+              "code": "zix capabilities --namespace google --compact --format json\nzix describe google --operation projects.list --compact --format json",
+              "links": [
+                {
+                  "href": "https://github.com/zixcel/zixcel-google/blob/main/docs/operation-guidance.md",
+                  "title": "操作と必要条件"
+                },
+                {
+                  "href": "/docs/credentials",
+                  "title": "認証情報の登録"
+                }
+              ]
+            },
+            {
+              "title": "4. 更新とエラー対応",
+              "text": "更新には extensions replace を使い、新旧ハッシュを照合します。登録と有効化はサービス側の権限付与を意味しません。不足入力・権限拒否・結果不明の場合は、診断に示された確認を行ってから進みます。",
+              "links": [
+                {
+                  "href": "/docs/extensions",
+                  "title": "登録・更新の手順"
+                },
+                {
+                  "href": "/docs/troubleshooting",
+                  "title": "診断の読み方"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/tools/wordpress",
+          "title": "zix wordpress",
+          "summary": "HTTPS オリジンに結び付いた OS 認証ストアを使い、記事・固定ページ・メディアの参照と、確認付きの変更を扱います。 正式版 0.4.1。",
+          "label": "zix wordpress",
+          "kind": "page",
+          "category": "",
+          "status": "published",
+          "sections": [
+            {
+              "title": "1. インストールと有効化",
+              "text": "zix CLI 0.7.0、Linux x86_64（gnu）向けの正式版 0.4.1。下記は空の作業ディレクトリで実行します。展開先を移動・削除すると登録した実行ファイルを利用できなくなるため、永続的なパッケージ置き場を使ってください。",
+              "code": "gh release download v0.4.1 --repo zixcel/zixcel-wordpress --pattern zixcel-wordpress-v0.4.1-x86_64-unknown-linux-gnu.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-wordpress-v0.4.1-x86_64-unknown-linux-gnu.tar.gz --repo zixcel/zixcel-wordpress --signer-workflow zixcel/zixcel-wordpress/.github/workflows/release.yml --source-ref refs/tags/v0.4.1\ntar -xzf zixcel-wordpress-v0.4.1-x86_64-unknown-linux-gnu.tar.gz\npackage=\"$PWD/zixcel-wordpress-v0.4.1-x86_64-unknown-linux-gnu\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/wordpress.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/wordpress.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-wordpress\" --executable-sha256 \"$(sha256sum \"$package/zix-wordpress\" | cut -d ' ' -f1)\"\nzix extensions enable wordpress\nzix extensions inspect wordpress --format json",
+              "links": [
+                {
+                  "href": "/docs/getting-started",
+                  "title": "CLIを先に導入"
+                },
+                {
+                  "href": "https://github.com/zixcel/zixcel-wordpress/releases/tag/v0.4.1",
+                  "title": "正式版を取得"
+                }
+              ]
+            },
+            {
+              "title": "2. 具体的な機能一覧",
+              "text": "HTTPS オリジンに結び付いた OS 認証ストアを使い、記事・固定ページ・メディアの参照と、確認付きの変更を扱います。 正式版 0.4.1。",
+              "code": "wordpress.login [read] — WORDPRESS IDENTITY READ: login selected wordpress profile\nwordpress.posts-list [read] — WORDPRESS CONTENT READ: posts list selected wordpress profile\nwordpress.pages-list [read] — WORDPRESS CONTENT READ: pages list selected wordpress profile\nwordpress.posts-get [read] — WORDPRESS CONTENT READ: posts get selected wordpress profile\nwordpress.pages-get [read] — WORDPRESS CONTENT READ: pages get selected wordpress profile\nwordpress.media-list [read] — WORDPRESS CONTENT READ: media list selected wordpress profile\nwordpress.media-get [read] — WORDPRESS CONTENT READ: media get selected wordpress profile\nwordpress.auth-status [read] — WORDPRESS IDENTITY READ: auth status selected wordpress profile\nwordpress.draft-plan [read] — WORDPRESS CONTENT PLAN: draft plan selected wordpress profile\nwordpress.content-plan [read] — WORDPRESS CONTENT PLAN: content plan selected wordpress profile\nwordpress.media-plan [read] — WORDPRESS CONTENT PLAN: media plan selected wordpress profile\nwordpress.revoke-plan [read] — WORDPRESS IDENTITY PLAN: revoke plan selected wordpress profile\nwordpress.content-reconcile [read] — WORDPRESS CONTENT READ: content reconcile selected wordpress profile\nwordpress.draft-apply [operator-write] — WORDPRESS CONTENT APPLY: draft apply selected wordpress profile\nwordpress.content-apply [operator-write] — WORDPRESS CONTENT APPLY: content apply selected wordpress profile\nwordpress.media-apply [operator-write] — WORDPRESS CONTENT APPLY: media apply selected wordpress profile\nwordpress.revoke-apply [operator-write] — WORDPRESS IDENTITY APPLY: revoke apply selected wordpress profile"
+            },
+            {
+              "title": "3. 入力と必要権限を確認",
+              "text": "この確認は認証情報を読み取らず、外部APIも呼びません。1操作を選び、必須入力・対象・認証先・権限を確認してから実行します。 認証は同梱の zix-wordpress credential-import PROFILE ORIGIN COLLECTION を使い、WordPressのオリジンに束縛します。一般の zix credential set とは異なります。",
+              "code": "zix capabilities --namespace wordpress --compact --format json\nzix describe wordpress --operation wordpress.login --compact --format json",
+              "links": [
+                {
+                  "href": "https://github.com/zixcel/zixcel-wordpress/blob/main/docs/operation-guidance.md",
+                  "title": "操作と必要条件"
+                },
+                {
+                  "href": "/docs/credentials",
+                  "title": "認証情報の登録"
+                }
+              ]
+            },
+            {
+              "title": "4. 更新とエラー対応",
+              "text": "更新には extensions replace を使い、新旧ハッシュを照合します。登録と有効化はサービス側の権限付与を意味しません。不足入力・権限拒否・結果不明の場合は、診断に示された確認を行ってから進みます。",
+              "links": [
+                {
+                  "href": "/docs/extensions",
+                  "title": "登録・更新の手順"
+                },
+                {
+                  "href": "/docs/troubleshooting",
+                  "title": "診断の読み方"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/docs/local-model",
+          "title": "ローカル0.5Bで操作IDを選ぶ",
+          "summary": "GitHubの読み取りに範囲を限定した再現用サンプル。",
+          "kind": "page",
+          "status": "published",
+          "sections": [
+            {
+              "title": "1. 事前に導入するもの",
+              "text": "正式版zixとGitHub拡張、llama.cpp b11913の llama-completion、Qwen2.5-0.5B-Instruct-GGUF の q8_0 を使う例です。ランタイムとモデルは各公式配布から取得し、リリースのハッシュを確認してください。",
+              "links": [
+                {
+                  "href": "/tools/github",
+                  "title": "GitHub拡張"
+                },
+                {
+                  "href": "https://github.com/ggml-org/llama.cpp/releases/tag/b11913",
+                  "title": "llama.cpp b11913"
+                },
+                {
+                  "href": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/tree/9217f5db79a29953eb74d5343926648285ec7e67",
+                  "title": "Qwen 0.5B GGUF (pinned revision)"
+                }
+              ]
+            },
+            {
+              "title": "2. 候補を取得してローカル推論",
+              "text": "model に取得したGGUFのパスを設定します。候補は下記の2つに固定し、温度0・回答32トークンで推論します。これはモデルがIDを返すところまでの例です。",
+              "code": "zix capabilities --namespace github --compact --format json\nmodel=\"/path/to/qwen2.5-0.5b-instruct-q8_0.gguf\"\nprompt='<|im_start|>system\nMatch the final request to one listed ID. Return only the matching identifier.<|im_end|>\n<|im_start|>user\nCHOICES AND MEANINGS:\nuser.read: GITHUB IDENTITY READ\nrepository.read: GITHUB REPOSITORY READ\nREQUEST: Read GitHub repository metadata.<|im_end|>\n<|im_start|>assistant\n'\nllama-completion -m \"$model\" --no-conversation --no-display-prompt --no-warmup --no-perf --grammar 'root ::= \"user.read\" | \"repository.read\"' -p \"$prompt\" -n 32 -c 4096 -t 2 -tb 2 -ngl 0 --temp 0 --seed 42"
+            },
+            {
+              "title": "3. 回答を検証する",
+              "text": "期待する回答は repository.read。呼び出し側は許可されたID・対象リポジトリを照合します。モデルの回答をシェルへ渡さず、登録済み定義のコマンドと利用者が指定した入力を使います。認証情報の登録と実際の読み取りは次のガイドへ進んでください。",
+              "code": "zix describe github --operation repository.read --compact --format json",
+              "links": [
+                {
+                  "href": "/docs/credentials",
+                  "title": "認証して読み取る"
+                },
+                {
+                  "href": "https://github.com/zixcel/cli/blob/main/docs/llm_view.py",
+                  "title": "Caller validation reference"
+                }
+              ]
+            },
+            {
+              "title": "確認済みの範囲",
+              "text": "0.5Bの既存試験ではGitHubのリポジトリ操作選択は成功しましたが、サービス横断の選択は13問中7問でした。このページは限定した使い方のサンプルで、0.5Bによる全操作の自律実行を保証しません。別途1.5Bでは通常の選択15問が成功しました。入力不足・認証・権限・結果不明はモデルではなくコードで停止判定します。",
+              "links": [
+                {
+                  "href": "/docs/llm",
+                  "title": "設計と停止条件"
                 }
               ]
             }
@@ -1864,49 +2414,38 @@
       "pages": [
         {
           "path": "/",
-          "title": "Connect services\nfrom your own tools.",
-          "summary": "Inspect targets and prerequisites with Zix, then use provider extensions to operate services. Compose focused libraries for data, documents and state alongside the CLI.",
+          "title": "Small local AI.\nYour own tools.",
+          "summary": "Let a 0.5B model choose a short operation ID while Zix describes inputs and prerequisites. Start with a scoped GitHub read workflow on your own machine.",
           "sections": [
             {
-              "title": "Use Zix",
-              "text": "Install the CLI, register an extension, inspect requirements, then authenticate and execute. Initial discovery commands need no provider request.",
+              "title": "1. Install the GitHub extension",
+              "text": "Install the official core CLI and GitHub package. Fix the provider first and offer only its two read operations.",
               "links": [
                 {
-                  "href": "/docs/getting-started",
-                  "title": "Installation guide"
-                },
+                  "href": "/tools/github",
+                  "title": "Install GitHub"
+                }
+              ]
+            },
+            {
+              "title": "2. Give 0.5B a short choice",
+              "text": "Example: inspect a public repository. Pass IDs and meanings from the definitions, without full JSON or secret values.",
+              "code": "CHOICES AND MEANINGS:\nuser.read: GITHUB IDENTITY READ\nrepository.read: GITHUB REPOSITORY READ\nREQUEST: Read GitHub repository metadata.\n\n# Example answer: repository.read",
+              "links": [
                 {
-                  "href": "/tools",
-                  "title": "Available extensions"
-                },
+                  "href": "/docs/local-model",
+                  "title": "Local 0.5B walkthrough and limits"
+                }
+              ]
+            },
+            {
+              "title": "3. Inspect before executing",
+              "text": "The caller validates the ID and authorized target, then inspects Zix inputs and access requirements. Retry and permission decisions remain deterministic.",
+              "code": "zix describe github --operation repository.read --compact --format json",
+              "links": [
                 {
                   "href": "/docs/llm",
-                  "title": "Use with an LLM"
-                }
-              ]
-            },
-            {
-              "title": "Discover an installed extension",
-              "text": "After registering the GitHub extension, inspect its operation IDs, inputs and prerequisites one operation at a time.",
-              "code": "zix capabilities --compact --format json\nzix capabilities --namespace github --compact --format json\nzix describe github --operation repository.read --compact --format json",
-              "links": [
-                {
-                  "href": "/docs/extensions",
-                  "title": "Register an extension"
-                }
-              ]
-            },
-            {
-              "title": "Compose libraries",
-              "text": "Choose application building blocks for documents, presentation data, state, identity and local AI from the capability catalog.",
-              "links": [
-                {
-                  "href": "/capabilities",
-                  "title": "Explore library capabilities"
-                },
-                {
-                  "href": "/oss",
-                  "title": "Public source catalog"
+                  "title": "Caller implementation"
                 }
               ]
             }
@@ -3148,12 +3687,8 @@
               "text": "ValueDomain reads, public DNS and delegation inspection, plus reviewed DNS plans and writes. Establish the authoritative provider first. Official version 0.4.1.",
               "links": [
                 {
-                  "href": "https://github.com/zixcel/zixcel-domain/releases",
-                  "title": "Official releases"
-                },
-                {
-                  "href": "https://github.com/zixcel/zixcel-domain/blob/main/docs/operation-guidance.md",
-                  "title": "Operations and prerequisites"
+                  "href": "/tools/domain",
+                  "title": "Install, features and usage"
                 }
               ]
             },
@@ -3162,12 +3697,8 @@
               "text": "Account and DNS reads with explicitly scoped configuration observations. DNS audit does not enumerate Workers or Pages. Official version 0.3.1.",
               "links": [
                 {
-                  "href": "https://github.com/zixcel/zixcel-cloudflare/releases",
-                  "title": "Official releases"
-                },
-                {
-                  "href": "https://github.com/zixcel/zixcel-cloudflare/blob/main/docs/operation-guidance.md",
-                  "title": "Operations and prerequisites"
+                  "href": "/tools/cloudflare",
+                  "title": "Install, features and usage"
                 }
               ]
             },
@@ -3176,12 +3707,8 @@
               "text": "Microsoft Graph and Exchange Online administration, with operation-specific credential audiences, scopes, consent, RBAC and target requirements. Official version 0.5.1.",
               "links": [
                 {
-                  "href": "https://github.com/zixcel/zixcel-microsoft/releases",
-                  "title": "Official releases"
-                },
-                {
-                  "href": "https://github.com/zixcel/zixcel-microsoft/blob/main/docs/operation-guidance.md",
-                  "title": "Operations and prerequisites"
+                  "href": "/tools/microsoft",
+                  "title": "Install, features and usage"
                 }
               ]
             },
@@ -3190,12 +3717,8 @@
               "text": "Read the expected authenticated user and selected repository metadata. This native extension does not expose issue or pull request writes. Official version 0.2.0.",
               "links": [
                 {
-                  "href": "https://github.com/zixcel/zixcel-github/releases",
-                  "title": "Official releases"
-                },
-                {
-                  "href": "https://github.com/zixcel/zixcel-github/blob/main/docs/operation-guidance.md",
-                  "title": "Operations and prerequisites"
+                  "href": "/tools/github",
+                  "title": "Install, features and usage"
                 }
               ]
             },
@@ -3204,12 +3727,8 @@
               "text": "Docker Hub repository/tag reads, bounded public snapshots and reviewed retirement plans. Uncertain deletes require readback. Official version 0.3.0.",
               "links": [
                 {
-                  "href": "https://github.com/zixcel/zixcel-container-registry/releases",
-                  "title": "Official releases"
-                },
-                {
-                  "href": "https://github.com/zixcel/zixcel-container-registry/blob/main/docs/operation-guidance.md",
-                  "title": "Operations and prerequisites"
+                  "href": "/tools/docker",
+                  "title": "Install, features and usage"
                 }
               ]
             },
@@ -3218,12 +3737,8 @@
               "text": "Read a selected Azure subscription or subscriptions visible to the supplied credential. Official version 0.2.0.",
               "links": [
                 {
-                  "href": "https://github.com/zixcel/zixcel-azure/releases",
-                  "title": "Official releases"
-                },
-                {
-                  "href": "https://github.com/zixcel/zixcel-azure/blob/main/docs/operation-guidance.md",
-                  "title": "Operations and prerequisites"
+                  "href": "/tools/azure",
+                  "title": "Install, features and usage"
                 }
               ]
             },
@@ -3232,12 +3747,8 @@
               "text": "Read selected App Store Connect app metadata and the app list visible to an API key. Official version 0.2.0.",
               "links": [
                 {
-                  "href": "https://github.com/zixcel/zixcel-apple/releases",
-                  "title": "Official releases"
-                },
-                {
-                  "href": "https://github.com/zixcel/zixcel-apple/blob/main/docs/operation-guidance.md",
-                  "title": "Operations and prerequisites"
+                  "href": "/tools/apple",
+                  "title": "Install, features and usage"
                 }
               ]
             },
@@ -3246,12 +3757,8 @@
               "text": "Read projects, IAM key metadata, scoped resource inventory and existing billing exports, without enabling APIs or creating SQL jobs. Official version 0.7.0.",
               "links": [
                 {
-                  "href": "https://github.com/zixcel/zixcel-google/releases",
-                  "title": "Official releases"
-                },
-                {
-                  "href": "https://github.com/zixcel/zixcel-google/blob/main/docs/operation-guidance.md",
-                  "title": "Operations and prerequisites"
+                  "href": "/tools/google",
+                  "title": "Install, features and usage"
                 }
               ]
             },
@@ -3260,12 +3767,8 @@
               "text": "Use origin-bound OS custody for post/page/media reads and explicitly reviewed WordPress changes. Official version 0.4.1.",
               "links": [
                 {
-                  "href": "https://github.com/zixcel/zixcel-wordpress/releases",
-                  "title": "Official releases"
-                },
-                {
-                  "href": "https://github.com/zixcel/zixcel-wordpress/blob/main/docs/operation-guidance.md",
-                  "title": "Operations and prerequisites"
+                  "href": "/tools/wordpress",
+                  "title": "Install, features and usage"
                 }
               ]
             },
@@ -3397,6 +3900,603 @@
                 {
                   "href": "/docs/troubleshooting",
                   "title": "Resolve a stopped read"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/tools/domain",
+          "title": "zix domain",
+          "summary": "ValueDomain reads, public DNS and delegation inspection, plus reviewed DNS plans and writes. Establish the authoritative provider first. Official version 0.4.1.",
+          "label": "zix domain",
+          "kind": "page",
+          "category": "",
+          "status": "published",
+          "sections": [
+            {
+              "title": "1. Install and enable",
+              "text": "Official 0.4.1 package for zix CLI 0.7.0 on Linux x86_64 (musl). Run in an empty directory under your permanent package location; registration references the extracted files.",
+              "code": "gh release download native/domain/v0.4.1 --repo zixcel/zixcel-domain --pattern zixcel-domain-cli-v0.4.1-x86_64-unknown-linux-musl.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-domain-cli-v0.4.1-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-domain --signer-workflow zixcel/zixcel-domain/.github/workflows/release-native.yml --source-ref refs/tags/native/domain/v0.4.1\ntar -xzf zixcel-domain-cli-v0.4.1-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-domain-cli-v0.4.1-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/domain.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/domain.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-domain\" --executable-sha256 \"$(sha256sum \"$package/zix-domain\" | cut -d ' ' -f1)\"\nzix extensions enable domain\nzix extensions inspect domain --format json",
+              "links": [
+                {
+                  "href": "/docs/getting-started",
+                  "title": "Install the core CLI first"
+                },
+                {
+                  "href": "https://github.com/zixcel/zixcel-domain/releases/tag/native/domain/v0.4.1",
+                  "title": "Official package"
+                }
+              ]
+            },
+            {
+              "title": "2. Supported operations",
+              "text": "ValueDomain reads, public DNS and delegation inspection, plus reviewed DNS plans and writes. Establish the authoritative provider first. Official version 0.4.1.",
+              "code": "valuedomain.domains.list [read] — REGISTRAR VALUEDOMAIN READ: read registrar visible domains\ndns.audit [read] — DNS AUTHORITY READ: read public dns evidence\nregistrar.inspect [read] — REGISTRAR VALUEDOMAIN READ: read registrar registration\ndns.reconcile [read] — DNS AUTHORITY READ: compare dns observations\ndns.inspect [read] — DNS AUTHORITY READ: read public dns records\ndns.delegation [read] — DNS AUTHORITY READ: read parent delegation\ndns.export [read] — DNS PROVIDER READ: read selected dns provider\ndns.records.plan [read] — DNS PROVIDER PLAN: plan selected dns records\ndns.records.resolve.plan [read] — DNS PROVIDER PLAN: plan unresolved dns reconciliation\ndns.records.resolve.apply [operator-write] — DNS PROVIDER APPLY: record reviewed dns reconciliation\ndns.records.apply [operator-write] — DNS PROVIDER APPLY: apply reviewed dns plan\nnameservers.inspect [read] — REGISTRAR DELEGATION: nameservers inspect\nnameservers.plan [read] — REGISTRAR DELEGATION: nameservers plan\nnameservers.apply [operator-write] — REGISTRAR DELEGATION: nameservers apply"
+            },
+            {
+              "title": "3. Inspect inputs and access requirements",
+              "text": "These commands read no credentials and make no provider requests. Select an operation, then resolve its required inputs, target, credential audience and access before execution.",
+              "code": "zix capabilities --namespace domain --compact --format json\nzix describe domain --operation valuedomain.domains.list --compact --format json",
+              "links": [
+                {
+                  "href": "https://github.com/zixcel/zixcel-domain/blob/main/docs/operation-guidance.md",
+                  "title": "Operations and prerequisites"
+                },
+                {
+                  "href": "/docs/credentials",
+                  "title": "Credential setup"
+                }
+              ]
+            },
+            {
+              "title": "4. Updates and diagnostics",
+              "text": "Use extensions replace for updates with both current and new hashes. Registration and enablement do not grant provider access. Resolve diagnostic input, access and unknown-outcome states before continuing.",
+              "links": [
+                {
+                  "href": "/docs/extensions",
+                  "title": "Registration and updates"
+                },
+                {
+                  "href": "/docs/troubleshooting",
+                  "title": "Diagnostic keywords"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/tools/cloudflare",
+          "title": "zix cloudflare",
+          "summary": "Account and DNS reads with explicitly scoped configuration observations. DNS audit does not enumerate Workers or Pages. Official version 0.3.1.",
+          "label": "zix cloudflare",
+          "kind": "page",
+          "category": "",
+          "status": "published",
+          "sections": [
+            {
+              "title": "1. Install and enable",
+              "text": "Official 0.3.1 package for zix CLI 0.7.0 on Linux x86_64 (musl). Run in an empty directory under your permanent package location; registration references the extracted files.",
+              "code": "gh release download native/cloudflare/v0.3.1 --repo zixcel/zixcel-cloudflare --pattern zixcel-cloudflare-cli-v0.3.1-x86_64-unknown-linux-musl.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-cloudflare-cli-v0.3.1-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-cloudflare --signer-workflow zixcel/zixcel-cloudflare/.github/workflows/release-native.yml --source-ref refs/tags/native/cloudflare/v0.3.1\ntar -xzf zixcel-cloudflare-cli-v0.3.1-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-cloudflare-cli-v0.3.1-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/cloudflare.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/cloudflare.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-cloudflare\" --executable-sha256 \"$(sha256sum \"$package/zix-cloudflare\" | cut -d ' ' -f1)\"\nzix extensions enable cloudflare\nzix extensions inspect cloudflare --format json",
+              "links": [
+                {
+                  "href": "/docs/getting-started",
+                  "title": "Install the core CLI first"
+                },
+                {
+                  "href": "https://github.com/zixcel/zixcel-cloudflare/releases/tag/native/cloudflare/v0.3.1",
+                  "title": "Official package"
+                }
+              ]
+            },
+            {
+              "title": "2. Supported operations",
+              "text": "Account and DNS reads with explicitly scoped configuration observations. DNS audit does not enumerate Workers or Pages. Official version 0.3.1.",
+              "code": "account.read [read] — CLOUDFLARE ACCOUNT READ: read selected cloudflare account\naccounts.list [read] — CLOUDFLARE ACCOUNT READ: list credential visible cloudflare accounts\nlifecycle.observe [read] — CLOUDFLARE LIFECYCLE READ: read cloudflare lifecycle\ndns.audit [read] — CLOUDFLARE DNS READ: audit cloudflare dns zone"
+            },
+            {
+              "title": "3. Inspect inputs and access requirements",
+              "text": "These commands read no credentials and make no provider requests. Select an operation, then resolve its required inputs, target, credential audience and access before execution.",
+              "code": "zix capabilities --namespace cloudflare --compact --format json\nzix describe cloudflare --operation account.read --compact --format json",
+              "links": [
+                {
+                  "href": "https://github.com/zixcel/zixcel-cloudflare/blob/main/docs/operation-guidance.md",
+                  "title": "Operations and prerequisites"
+                },
+                {
+                  "href": "/docs/credentials",
+                  "title": "Credential setup"
+                }
+              ]
+            },
+            {
+              "title": "4. Updates and diagnostics",
+              "text": "Use extensions replace for updates with both current and new hashes. Registration and enablement do not grant provider access. Resolve diagnostic input, access and unknown-outcome states before continuing.",
+              "links": [
+                {
+                  "href": "/docs/extensions",
+                  "title": "Registration and updates"
+                },
+                {
+                  "href": "/docs/troubleshooting",
+                  "title": "Diagnostic keywords"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/tools/microsoft",
+          "title": "zix microsoft",
+          "summary": "Microsoft Graph and Exchange Online administration, with operation-specific credential audiences, scopes, consent, RBAC and target requirements. Official version 0.5.1.",
+          "label": "zix microsoft",
+          "kind": "page",
+          "category": "",
+          "status": "published",
+          "sections": [
+            {
+              "title": "1. Install and enable",
+              "text": "Official 0.5.1 package for zix CLI 0.7.0 on Linux x86_64 (gnu). Run in an empty directory under your permanent package location; registration references the extracted files.",
+              "code": "gh release download native/microsoft/v0.5.1 --repo zixcel/zixcel-microsoft --pattern zixcel-microsoft-cli-v0.5.1-x86_64-unknown-linux-gnu.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-microsoft-cli-v0.5.1-x86_64-unknown-linux-gnu.tar.gz --repo zixcel/zixcel-microsoft --signer-workflow zixcel/zixcel-microsoft/.github/workflows/release-native.yml --source-ref refs/tags/native/microsoft/v0.5.1\ntar -xzf zixcel-microsoft-cli-v0.5.1-x86_64-unknown-linux-gnu.tar.gz\npackage=\"$PWD/zixcel-microsoft-cli-v0.5.1-x86_64-unknown-linux-gnu\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/microsoft.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/microsoft.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-microsoft\" --executable-sha256 \"$(sha256sum \"$package/zix-microsoft\" | cut -d ' ' -f1)\"\nzix extensions enable microsoft\nzix extensions inspect microsoft --format json",
+              "links": [
+                {
+                  "href": "/docs/getting-started",
+                  "title": "Install the core CLI first"
+                },
+                {
+                  "href": "https://github.com/zixcel/zixcel-microsoft/releases/tag/native/microsoft/v0.5.1",
+                  "title": "Official package"
+                }
+              ]
+            },
+            {
+              "title": "2. Supported operations",
+              "text": "Microsoft Graph and Exchange Online administration, with operation-specific credential audiences, scopes, consent, RBAC and target requirements. Official version 0.5.1.",
+              "code": "users.read [read] — GRAPH USER READ: read selected graph user\nadmin.organization [read] — GRAPH DIRECTORY READ: read tenant identity\nadmin.licenses [read] — GRAPH DIRECTORY READ: read subscribed licenses\nadmin.domains [read] — GRAPH DOMAIN READ: read verified domains\nadmin.domain-verification [read] — GRAPH DOMAIN READ: read domain verification records\nadmin.users [read] — GRAPH DIRECTORY READ: read directory users\nadmin.user [read] — GRAPH DIRECTORY READ: read selected directory user\nadmin.domain-dns [read] — GRAPH DOMAIN READ: read service dns requirements\nexchange.snapshot [read] — EXCHANGE CONFIGURATION: read exchange configuration\nexchange.plan [read] — EXCHANGE CONFIGURATION: plan exchange change\nexchange.apply [operator-write] — EXCHANGE CONFIGURATION: apply reviewed exchange plan\nadmin.doctor [read] — LOCAL SETUP CHECK: inspect local admin prerequisites\nmanagement.domains.plan [read] — GRAPH DOMAINS PLAN: plan domains change\nmanagement.domains.apply [operator-write] — GRAPH DOMAINS APPLY: apply domains change\nmanagement.users.plan [read] — GRAPH USERS PLAN: plan users change\nmanagement.users.apply [operator-write] — GRAPH USERS APPLY: apply users change\nmanagement.licenses.plan [read] — GRAPH LICENSES PLAN: plan licenses change\nmanagement.licenses.apply [operator-write] — GRAPH LICENSES APPLY: apply licenses change\nmanagement.dkim.plan [read] — EXCHANGE DKIM: plan dkim change\nmanagement.dkim.apply [operator-write] — EXCHANGE DKIM: apply reviewed dkim plan\nmanagement.mail.plan [read] — GRAPH MAIL PLAN: plan mail change\nmanagement.mail.apply [operator-write] — GRAPH MAIL APPLY: apply mail change\nmanagement.dkim.inspect [read] — EXCHANGE DKIM: read dkim state\nmanagement.mail.inspect [read] — GRAPH MAIL READ: read correlated mail probe\nauth.configure [read] — LOCAL OAUTH CONFIGURE: write local oauth profile\nauth.start [read] — AUTH: start resource auth\nauth.poll [read] — AUTH: poll resource auth\nauth.refresh [read] — AUTH: refresh resource auth\nauth.status [read] — AUTH: status resource auth\nauth.logout [read] — AUTH: logout resource auth\nruntime.configure [read] — LOCAL EXCHANGE CONFIGURE: bind local exchange runtime\nruntime.inspect [read] — LOCAL EXCHANGE CHECK: inspect pinned exchange runtime"
+            },
+            {
+              "title": "3. Inspect inputs and access requirements",
+              "text": "These commands read no credentials and make no provider requests. Select an operation, then resolve its required inputs, target, credential audience and access before execution.",
+              "code": "zix capabilities --namespace microsoft --compact --format json\nzix describe microsoft --operation users.read --compact --format json",
+              "links": [
+                {
+                  "href": "https://github.com/zixcel/zixcel-microsoft/blob/main/docs/operation-guidance.md",
+                  "title": "Operations and prerequisites"
+                },
+                {
+                  "href": "/docs/credentials",
+                  "title": "Credential setup"
+                }
+              ]
+            },
+            {
+              "title": "4. Updates and diagnostics",
+              "text": "Use extensions replace for updates with both current and new hashes. Registration and enablement do not grant provider access. Resolve diagnostic input, access and unknown-outcome states before continuing.",
+              "links": [
+                {
+                  "href": "/docs/extensions",
+                  "title": "Registration and updates"
+                },
+                {
+                  "href": "/docs/troubleshooting",
+                  "title": "Diagnostic keywords"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/tools/github",
+          "title": "zix github",
+          "summary": "Read the expected authenticated user and selected repository metadata. This native extension does not expose issue or pull request writes. Official version 0.2.0.",
+          "label": "zix github",
+          "kind": "page",
+          "category": "",
+          "status": "published",
+          "sections": [
+            {
+              "title": "1. Install and enable",
+              "text": "Official 0.2.0 package for zix CLI 0.7.0 on Linux x86_64 (musl). Run in an empty directory under your permanent package location; registration references the extracted files.",
+              "code": "gh release download native/github/v0.2.0 --repo zixcel/zixcel-github --pattern zixcel-github-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-github-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-github --signer-workflow zixcel/zixcel-github/.github/workflows/release-native.yml --source-ref refs/tags/native/github/v0.2.0\ntar -xzf zixcel-github-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-github-cli-v0.2.0-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/github.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/github.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-github\" --executable-sha256 \"$(sha256sum \"$package/zix-github\" | cut -d ' ' -f1)\"\nzix extensions enable github\nzix extensions inspect github --format json",
+              "links": [
+                {
+                  "href": "/docs/getting-started",
+                  "title": "Install the core CLI first"
+                },
+                {
+                  "href": "https://github.com/zixcel/zixcel-github/releases/tag/native/github/v0.2.0",
+                  "title": "Official package"
+                }
+              ]
+            },
+            {
+              "title": "2. Supported operations",
+              "text": "Read the expected authenticated user and selected repository metadata. This native extension does not expose issue or pull request writes. Official version 0.2.0.",
+              "code": "user.read [read] — GITHUB IDENTITY READ: read expected github identity\nrepository.read [read] — GITHUB REPOSITORY READ: read selected repository metadata"
+            },
+            {
+              "title": "3. Inspect inputs and access requirements",
+              "text": "These commands read no credentials and make no provider requests. Select an operation, then resolve its required inputs, target, credential audience and access before execution.",
+              "code": "zix capabilities --namespace github --compact --format json\nzix describe github --operation user.read --compact --format json",
+              "links": [
+                {
+                  "href": "https://github.com/zixcel/zixcel-github/blob/main/docs/operation-guidance.md",
+                  "title": "Operations and prerequisites"
+                },
+                {
+                  "href": "/docs/credentials",
+                  "title": "Credential setup"
+                }
+              ]
+            },
+            {
+              "title": "4. Updates and diagnostics",
+              "text": "Use extensions replace for updates with both current and new hashes. Registration and enablement do not grant provider access. Resolve diagnostic input, access and unknown-outcome states before continuing.",
+              "links": [
+                {
+                  "href": "/docs/extensions",
+                  "title": "Registration and updates"
+                },
+                {
+                  "href": "/docs/troubleshooting",
+                  "title": "Diagnostic keywords"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/tools/docker",
+          "title": "zix docker",
+          "summary": "Docker Hub repository/tag reads, bounded public snapshots and reviewed retirement plans. Uncertain deletes require readback. Official version 0.3.0.",
+          "label": "zix docker",
+          "kind": "page",
+          "category": "",
+          "status": "published",
+          "sections": [
+            {
+              "title": "1. Install and enable",
+              "text": "Official 0.3.0 package for zix CLI 0.7.0 on Linux x86_64 (gnu). Run in an empty directory under your permanent package location; registration references the extracted files.",
+              "code": "gh release download v0.3.0 --repo zixcel/zixcel-container-registry --pattern zixcel-container-registry-v0.3.0-x86_64-unknown-linux-gnu.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-container-registry-v0.3.0-x86_64-unknown-linux-gnu.tar.gz --repo zixcel/zixcel-container-registry --signer-workflow zixcel/zixcel-container-registry/.github/workflows/release.yml --source-ref refs/tags/v0.3.0\ntar -xzf zixcel-container-registry-v0.3.0-x86_64-unknown-linux-gnu.tar.gz\npackage=\"$PWD/zixcel-container-registry-v0.3.0-x86_64-unknown-linux-gnu\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/docker.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/docker.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-docker\" --executable-sha256 \"$(sha256sum \"$package/zix-docker\" | cut -d ' ' -f1)\"\nzix extensions enable docker\nzix extensions inspect docker --format json",
+              "links": [
+                {
+                  "href": "/docs/getting-started",
+                  "title": "Install the core CLI first"
+                },
+                {
+                  "href": "https://github.com/zixcel/zixcel-container-registry/releases/tag/v0.3.0",
+                  "title": "Official package"
+                }
+              ]
+            },
+            {
+              "title": "2. Supported operations",
+              "text": "Docker Hub repository/tag reads, bounded public snapshots and reviewed retirement plans. Uncertain deletes require readback. Official version 0.3.0.",
+              "code": "docker.list [read] — DOCKER REGISTRY READ: list selected namespace repositories\ndocker.get [read] — DOCKER REGISTRY READ: read selected repository metadata\ndocker.tags [read] — DOCKER REGISTRY READ: read selected repository tags\ndocker.verify-absent [read] — DOCKER REGISTRY READ: observe original targets absence\ndocker.delete-plan [read] — DOCKER REGISTRY PLAN: plan explicit repository retirement\ndocker.delete-apply [operator-write] — DOCKER RETIREMENT APPLY: apply reviewed one use retirement\ndocker.snapshot-collect [read] — DOCKER PUBLIC READ: collect bounded public registry snapshot\ndocker.snapshot-show [read] — DOCKER PUBLIC READ: read local public snapshot\ndocker.snapshot-diff [read] — DOCKER PUBLIC READ: compare local public snapshots"
+            },
+            {
+              "title": "3. Inspect inputs and access requirements",
+              "text": "These commands read no credentials and make no provider requests. Select an operation, then resolve its required inputs, target, credential audience and access before execution.",
+              "code": "zix capabilities --namespace docker --compact --format json\nzix describe docker --operation docker.list --compact --format json",
+              "links": [
+                {
+                  "href": "https://github.com/zixcel/zixcel-container-registry/blob/main/docs/operation-guidance.md",
+                  "title": "Operations and prerequisites"
+                },
+                {
+                  "href": "/docs/credentials",
+                  "title": "Credential setup"
+                }
+              ]
+            },
+            {
+              "title": "4. Updates and diagnostics",
+              "text": "Use extensions replace for updates with both current and new hashes. Registration and enablement do not grant provider access. Resolve diagnostic input, access and unknown-outcome states before continuing.",
+              "links": [
+                {
+                  "href": "/docs/extensions",
+                  "title": "Registration and updates"
+                },
+                {
+                  "href": "/docs/troubleshooting",
+                  "title": "Diagnostic keywords"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/tools/azure",
+          "title": "zix azure",
+          "summary": "Read a selected Azure subscription or subscriptions visible to the supplied credential. Official version 0.2.0.",
+          "label": "zix azure",
+          "kind": "page",
+          "category": "",
+          "status": "published",
+          "sections": [
+            {
+              "title": "1. Install and enable",
+              "text": "Official 0.2.0 package for zix CLI 0.7.0 on Linux x86_64 (musl). Run in an empty directory under your permanent package location; registration references the extracted files.",
+              "code": "gh release download native/azure/v0.2.0 --repo zixcel/zixcel-azure --pattern zixcel-azure-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-azure-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-azure --signer-workflow zixcel/zixcel-azure/.github/workflows/release-native.yml --source-ref refs/tags/native/azure/v0.2.0\ntar -xzf zixcel-azure-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-azure-cli-v0.2.0-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/azure.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/azure.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-azure\" --executable-sha256 \"$(sha256sum \"$package/zix-azure\" | cut -d ' ' -f1)\"\nzix extensions enable azure\nzix extensions inspect azure --format json",
+              "links": [
+                {
+                  "href": "/docs/getting-started",
+                  "title": "Install the core CLI first"
+                },
+                {
+                  "href": "https://github.com/zixcel/zixcel-azure/releases/tag/native/azure/v0.2.0",
+                  "title": "Official package"
+                }
+              ]
+            },
+            {
+              "title": "2. Supported operations",
+              "text": "Read a selected Azure subscription or subscriptions visible to the supplied credential. Official version 0.2.0.",
+              "code": "account.read [read] — AZURE SUBSCRIPTION READ: read selected azure subscription\naccounts.list [read] — AZURE SUBSCRIPTION READ: list visible azure subscriptions"
+            },
+            {
+              "title": "3. Inspect inputs and access requirements",
+              "text": "These commands read no credentials and make no provider requests. Select an operation, then resolve its required inputs, target, credential audience and access before execution.",
+              "code": "zix capabilities --namespace azure --compact --format json\nzix describe azure --operation account.read --compact --format json",
+              "links": [
+                {
+                  "href": "https://github.com/zixcel/zixcel-azure/blob/main/docs/operation-guidance.md",
+                  "title": "Operations and prerequisites"
+                },
+                {
+                  "href": "/docs/credentials",
+                  "title": "Credential setup"
+                }
+              ]
+            },
+            {
+              "title": "4. Updates and diagnostics",
+              "text": "Use extensions replace for updates with both current and new hashes. Registration and enablement do not grant provider access. Resolve diagnostic input, access and unknown-outcome states before continuing.",
+              "links": [
+                {
+                  "href": "/docs/extensions",
+                  "title": "Registration and updates"
+                },
+                {
+                  "href": "/docs/troubleshooting",
+                  "title": "Diagnostic keywords"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/tools/apple",
+          "title": "zix apple",
+          "summary": "Read selected App Store Connect app metadata and the app list visible to an API key. Official version 0.2.0.",
+          "label": "zix apple",
+          "kind": "page",
+          "category": "",
+          "status": "published",
+          "sections": [
+            {
+              "title": "1. Install and enable",
+              "text": "Official 0.2.0 package for zix CLI 0.7.0 on Linux x86_64 (musl). Run in an empty directory under your permanent package location; registration references the extracted files.",
+              "code": "gh release download native/apple/v0.2.0 --repo zixcel/zixcel-apple --pattern zixcel-apple-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-apple-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-apple --signer-workflow zixcel/zixcel-apple/.github/workflows/release-native.yml --source-ref refs/tags/native/apple/v0.2.0\ntar -xzf zixcel-apple-cli-v0.2.0-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-apple-cli-v0.2.0-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/apple.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/apple.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-apple\" --executable-sha256 \"$(sha256sum \"$package/zix-apple\" | cut -d ' ' -f1)\"\nzix extensions enable apple\nzix extensions inspect apple --format json",
+              "links": [
+                {
+                  "href": "/docs/getting-started",
+                  "title": "Install the core CLI first"
+                },
+                {
+                  "href": "https://github.com/zixcel/zixcel-apple/releases/tag/native/apple/v0.2.0",
+                  "title": "Official package"
+                }
+              ]
+            },
+            {
+              "title": "2. Supported operations",
+              "text": "Read selected App Store Connect app metadata and the app list visible to an API key. Official version 0.2.0.",
+              "code": "app.read [read] — APPLE APPSTORE READ: read selected app store app\napps.list [read] — APPLE APPSTORE READ: list visible app store apps"
+            },
+            {
+              "title": "3. Inspect inputs and access requirements",
+              "text": "These commands read no credentials and make no provider requests. Select an operation, then resolve its required inputs, target, credential audience and access before execution.",
+              "code": "zix capabilities --namespace apple --compact --format json\nzix describe apple --operation app.read --compact --format json",
+              "links": [
+                {
+                  "href": "https://github.com/zixcel/zixcel-apple/blob/main/docs/operation-guidance.md",
+                  "title": "Operations and prerequisites"
+                },
+                {
+                  "href": "/docs/credentials",
+                  "title": "Credential setup"
+                }
+              ]
+            },
+            {
+              "title": "4. Updates and diagnostics",
+              "text": "Use extensions replace for updates with both current and new hashes. Registration and enablement do not grant provider access. Resolve diagnostic input, access and unknown-outcome states before continuing.",
+              "links": [
+                {
+                  "href": "/docs/extensions",
+                  "title": "Registration and updates"
+                },
+                {
+                  "href": "/docs/troubleshooting",
+                  "title": "Diagnostic keywords"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/tools/google",
+          "title": "zix google",
+          "summary": "Read projects, IAM key metadata, scoped resource inventory and existing billing exports, without enabling APIs or creating SQL jobs. Official version 0.7.0.",
+          "label": "zix google",
+          "kind": "page",
+          "category": "",
+          "status": "published",
+          "sections": [
+            {
+              "title": "1. Install and enable",
+              "text": "Official 0.7.0 package for zix CLI 0.7.0 on Linux x86_64 (musl). Run in an empty directory under your permanent package location; registration references the extracted files.",
+              "code": "gh release download google/v0.7.0 --repo zixcel/zixcel-google --pattern zixcel-google-cli-v0.7.0-x86_64-unknown-linux-musl.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-google-cli-v0.7.0-x86_64-unknown-linux-musl.tar.gz --repo zixcel/zixcel-google --signer-workflow zixcel/zixcel-google/.github/workflows/release-google.yml --source-ref refs/tags/google/v0.7.0\ntar -xzf zixcel-google-cli-v0.7.0-x86_64-unknown-linux-musl.tar.gz\npackage=\"$PWD/zixcel-google-cli-v0.7.0-x86_64-unknown-linux-musl\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/google.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/google.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-google\" --executable-sha256 \"$(sha256sum \"$package/zix-google\" | cut -d ' ' -f1)\"\nzix extensions enable google\nzix extensions inspect google --format json",
+              "links": [
+                {
+                  "href": "/docs/getting-started",
+                  "title": "Install the core CLI first"
+                },
+                {
+                  "href": "https://github.com/zixcel/zixcel-google/releases/tag/google/v0.7.0",
+                  "title": "Official package"
+                }
+              ]
+            },
+            {
+              "title": "2. Supported operations",
+              "text": "Read projects, IAM key metadata, scoped resource inventory and existing billing exports, without enabling APIs or creating SQL jobs. Official version 0.7.0.",
+              "code": "projects.list [read] — GOOGLE INVENTORY READ: list visible google projects\nprojects.inspect [read] — GOOGLE INVENTORY READ: inspect selected google project\nbilling.accounts.list [read] — GOOGLE BILLING READ: list visible billing accounts\nbilling.projects.list [read] — GOOGLE BILLING READ: list selected billing account projects\nbilling.project.inspect [read] — GOOGLE BILLING READ: inspect selected project billing link\nservices.list [read] — GOOGLE INVENTORY READ: list selected project services\niam.accounts.list [read] — GOOGLE IAM READ: list selected project service accounts\nassets.search [read] — GOOGLE INVENTORY READ: search selected project assets\ncompute.instances.list [read] — GOOGLE INVENTORY READ: list selected project instances\ncompute.disks.list [read] — GOOGLE INVENTORY READ: list selected project disks\ncompute.snapshots.list [read] — GOOGLE INVENTORY READ: list selected project snapshots\ncompute.commitments.list [read] — GOOGLE INVENTORY READ: list selected project commitments\nsql.instances.list [read] — GOOGLE INVENTORY READ: list selected project sql instances\nstorage.buckets.list [read] — GOOGLE INVENTORY READ: list selected project buckets\nrun.services.list [read] — GOOGLE INVENTORY READ: list selected project run services\ncompute.addresses.list [read] — GOOGLE INVENTORY READ: list selected project addresses\noverview.accessible [read] — GOOGLE INVENTORY READ: summarize accessible project visibility\noverview.project [read] — GOOGLE INVENTORY READ: summarize explicit project inventory\nbilling.exports.discover [read] — GOOGLE BILLING READ: discover existing billing exports\nbilling.exports.read [read] — GOOGLE BILLING READ: read existing billing export page\niam.keys.inspect [read] — GOOGLE IAM READ: inspect one service account key"
+            },
+            {
+              "title": "3. Inspect inputs and access requirements",
+              "text": "These commands read no credentials and make no provider requests. Select an operation, then resolve its required inputs, target, credential audience and access before execution.",
+              "code": "zix capabilities --namespace google --compact --format json\nzix describe google --operation projects.list --compact --format json",
+              "links": [
+                {
+                  "href": "https://github.com/zixcel/zixcel-google/blob/main/docs/operation-guidance.md",
+                  "title": "Operations and prerequisites"
+                },
+                {
+                  "href": "/docs/credentials",
+                  "title": "Credential setup"
+                }
+              ]
+            },
+            {
+              "title": "4. Updates and diagnostics",
+              "text": "Use extensions replace for updates with both current and new hashes. Registration and enablement do not grant provider access. Resolve diagnostic input, access and unknown-outcome states before continuing.",
+              "links": [
+                {
+                  "href": "/docs/extensions",
+                  "title": "Registration and updates"
+                },
+                {
+                  "href": "/docs/troubleshooting",
+                  "title": "Diagnostic keywords"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/tools/wordpress",
+          "title": "zix wordpress",
+          "summary": "Use origin-bound OS custody for post/page/media reads and explicitly reviewed WordPress changes. Official version 0.4.1.",
+          "label": "zix wordpress",
+          "kind": "page",
+          "category": "",
+          "status": "published",
+          "sections": [
+            {
+              "title": "1. Install and enable",
+              "text": "Official 0.4.1 package for zix CLI 0.7.0 on Linux x86_64 (gnu). Run in an empty directory under your permanent package location; registration references the extracted files.",
+              "code": "gh release download v0.4.1 --repo zixcel/zixcel-wordpress --pattern zixcel-wordpress-v0.4.1-x86_64-unknown-linux-gnu.tar.gz --pattern SHA256SUMS\nsha256sum --ignore-missing --check SHA256SUMS\ngh attestation verify zixcel-wordpress-v0.4.1-x86_64-unknown-linux-gnu.tar.gz --repo zixcel/zixcel-wordpress --signer-workflow zixcel/zixcel-wordpress/.github/workflows/release.yml --source-ref refs/tags/v0.4.1\ntar -xzf zixcel-wordpress-v0.4.1-x86_64-unknown-linux-gnu.tar.gz\npackage=\"$PWD/zixcel-wordpress-v0.4.1-x86_64-unknown-linux-gnu\"\n(cd \"$package\" && sha256sum --check CONTENTS.sha256)\nzix extensions add --manifest \"$package/wordpress.extension.json\" --manifest-sha256 \"$(sha256sum \"$package/wordpress.extension.json\" | cut -d ' ' -f1)\" --executable \"$package/zix-wordpress\" --executable-sha256 \"$(sha256sum \"$package/zix-wordpress\" | cut -d ' ' -f1)\"\nzix extensions enable wordpress\nzix extensions inspect wordpress --format json",
+              "links": [
+                {
+                  "href": "/docs/getting-started",
+                  "title": "Install the core CLI first"
+                },
+                {
+                  "href": "https://github.com/zixcel/zixcel-wordpress/releases/tag/v0.4.1",
+                  "title": "Official package"
+                }
+              ]
+            },
+            {
+              "title": "2. Supported operations",
+              "text": "Use origin-bound OS custody for post/page/media reads and explicitly reviewed WordPress changes. Official version 0.4.1.",
+              "code": "wordpress.login [read] — WORDPRESS IDENTITY READ: login selected wordpress profile\nwordpress.posts-list [read] — WORDPRESS CONTENT READ: posts list selected wordpress profile\nwordpress.pages-list [read] — WORDPRESS CONTENT READ: pages list selected wordpress profile\nwordpress.posts-get [read] — WORDPRESS CONTENT READ: posts get selected wordpress profile\nwordpress.pages-get [read] — WORDPRESS CONTENT READ: pages get selected wordpress profile\nwordpress.media-list [read] — WORDPRESS CONTENT READ: media list selected wordpress profile\nwordpress.media-get [read] — WORDPRESS CONTENT READ: media get selected wordpress profile\nwordpress.auth-status [read] — WORDPRESS IDENTITY READ: auth status selected wordpress profile\nwordpress.draft-plan [read] — WORDPRESS CONTENT PLAN: draft plan selected wordpress profile\nwordpress.content-plan [read] — WORDPRESS CONTENT PLAN: content plan selected wordpress profile\nwordpress.media-plan [read] — WORDPRESS CONTENT PLAN: media plan selected wordpress profile\nwordpress.revoke-plan [read] — WORDPRESS IDENTITY PLAN: revoke plan selected wordpress profile\nwordpress.content-reconcile [read] — WORDPRESS CONTENT READ: content reconcile selected wordpress profile\nwordpress.draft-apply [operator-write] — WORDPRESS CONTENT APPLY: draft apply selected wordpress profile\nwordpress.content-apply [operator-write] — WORDPRESS CONTENT APPLY: content apply selected wordpress profile\nwordpress.media-apply [operator-write] — WORDPRESS CONTENT APPLY: media apply selected wordpress profile\nwordpress.revoke-apply [operator-write] — WORDPRESS IDENTITY APPLY: revoke apply selected wordpress profile"
+            },
+            {
+              "title": "3. Inspect inputs and access requirements",
+              "text": "These commands read no credentials and make no provider requests. Select an operation, then resolve its required inputs, target, credential audience and access before execution. Use the packaged zix-wordpress credential-import PROFILE ORIGIN COLLECTION for origin-bound custody, rather than generic zix credential set.",
+              "code": "zix capabilities --namespace wordpress --compact --format json\nzix describe wordpress --operation wordpress.login --compact --format json",
+              "links": [
+                {
+                  "href": "https://github.com/zixcel/zixcel-wordpress/blob/main/docs/operation-guidance.md",
+                  "title": "Operations and prerequisites"
+                },
+                {
+                  "href": "/docs/credentials",
+                  "title": "Credential setup"
+                }
+              ]
+            },
+            {
+              "title": "4. Updates and diagnostics",
+              "text": "Use extensions replace for updates with both current and new hashes. Registration and enablement do not grant provider access. Resolve diagnostic input, access and unknown-outcome states before continuing.",
+              "links": [
+                {
+                  "href": "/docs/extensions",
+                  "title": "Registration and updates"
+                },
+                {
+                  "href": "/docs/troubleshooting",
+                  "title": "Diagnostic keywords"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/docs/local-model",
+          "title": "Choose an operation with local 0.5B",
+          "summary": "A reproducible example scoped to GitHub read operations.",
+          "kind": "page",
+          "status": "published",
+          "sections": [
+            {
+              "title": "1. Install prerequisites",
+              "text": "This example uses released Zix and the GitHub extension, llama-completion from llama.cpp b11913, and Qwen2.5-0.5B-Instruct-GGUF q8_0. Obtain the runtime and model from their official distributions and verify artifact hashes.",
+              "links": [
+                {
+                  "href": "/tools/github",
+                  "title": "GitHub extension"
+                },
+                {
+                  "href": "https://github.com/ggml-org/llama.cpp/releases/tag/b11913",
+                  "title": "llama.cpp b11913"
+                },
+                {
+                  "href": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/tree/9217f5db79a29953eb74d5343926648285ec7e67",
+                  "title": "Qwen 0.5B GGUF (pinned revision)"
+                }
+              ]
+            },
+            {
+              "title": "2. Inspect candidates and run local inference",
+              "text": "Set model to your downloaded GGUF path. The grammar restricts the answer to two IDs, with temperature 0 and 32 output tokens. This example ends at model selection.",
+              "code": "zix capabilities --namespace github --compact --format json\nmodel=\"/path/to/qwen2.5-0.5b-instruct-q8_0.gguf\"\nprompt='<|im_start|>system\nMatch the final request to one listed ID. Return only the matching identifier.<|im_end|>\n<|im_start|>user\nCHOICES AND MEANINGS:\nuser.read: GITHUB IDENTITY READ\nrepository.read: GITHUB REPOSITORY READ\nREQUEST: Read GitHub repository metadata.<|im_end|>\n<|im_start|>assistant\n'\nllama-completion -m \"$model\" --no-conversation --no-display-prompt --no-warmup --no-perf --grammar 'root ::= \"user.read\" | \"repository.read\"' -p \"$prompt\" -n 32 -c 4096 -t 2 -tb 2 -ngl 0 --temp 0 --seed 42"
+            },
+            {
+              "title": "3. Validate the answer",
+              "text": "The expected choice is repository.read. Validate it against the authorized operation and repository. Never pass model output to a shell; use registered command definitions and user-supplied inputs. Continue to the credential guide for the actual read.",
+              "code": "zix describe github --operation repository.read --compact --format json",
+              "links": [
+                {
+                  "href": "/docs/credentials",
+                  "title": "Authenticate and read"
+                },
+                {
+                  "href": "https://github.com/zixcel/cli/blob/main/docs/llm_view.py",
+                  "title": "Caller validation reference"
+                }
+              ]
+            },
+            {
+              "title": "Qualification limits",
+              "text": "An earlier 0.5B test selected the GitHub repository operation correctly, but broader routing passed only 7 of 13 cases. This is a scoped example, not qualification for autonomous operation across providers. A separate 1.5B configuration passed 15 ordinary routing cases. Code handles missing input, authentication, access and unknown outcomes.",
+              "links": [
+                {
+                  "href": "/docs/llm",
+                  "title": "Design and stop conditions"
                 }
               ]
             }
