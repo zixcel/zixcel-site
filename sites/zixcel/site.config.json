@@ -108,11 +108,11 @@
       },
       "privacy": {
         "label": "プライバシー",
-        "summary": "この公開サイトはProviderアカウント、メール、文書、予定、顧客データ、資格情報を取得しません。接続製品は対象データと保持方針をConnectorごとに開示する必要があります。"
+        "summary": "お問い合わせ・情報提供には株式会社HATの共通プライバシーポリシーを適用します。"
       },
       "contact": {
         "label": "Connectorに関する連絡",
-        "summary": "仕様や脆弱性の報告は、zixcel.comで確認済みとして案内される窓口へConnector名、版、公開可能な再現手順だけを送ってください。資格情報を送らないでください。"
+        "summary": "お問い合わせフォームをご利用ください。返信先は任意です。秘密情報は送らないでください。"
       }
     },
     "en": {
@@ -210,11 +210,11 @@
       },
       "privacy": {
         "label": "Privacy",
-        "summary": "This public site retrieves no provider accounts, email, documents, calendars, customer data, or credentials. A connected product must disclose selected data and retention separately for each connector."
+        "summary": "The common HAT Inc. privacy policy applies to inquiries and reports."
       },
       "contact": {
         "label": "Connector contact",
-        "summary": "Report specification issues or vulnerabilities through a verified channel identified on zixcel.com, sending only the connector name, version, and public reproduction steps. Never send credentials."
+        "summary": "Use the contact form. Reply email is optional. Do not send confidential information."
       }
     }
   }
