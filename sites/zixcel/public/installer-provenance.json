@@ -1,0 +1,10 @@
+{
+  "version": "0.1.0",
+  "source": "0d5860dafd4e14ec5769444c3bfb3a1608e5aaf8",
+  "tag": "installer/v0.1.0",
+  "sha256": "675b16c375171da1c410791e832b3210bb43257cbe4a4a93aabea37974df96c2",
+  "attestation_verified": true,
+  "release_url": "https://github.com/zixcel/cli/releases/tag/installer/v0.1.0",
+  "source_url": "https://github.com/zixcel/cli/blob/0d5860dafd4e14ec5769444c3bfb3a1608e5aaf8/install/install.sh",
+  "license": "Apache-2.0"
+}

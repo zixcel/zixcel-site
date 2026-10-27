@@ -1,100 +1,100 @@
 {
   "ja": {
-    "category": "ローカルから使う開発ツール",
+    "category": "0.5Bから始めるローカル操作",
     "primary": {
-      "href": "/capabilities",
-      "title": "用途から探す"
+      "href": "/docs/local-model",
+      "title": "0.5Bのサンプルを試す"
     },
     "secondary": {
-      "href": "/oss",
-      "title": "ツール一覧を見る"
+      "href": "/docs/setup",
+      "title": "ローカル基盤を導入"
     },
-    "pathsTitle": "何をお探しですか？",
+    "pathsTitle": "サンプルを進める3ステップ",
     "paths": [
       {
-        "href": "/capabilities/integrations",
-        "title": "外部サービスを扱う",
-        "summary": "CLIとproviderの連携を知る"
+        "href": "/docs/setup",
+        "title": "1. 導入",
+        "summary": "CLI・拡張・任意のモデル"
       },
       {
-        "href": "/capabilities/data-documents",
-        "title": "データや文書を扱う",
-        "summary": "必要な処理から部品を選ぶ"
+        "href": "/docs/local-model",
+        "title": "2. ローカル推論",
+        "summary": "0.5B / ID selection"
       },
       {
-        "href": "/capabilities/developer-tools",
-        "title": "開発・配布の道具を探す",
-        "summary": "検査と配布の基盤を知る"
+        "href": "/docs/llm",
+        "title": "3. 入力と権限の確認",
+        "summary": "Caller checks / zix describe"
       }
     ],
     "preview": {
       "kind": "code",
-      "label": "使い方のイメージ",
-      "title": "目的から、必要な道具へ。",
+      "label": "Local 0.5B + Zix",
+      "title": "短いIDを選び、定義を確認。",
       "rows": [
         {
-          "label": "選ぶ",
-          "detail": "目的に合うCLI・ライブラリ"
+          "label": "INPUT",
+          "detail": "Read GitHub repository metadata."
         },
         {
-          "label": "確かめる",
-          "detail": "対象と実行条件を確認"
+          "label": "MODEL",
+          "detail": "repository.read"
         },
         {
-          "label": "ローカルから使う",
-          "detail": "手元の環境と組み合わせる"
+          "label": "CALLER",
+          "detail": "Validate ID + target → zix describe"
         }
       ],
-      "outcome": "ツールごとの公開実装と配布先へ。"
+      "outcome": "実行と認証情報は呼び出し側で管理。"
     }
   },
   "en": {
-    "category": "Development tools, local first",
+    "category": "Start locally with 0.5B",
     "primary": {
-      "href": "/capabilities",
-      "title": "Explore capabilities"
+      "href": "/docs/local-model",
+      "title": "Try the 0.5B walkthrough"
     },
     "secondary": {
-      "href": "/oss",
-      "title": "Browse tools"
+      "href": "/docs/setup",
+      "title": "Install local tools"
     },
-    "pathsTitle": "What brings you here?",
+    "pathsTitle": "Follow the example in three steps",
     "paths": [
       {
-        "href": "/capabilities/integrations",
-        "title": "Connect services",
-        "summary": "Explore CLI and provider integrations"
+        "href": "/docs/setup",
+        "title": "1. Install",
+        "summary": "CLI, extensions and optional model"
       },
       {
-        "href": "/capabilities/data-documents",
-        "title": "Work with data & documents",
-        "summary": "Choose building blocks for the task"
+        "href": "/docs/local-model",
+        "title": "2. Local inference",
+        "summary": "0.5B / ID selection"
       },
       {
-        "href": "/capabilities/developer-tools",
-        "title": "Developer tools",
-        "summary": "Explore inspection and distribution tools"
+        "href": "/docs/llm",
+        "title": "3. Validate inputs and access",
+        "summary": "Caller checks / zix describe"
       }
     ],
     "preview": {
       "kind": "code",
-      "label": "Workflow illustration",
-      "title": "Start with the task. Find the tool.",
+      "label": "Local 0.5B + Zix",
+      "title": "Choose one ID. Inspect its definition.",
       "rows": [
         {
-          "label": "Select",
-          "detail": "The CLI or library that fits the task"
+          "label": "INPUT",
+          "detail": "Read GitHub repository metadata."
         },
         {
-          "label": "Inspect",
-          "detail": "Review the target and execution conditions"
+          "label": "MODEL",
+          "detail": "repository.read"
         },
         {
-          "label": "Use locally",
-          "detail": "Compose tools in your local environment"
+          "label": "CALLER",
+          "detail": "Validate ID + target → zix describe"
         }
       ],
-      "outcome": "Each tool has its own source and distribution."
+      "outcome": "Execution and credentials stay with the caller."
     }
   }
 }

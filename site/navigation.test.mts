@@ -11,6 +11,7 @@ for (const locale of ['ja', 'en']) {
   })
   test(`${locale}: sitemap-only entry is rejected`, () => {
     const content = structuredClone(original)
+    content.navigation = content.navigation.filter(link => link.href !== '/docs/getting-started')
     for (const page of content.pages) {
       if (page.path === '/sitemap') continue
       for (const section of page.sections) {
@@ -21,6 +22,13 @@ for (const locale of ['ja', 'en']) {
   })
   test(`${locale}: a reachable cycle cannot hide the missing entry`, () => {
     const content = structuredClone(original)
+    content.navigation = content.navigation.filter(link => link.href !== '/docs/getting-started')
+    for (const page of content.pages) {
+      if (page.path === '/sitemap') continue
+      for (const section of page.sections) {
+        section.links = section.links?.filter(link => link.href !== '/docs/getting-started')
+      }
+    }
     const docs = content.pages.find(page => page.path === '/docs')!
     docs.sections = [{ links: [{ href: '/docs' }] }]
     assert.throws(() => validateIntroduction(content), /unreachable/)
