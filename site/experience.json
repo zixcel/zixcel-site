@@ -6,15 +6,15 @@
       "title": "0.5Bのサンプルを試す"
     },
     "secondary": {
-      "href": "/tools/github",
-      "title": "GitHub拡張を導入"
+      "href": "/docs/setup",
+      "title": "ローカル基盤を導入"
     },
     "pathsTitle": "サンプルを進める3ステップ",
     "paths": [
       {
-        "href": "/tools/github",
+        "href": "/docs/setup",
         "title": "1. 導入",
-        "summary": "CLI + GitHub"
+        "summary": "CLI・拡張・任意のモデル"
       },
       {
         "href": "/docs/local-model",
@@ -55,15 +55,15 @@
       "title": "Try the 0.5B walkthrough"
     },
     "secondary": {
-      "href": "/tools/github",
-      "title": "Install the GitHub extension"
+      "href": "/docs/setup",
+      "title": "Install local tools"
     },
     "pathsTitle": "Follow the example in three steps",
     "paths": [
       {
-        "href": "/tools/github",
+        "href": "/docs/setup",
         "title": "1. Install",
-        "summary": "CLI + GitHub"
+        "summary": "CLI, extensions and optional model"
       },
       {
         "href": "/docs/local-model",
