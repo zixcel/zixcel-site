@@ -1,4 +1,4 @@
-import documentContent from './content.mjs'
+import documentContent from './content.mts'
 import { validateExperience } from './experience.mts'
 import assert from 'node:assert/strict'
 import { decodeContent } from './content-input.mts'

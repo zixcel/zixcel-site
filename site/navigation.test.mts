@@ -1,4 +1,4 @@
-import documentContent from './content.mjs'
+import documentContent from './content.mts'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import test from 'node:test'
