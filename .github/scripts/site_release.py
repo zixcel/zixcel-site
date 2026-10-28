@@ -53,6 +53,15 @@ def select(root, contract, tag):
     return site
 
 
+def selected_site(root, contract, environment):
+    if environment.get('SITE_RELEASE_MODE') != 'main':
+        return select(root, contract, environment['GITHUB_REF_NAME'])
+    if len(contract['sites']) != 1:
+        raise ValueError('Main release must select exactly one registered site')
+    registered = contract['sites'][0]
+    return select(root, contract, f"site/{registered['id']}/v{registered['version']}")
+
+
 def request(url, token=None):
     headers = {'User-Agent': 'owner-site-release', 'Accept': 'application/json'}
     if token:
@@ -325,14 +334,9 @@ def main():
     contract = read(root / '.github/site-release.json')
     mode = sys.argv[1]
     is_main = os.environ.get('SITE_RELEASE_MODE') == 'main'
+    site = selected_site(root, contract, os.environ)
     if is_main:
-        if len(contract['sites']) != 1:
-            raise ValueError('Main release must select exactly one registered site')
-        registered = contract['sites'][0]
-        site = select(root, contract, f"site/{registered['id']}/v{registered['version']}")
         admit_main(root, contract, os.environ)
-    else:
-        site = select(root, contract, os.environ['GITHUB_REF_NAME'])
     if mode == 'plan':
         if not is_main:
             admit(root, contract, os.environ)

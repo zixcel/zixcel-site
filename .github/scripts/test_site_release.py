@@ -7,7 +7,7 @@ import tarfile
 import tempfile
 import unittest
 from unittest.mock import patch
-from site_release import select, pack, unpack, admit, admit_main, deploy, deployment_config, verify_assets
+from site_release import select, selected_site, pack, unpack, admit, admit_main, deploy, deployment_config, verify_assets
 from subprocess import CompletedProcess
 
 
@@ -33,6 +33,11 @@ class SiteReleaseTests(unittest.TestCase):
             with self.assertRaises(ValueError): select(self.root,self.contract,tag)
         (self.root / 'site.json').write_text('{"origin":"https://other.example"}')
         with self.assertRaises(ValueError):select(self.root,self.contract,'site/example/v0.1.0')
+
+    def test_main_build_selection_uses_the_registered_site(self):
+        self.assertEqual(selected_site(self.root, self.contract, {'SITE_RELEASE_MODE': 'main'}), self.site)
+        ambiguous = {**self.contract, 'sites': [self.site, self.site]}
+        with self.assertRaises(ValueError): selected_site(self.root, ambiguous, {'SITE_RELEASE_MODE': 'main'})
 
     def test_main_admission_requires_successful_owner_ci_and_current_head(self):
         sha = 'b' * 40
