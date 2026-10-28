@@ -21,5 +21,10 @@
       "zone": "c621fc85a4c1c9684ed3edc5e0efe211",
       "documentDirectory": "site"
     }
+  ],
+  "requiredChecks": [
+    "repository-policy",
+    "site (zixcel)",
+    "site (web-signals)"
   ]
 }
