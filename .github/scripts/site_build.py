@@ -3,11 +3,11 @@ import os
 from pathlib import Path
 import subprocess
 import sys
-from site_release import read, select
+from site_release import read, selected_site
 
 root = Path.cwd()
 contract = read(root / '.github/site-release.json')
-site = select(root, contract, os.environ['GITHUB_REF_NAME'])
+site = selected_site(root, contract, os.environ)
 if sys.argv[1:] != [site['id'], site['appDirectory']]:
     raise ValueError('Build selection differs from admitted contract')
 app = root / site['appDirectory']
