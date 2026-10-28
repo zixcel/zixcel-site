@@ -7,7 +7,7 @@ import tarfile
 import tempfile
 import unittest
 from unittest.mock import patch
-from site_release import select, pack, unpack, admit, deploy, verify_assets
+from site_release import select, pack, unpack, admit, admit_main, deploy, deployment_config, verify_assets
 from subprocess import CompletedProcess
 
 
@@ -30,6 +30,41 @@ class SiteReleaseTests(unittest.TestCase):
             with self.assertRaises(ValueError): select(self.root,self.contract,tag)
         (self.root / 'site.json').write_text('{"origin":"https://other.example"}')
         with self.assertRaises(ValueError):select(self.root,self.contract,'site/example/v0.1.0')
+
+    def test_main_admission_requires_successful_owner_ci_and_current_head(self):
+        sha = 'b' * 40
+        event = {'repository': {'full_name': 'example/site'}, 'workflow_run': {
+            'head_repository': {'full_name': 'example/site'}, 'head_sha': sha,
+            'head_branch': 'main', 'event': 'push', 'status': 'completed',
+            'conclusion': 'success', 'run_attempt': 1, 'path': '.github/workflows/site.yml'}}
+        event_file = self.root / 'event.json'
+        env = {'GITHUB_REPOSITORY': 'example/site', 'GITHUB_EVENT_NAME': 'workflow_run',
+               'GITHUB_EVENT_PATH': str(event_file), 'SITE_RELEASE_SOURCE_SHA': sha,
+               'GH_TOKEN': 'synthetic'}
+        contract = {**self.contract, 'requiredWorkflows': ['site.yml']}
+        ci = {'workflow_runs': [{'path': '.github/workflows/site.yml', 'event': 'push',
+              'head_branch': 'main', 'status': 'completed', 'conclusion': 'success'}]}
+        def run(value, current=sha, runs=ci):
+            event_file.write_text(json.dumps(value))
+            with patch('site_release.subprocess.check_output', return_value=sha + '\n'), \
+                    patch('site_release.request', side_effect=[{'object': {'sha': current}}, runs]):
+                admit_main(self.root, contract, env)
+        run(event)
+        for key, value in [('head_branch', 'other'), ('conclusion', 'failure'),
+                           ('head_sha', 'c' * 40), ('run_attempt', 2),
+                           ('head_repository', {'full_name': 'other/site'})]:
+            invalid = copy.deepcopy(event); invalid['workflow_run'][key] = value
+            with self.assertRaises(ValueError): run(invalid)
+        with self.assertRaises(ValueError): run(event, current='c' * 40)
+        with self.assertRaises(ValueError): run(event, runs={'workflow_runs': []})
+
+    def test_deployment_config_preserves_existing_routing(self):
+        config = deployment_config(self.site, {'worker': {'routes': ['/docs']}})
+        self.assertNotIn('routes', config)
+        self.assertNotIn('route', config)
+        self.assertFalse(config['workers_dev'])
+        self.assertFalse(config['preview_urls'])
+        self.assertEqual(config['assets']['run_worker_first'], ['/docs'])
 
     def test_output_traversal_symlink_and_environment_output_injection_rejected(self):
         for key,value in [('assetDirectory','../public'),('appDirectory','./\nother=bad'),('environment','site-production-x\nother=bad')]:
@@ -98,6 +133,23 @@ class SiteReleaseTests(unittest.TestCase):
         with patch.dict('os.environ',env),patch('site_release.request',side_effect=self.provider(False)),patch('site_release.subprocess.run') as run:
             with self.assertRaises(ValueError):deploy(self.root,self.contract,self.site,self.root/'archive',digest)
             run.assert_not_called()
+
+    def test_new_main_commit_can_deploy_with_the_same_version(self):
+        _, digest = self.prepare()
+        provider = self.provider(False)
+        def response(url, token=None):
+            if url == 'https://example.org/.well-known/release.json':
+                return {'site': 'example', 'purpose': 'production', 'source_sha': 'a' * 40, 'version': '0.1.0'}
+            return provider(url, token)
+        env = {**self.env, 'SITE_RELEASE_MODE': 'main', 'SITE_RELEASE_SOURCE_SHA': 'b' * 40,
+               'GH_TOKEN': 'synthetic-test-token', 'CLOUDFLARE_API_TOKEN': 'synthetic-fixture-token',
+               'GITHUB_EVENT_NAME': 'workflow_run', 'GITHUB_RUN_ATTEMPT': '1'}
+        with patch.dict('os.environ', env), patch('site_release.request', side_effect=response), \
+                patch('site_release.admit_main') as admission, patch('site_release.verify_assets'), \
+                patch('site_release.verify_delivery'), patch('site_release.subprocess.run') as run:
+            deploy(self.root, self.contract, self.site, self.root/'archive', digest)
+            admission.assert_called_once()
+            run.assert_called_once()
 
     @patch('site_release.verify_delivery')
     def test_matching_production_is_verified_without_redeployment_on_manual_recovery(self, verify_delivery):
