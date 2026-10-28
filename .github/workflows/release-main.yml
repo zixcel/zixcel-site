@@ -21,6 +21,8 @@ jobs:
         with:
           persist-credentials: false
       - run: python3 .github/scripts/test_site_release.py
+        env:
+          SITE_RELEASE_MODE: tag
   prepare:
     if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push' && github.event.workflow_run.head_repository.full_name == github.repository
     needs: contract

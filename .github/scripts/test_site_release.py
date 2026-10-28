@@ -13,6 +13,9 @@ from subprocess import CompletedProcess
 
 class SiteReleaseTests(unittest.TestCase):
     def setUp(self):
+        mode = patch.dict('os.environ', {'SITE_RELEASE_MODE': 'tag'})
+        mode.start()
+        self.addCleanup(mode.stop)
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
